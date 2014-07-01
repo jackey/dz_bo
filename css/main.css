@@ -1,0 +1,235 @@
+a {color:#555;}
+
+body,label, input, button, select, textarea {font-size:12px;color:#fff;background: #444;}
+
+
+#header {
+  height: 100px;
+  border: 1px solid #eee;
+  position: relative;
+}
+
+#header #logo {background:url('../images/logo.png') no-repeat;width:70px;height:58px;text-indent:-999em;margin:20px auto;}
+
+.breadcrumb {font-size:10px;}
+
+#sidebar {margin-top:15px;}
+
+#bar {
+  height: 36px;
+  border: 1px solid #eee;
+ display: none;
+}
+
+#footer {
+  height: 80px;
+  border: 1px solid #eee;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background: #fff;
+}
+
+.show-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.fieldset-section {
+  position: relative;
+}
+
+.hideme {
+  display: none;
+}
+
+#shop-map {
+  height: 500px;
+}
+
+.shop-table {
+  position: relative;
+}
+
+.shop-table .dataTables_filter, .table-content .dataTables_filter {
+  position: absolute;
+  top: -51px;
+  right: 10px;
+}
+
+input.ng-invalid,select.ng-invalid {
+  border: 1px solid #f00;
+}
+
+.upload-image-item {
+  list-style-type: none;
+  overflow: hidden;
+}
+
+.upload-image-item img {
+  max-width: 200px;
+}
+
+legend {
+  cursor: pointer;
+}
+
+.nav-list .nav-header {
+  background: #444;
+  text-shadow: none;
+  color: #fff;
+  text-align: left;
+}
+
+#content {padding:50px 0 0;}
+
+.lang-bar {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+#page {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+#header {
+  border: 1px solid #eee;
+  position: fixed;
+  width: 100%;
+  padding: 15px 0px;
+  text-align: center;
+  z-index: 10;
+  background: #fff;
+}
+
+#sidebar {
+  position: fixed;
+  top: 130px;
+  left: 0px;
+  background: #303030;
+  border-right: 1px solid #4F4F4F;
+  color: #ccc;
+  margin-left: 0px;
+  height: 100%;
+  margin-top:0px;
+}
+
+#body {
+  margin-left: 250px;
+  margin-top: 150px;
+  width: auto;
+}
+
+.nav-list > li > a {
+  color: #ccc;
+}
+
+.nav-list > li > a:hover,.nav-list > li > a.active {
+  background: #cb223a;
+}
+
+.table-striped tbody > tr:nth-child(odd) > td, .table-striped tbody > tr:nth-child(odd) > th {
+  background-color: #fff;
+  color: #444;
+}
+
+table.dataTable tbody tr {
+  background-color: #fff;
+  color: #cb223a;
+}
+
+table.dataTable.no-footer {
+  border: 1px solid #fff;
+}
+
+table.dataTable thead {
+  background-color: #fff;
+  color: #cb223a;
+}
+
+.controls .list {
+  max-height: 500px;
+  overflow: scroll;
+}
+
+.upload-image-item {
+  float:left;
+  position: relative;
+  margin-right: 1em;
+  margin-top: 1em;
+}
+
+.upload-image-item a {
+  position: absolute;
+  bottom: 0.5em;
+  right: 0.5em;
+  color: #444;
+}
+
+.login {
+  width: 220px;
+  position: absolute;
+  top: 50%;
+  margin-top: -78px;
+  left: 50%;
+  margin-left: -110px;
+}
+
+.index-panel-item {
+  height: 200px;
+  background: #fff;
+  font-size: 2em;
+  text-align: center;
+  line-height: 200px;
+  margin-bottom: 2.127659574468085%;
+}
+
+.row-fluid [class*="span"]:last-child {
+  margin-left: 0px;
+}
+
+input[type="file"] {
+  background: #fff;
+  outline: none;
+}
+
+.thumbnail {
+  overflow: hidden;
+  position: relative;
+  padding: 0px;
+  border-radius: 0px;
+}
+
+.thumbnail a {
+  display: block;
+  position: absolute;
+  bottom: 0.2em;
+  right: 0.2em;
+  background: #f00;
+  width: 4em;
+  height: 1.5em;
+  text-align: center;
+  line-height: 1.5em;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+ul.media-list li {
+  float: left;
+  width: 30%;
+  overflow: hidden;
+  margin-left: 0.8em;
+  outline: none;
+  border: none;
+  margin-top:2em;
+}

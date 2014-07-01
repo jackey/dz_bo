@@ -10,7 +10,7 @@
   <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl;?>/css/bootstrap-responsive.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 
-	<title><?php echo Yii::t("strings", "Lily Office Admin Office")?></title>
+	<title><?php echo Yii::t("strings", "Dazzle Brand Managment System")?></title>
   <script type="text/javascript">
     window.baseurl = "<?php echo Yii::app()->baseUrl?>";
   </script>
@@ -21,7 +21,7 @@
 <div class="container-fluid" id="page">
 
 	<div id="header">
-		<div id="logo"><?php echo Yii::t("strings", "Lily Office Admin Office")?></div>
+		<div id="logo"><?php echo Yii::t("strings", "Dazzle Brand Managment System")?></div>
 	</div>
   
   <div id="body" class="row-fluid">

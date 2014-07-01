@@ -9,7 +9,7 @@ body,label, input, button, select, textarea {font-size:12px;color:#fff;backgroun
   position: relative;
 }
 
-#header #logo {background:url('../images/logo.png') no-repeat;width:70px;height:58px;text-indent:-999em;margin:20px auto;}
+#header #logo {color:#000;height:58px;margin:20px auto;}
 
 .breadcrumb {font-size:10px;}
 

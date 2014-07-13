@@ -14,12 +14,13 @@ class NewsAR extends ContentAR {
   // thumbnail media 字段
   public $thumbnail;
   
+  public $category;
+  
   /**
    * 返回Job 对应的Field
    */
   public function getFields() {
-    // array(招聘人数, 招聘类型),
-    return array();
+    return array("category");
   }
   
   public static function model($class = __CLASS__) {
@@ -29,12 +30,16 @@ class NewsAR extends ContentAR {
   public function afterSave() {
     $mediaAr = new MediaAR();
     $mediaAr->saveMediaToObject($this, "thumbnail");
+    
+    parent::afterSave();
     return TRUE;
   }
   
   public function afterFind() {
     $mediaAr = new MediaAR();
     $mediaAr->attachMediaToObject($this, "thumbnail");
+    
+    parent::afterFind();
   }
 
 
@@ -63,6 +68,45 @@ class NewsAR extends ContentAR {
     $query->addInCondition("cid", $cids);
     return $this->findAll($query);
   }
+  
+  public function getNewsInCategory($category = FALSE) {
+    $query = new CDbCriteria();
+    
+    $type = $this->type;
+    
+    if ($type) {
+      $query->addCondition("type=:type", $type);
+      $query->params[":type"] = $type;
+    }
+    
+    global $language;
+    $query->addCondition("language=:language");
+    $query->params[":language"] = $language;
+    
+    $query->order = "cdate DESC";
+    
+    $query->addCondition("status=:status");
+    $query->params[":status"] = self::STATUS_ENABLE;
+    
+    if ($category) {
+      $fieldQuery = new CDbCriteria();
+      $fieldQuery->addCondition("field_content=:field_content")
+              ->addCondition("field_name=:field_name");
+      $fieldQuery->params[":field_content"] = $category;
+      $fieldQuery->params[":field_name"] = "category";
+      
+      $result = FieldAR::model()->findAll($fieldQuery);
+      $cids = array();
+      foreach ($result as $item) {
+        $cids[] = $item->cid;
+      }
+      $query->addInCondition("cid", $cids);
+    }
+    
+    $rows = $this->findAll($query);
+    
+    return $rows;
+  } 
   
 }
 

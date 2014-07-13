@@ -17,12 +17,156 @@
       });
     };
     
+    function uploadVideo(file) {
+      file = file.files[0];
+      // 上传
+      var formdata = new FormData();
+      formdata.append("media", file);
+      return $.ajax({
+        url: window.baseurl + "/api/media/videotemp",
+        type: "post",
+        data: formdata,
+        processData: false,
+        contentType: false
+      });
+    }
+    
     return {
-      upload: upload
+      upload: upload,
+      uploadVideo: uploadVideo
     };
   }]);
 
-  // 加载的 Sevrice
+  AdminModule.factory("ContactService", [function () {
+      function update(data) {
+        return $.ajax({
+          url: "/api/content/updatecontact",
+          type: "post",
+          data: $.param(data)
+        });
+      }
+      
+      function load() {
+        return $.ajax({
+          url: "/api/content/contact"
+        });
+      }
+      return {
+        update: update,
+        load: load
+      };
+  }]);
+
+  AdminModule.factory("VideoContentService", [function () {
+      function add(data) {
+        return $.ajax({
+          url: "/api/videocontent/add",
+          type: "POST",
+          data: $.param(data)
+        });
+      }
+      function deleteFn() {
+        //
+      }
+      
+      function load(cid) {
+        return $.ajax({
+          url: "/api/videocontent/view",
+          type: "GET",
+          data: {id: cid}
+        });
+      }
+      
+      return {
+        add: add,
+        "delete": deleteFn,
+        load: load
+      };
+  }]);
+
+  AdminModule.factory("QRCodeService", function () {
+    function update(data) {
+      return $.ajax({
+        url: "/api/content/updateqrcode",
+        type: 'post',
+        data: $.param(data)
+      });
+    }
+    
+    function load() {
+      return $.ajax({
+        url: "/api/content/qrcode",
+        type: "get"
+      });
+    }
+    
+    return {update: update, load: load};
+  });
+
+  AdminModule.factory("BrandInfoService", [function () {
+      function load() {
+        
+      }
+      
+      function update(data) {
+        // TODO::
+        return $.ajax({
+          
+        });
+      }
+      
+      return {
+        load: load,
+        update: update
+      };
+  }]);
+
+  AdminModule.factory("CorporateService", [function () {
+      function load() {
+        return $.ajax({
+          url: window.baseurl + "/api/content/corporate",
+        });
+      }
+      
+      function update(data) {
+        console.log($.param(data));
+        return $.ajax({
+          url: window.baseurl + "/api/content/updatecorporate",
+          type: "post",
+          data: $.param(data)
+        });
+      }
+      
+      return {
+        load: load,
+        update: update
+      };
+  }]);
+
+  // Menu Navigation Service
+  AdminModule.factory("NavigationMenuService", ["$http", function ($http) {
+      function loadNavMenu() {
+        return $.ajax({
+          url: window.baseurl + "/api/navigation/index",
+          type: "get"
+        });
+      }
+      
+      function updateNavMenu(data) {
+        return $.ajax({
+          type: "post",
+          url: window.baseurl + "/api/navigation/add",
+          data: $.param(data)
+        });
+      }
+      
+      return {
+        loadNavMenu: loadNavMenu,
+        updateNavMenu: updateNavMenu
+      };
+  }]);
+
+  // 加载效果的 Sevrice
   AdminModule.factory("LoadingIconService", function () {
     return {
       // 打开loading
@@ -172,10 +316,6 @@
       };
       
       $scope.submitNews = function (event) {
-        var body = CKEDITOR.instances.body;
-        var bodyhtml = body.getData();
-        $scope.news.body = bodyhtml;
-        
         if ($scope.newsform.$valid) {
           $http({
             method: "POST",
@@ -240,6 +380,244 @@
       else {
         alert("表单验证失败");
       }
+    };
+  }]);
+
+  AdminModule.controller("ContactController", ["$scope", "$http"
+    , "LoadingIconService"
+    , "ContactService"
+    , function ($scope, $http, LoadingIconService, ContactService) {
+      $scope.formdata = {};
+      
+      $scope.init = function () {
+        LoadingIconService.open();
+        ContactService.load().done(function (data) {
+          LoadingIconService.close();
+          $scope.formdata = data["data"];
+          $scope.$digest();
+        });
+      };
+      
+      $scope.submitForm = function () {
+        LoadingIconService.open();
+        ContactService.update($scope.formdata).done(function (data) {
+        LoadingIconService.close();
+        });
+      };
+    }]);
+
+  AdminModule.controller("Corporate", ["$scope", "$http"
+  , "LoadingIconService"
+  , "CorporateService"
+  , "UploadMediaService"
+  , function ($scope, $http, LoadingIconService, CorporateService, UploadMediaService) {
+    $scope.formdata = {};
+    $scope.init = function () {
+      LoadingIconService.open();
+      CorporateService.load().done(function (data) {
+        LoadingIconService.close();
+        if (data["data"]) {
+          $scope.formdata = data["data"];
+        }
+        $scope.$digest();
+      });
+    };
+    
+    $scope.fileChange = function (self) {
+      self = angular.element(self);
+      LoadingIconService.open();
+      UploadMediaService.upload(self.get(0)).done(function (data) {
+        LoadingIconService.close();
+        $scope.formdata.thumbnail = data["data"]["uri"];
+        $scope.$digest();
+      });
+    };
+    
+    // submit form
+    $scope.submitForm = function () {
+      LoadingIconService.open();
+      CorporateService.update($scope.formdata).done(function (data) {
+        LoadingIconService.close();
+      });
+    };
+  }]);
+
+  AdminModule.controller("VideoTable", ["$scope", "$http"
+    , "LoadingIconService"
+    , "VideoContentService", function ($scope, $http, LoadingIconService, VideoContentService) {
+      $scope.init = function () {
+        
+      };
+  }]);
+  
+  
+  AdminModule.controller("VideoFormController", ["$scope", "$http"
+    , "LoadingIconService"
+    , "VideoContentService"
+    , "UploadMediaService", function ($scope, $http, LoadingIconService, VideoContentService, UploadMediaService) {
+      $scope.formdata = {};
+      
+      $scope.init = function () {
+        var cid = angular.element("input[name='cid']").val();
+        if (cid) {
+          $scope.formdata.cid = cid;
+          LoadingIconService.open();
+          VideoContentService.load(cid).done(function (data) {
+            if (data["status"] == 0) {
+              $scope.formdata = data["data"];
+              $scope.$digest();
+              LoadingIconService.close();
+            }
+          });
+        }
+      };
+      
+      $scope.filechange = function (self) {
+        self = angular.element(self);
+        var name = self.next("input[type='hidden']").attr("ng-model");
+        if (self.attr("accept").indexOf("image") != -1) {
+          name = name.replace(/formdata\./, "");
+          LoadingIconService.open();
+          UploadMediaService.upload(self.get(0)).done(function (data) {
+            LoadingIconService.close();
+            $scope.formdata[name] = data["data"]["uri"];
+            $scope.$digest();
+          });
+        }
+        else {
+          name = name.replace(/formdata\./, "");
+          LoadingIconService.open();
+          UploadMediaService.uploadVideo(self.get(0)).done(function (data) {
+            LoadingIconService.close();
+            $scope.formdata[name] = data["data"]["uri"];
+            $scope.$digest();
+          });
+        }
+      };
+      
+      $scope.submitForm = function () {
+        LoadingIconService.open();
+        VideoContentService.add($scope.formdata).done(function (data) {
+          //TODO::
+          LoadingIconService.close();
+        });
+      };
+    }]);
+
+  AdminModule.controller("BrandInformation", ["$scope", "$http"
+  , "LoadingIconService"
+  , "BrandInfoService"
+  , "UploadMediaService", function ($scope, $http, LoadingIconService, BrandInfoService, UploadMediaService) {
+    
+    $scope.formdata = {};
+    $scope.init = function () {
+      
+    };
+    
+    $scope.fileChange = function (self){
+      self = angular.element(self);
+      var name = self.siblings("input[type='hidden']").attr("ng-model");
+      name = name.replace(/formdata\./, "");
+      LoadingIconService.open();
+      UploadMediaService.upload(self.get(0)).done(function (data) {
+        LoadingIconService.close();
+        $scope.formdata[name] = data["data"]["uri"];
+        $scope.$digest();
+      });
+    };
+    
+  }]);
+
+  AdminModule.controller("QrcodeController", ["$scope", "$http"
+    , "LoadingIconService"
+    , "QRCodeService"
+    , "UploadMediaService", function ($scope, $http, LoadingIconService, QRCodeService, UploadMediaService) {
+      $scope.formdata = {};
+      $scope.init = function () {
+        LoadingIconService.open();
+        QRCodeService.load().done(function (data) {
+          LoadingIconService.close();
+          if (data["data"]) {
+            $scope.formdata = data["data"];
+            $scope.$digest();
+          }
+        });
+      };
+      
+      $scope.filechange = function (self) {
+        self = angular.element(self);
+        var name = self.next("input[type='hidden']").attr("ng-model");
+        name = name.replace(/formdata\./, "");
+        LoadingIconService.open();
+        UploadMediaService.upload(self.get(0)).done(function (data) {
+          LoadingIconService.close();
+          $scope.formdata[name] = data["data"]["uri"];
+          $scope.$digest();
+        });
+      };
+      
+      $scope.submitForm = function () {
+        LoadingIconService.open();
+        QRCodeService.update($scope.formdata).done(function (data) {
+        LoadingIconService.close();
+        });
+      };
+    }]);
+
+  AdminModule.controller("MenuNavigation", ["$scope", "$http"
+    , "LoadingIconService"
+    , "NavigationMenuService" 
+    , "UploadMediaService"
+  ,function ($scope, $http, LoadingIconService, NavigationMenuService, UploadMediaService) {
+    
+    $scope.formdata = {};
+    
+    // 表单初始化
+    $scope.init = function () {
+      LoadingIconService.open();
+      NavigationMenuService.loadNavMenu().done(function (data) {
+        if (typeof data["data"] == "undefined") {
+          // 没有数据 我们就不做任何处理
+        }
+        else {
+          $scope.formdata = data["data"];
+          $scope.$digest();
+        }
+        LoadingIconService.close();
+      });
+    };
+    
+    // 提交表单
+    $scope.submitForm = function () {
+      LoadingIconService.open();
+      NavigationMenuService.updateNavMenu($scope.formdata).done(function (data) {
+        LoadingIconService.close();
+      });
+    };
+    
+    // 触发上传文件
+    $scope.triggerImageUpload = function (event) {
+      var self = $(event.currentTarget);
+      self.addClass("uploading");
+      var file = angular.element("input[name='file']");
+      file.trigger("click");
+    };
+    
+    // 文件上传事件
+    $scope.fileUpload = function (self) {
+      var file = $(self).get(0);
+      if (file.files.length) {
+        LoadingIconService.open();
+      }
+      UploadMediaService.upload(file).done(function(data) {
+        if (data && typeof data["status"] != "undefined" && data["status"] == 0) {
+          var uri_name = angular.element(".preview.uploading").siblings("input[type='hidden']").attr("name");
+          $scope.formdata[uri_name] = data["data"]["uri"];
+          $scope.$digest();
+          angular.element(".preview.uploading").removeClass("uploading");
+          LoadingIconService.close();
+        }
+      });
     };
   }]);
 

@@ -115,7 +115,7 @@ return array(
         'adminEmail' => 'jziwenchen@gmail.com', 
         "uploadDir" => (dirname(dirname(dirname(__FILE__))))."/upload",
         "close_error" => FALSE,
-        "shop_brandes" => array(
+        "brands" => array(
             "18" => "Dazze", "19" =>  "Diamond", "20" => "Dzzit"
         ),
     ),

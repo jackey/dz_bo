@@ -29,6 +29,27 @@ class MediaController extends Controller {
     }
   }
   
-  
+  public function actionVideoTemp() {
+    $request = Yii::app()->getRequest();
+    
+    if ($request->isPostRequest) {
+      $mediaFile = CUploadedFile::getInstanceByName("media");
+      if (VideoAR::isAllowed($mediaFile)) {
+        $uri = VideoAR::saveTo($mediaFile);
+        if ($uri) {
+          return $this->responseJSON(array("uri" => $uri), "success");
+        }
+        else {
+          return $this->responseError("error", ErrorAR::ERROR_UNKNOWN);
+        }
+      }
+      else {
+        return $this->responseError("file error", ErrorAR::ERROR_MEDIA_TYPE);
+      }
+    }
+    else {
+      $this->responseError("http verb error", ErrorAR::ERROR_HTTP_VERB_ERROR);
+    }
+  }
 }
 

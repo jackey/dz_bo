@@ -18,14 +18,14 @@
 
 <body>
 
-<div class="container-fluid" id="page">
+<div class="container-fluid" id="login">
 
 	<div id="header">
 		<div id="logo"><?php echo Yii::t("strings", "Dazzle Brand Managment System")?></div>
 	</div>
   
   <div id="body" class="row-fluid">
-    <div id="content" class="span9"><?php echo $content; ?></div>
+    <div id="content" class=""><?php echo $content; ?></div>
   </div>
 
 	<div class="clear"></div>

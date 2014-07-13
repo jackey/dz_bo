@@ -36,20 +36,57 @@
   
   <div id="sidebar" class="">
     <ul class="nav nav-list">
-      <?php foreach (Yii::app()->params["shop_brandes"] as $brand_name): ?>
-      <li class="nav-header">
-      <?php echo Yii::t("strings", $brand_name)?>
-      </li>
-      <li><a class="<?php echo $this->getActiveClass("page/lookbook", array("brand" => strtolower($brand_name)))?>" href="<?php echo Yii::app()->createUrl("page/lookbook", array("brand" => strtolower($brand_name)))?>"><?php echo Yii::t("strings", "Lookbook Gallery")?></a></li>
-      <li><a class="<?php echo $this->getActiveClass("page/arrival", array("brand" => strtolower($brand_name)))?>" href="<?php echo Yii::app()->createUrl("page/arrival", array("brand" => strtolower($brand_name)))?>"><?php echo Yii::t("strings", "Arrivals Gallery")?></a></li>
-      <?php endforeach;?>
       
+      <!-- Brand -->
       <li class="nav-header">
-        <?php echo Yii::t("strings", "News Managment")?>
+        <?php echo Yii::t("strings", "Brands")?>
       </li>
-      <li><a class="<?php echo $this->getActiveClass("content/newsadd")?>" href="<?php echo Yii::app()->createUrl("page/addnews")?>"><?php echo Yii::t("strings", "Create News")?></a></li>
-      <li><a class="<?php echo $this->getActiveClass("content/news")?>" href="<?php echo Yii::app()->createUrl("page/news")?>"><?php echo Yii::t("strings", "News Table")?></a></li>
-      </ul>
+      <?php foreach (Yii::app()->params["brands"] as $brand_name): ?>
+      <li><a class="<?php echo $this->getActiveClass("page/brandlookbook")?>" href="<?php echo Yii::app()->createUrl("page/brandlookbook")?>"><?php echo $brand_name?></a></li>
+      <?php endforeach;?>
+     <!-- Brand End --> 
+     
+      <!-- Corporate -->
+      <li class="nav-header">
+        <?php echo Yii::t("strings", "Corporate")?>
+      </li>
+      <li><a href="<?php echo Yii::app()->createUrl("page/navigation")?>" class="<?php echo $this->getActiveClass("page/navigation")?>"><?php echo Yii::t("strings", "Homepage (Navigation)")?></a></li>
+      <li><a href="<?php echo Yii::app()->createUrl("page/corporate")?>" class="<?php echo $this->getActiveClass("page/corporate")?>"><?php echo Yii::t("strings", "Corporate Information")?></a></li>
+      <li><a href="<?php echo Yii::app()->createUrl("page/brand")?>" class="<?php echo $this->getActiveClass("page/brand")?>"><?php echo Yii::t("strings", "Brand Information")?></a></li>
+      <li><a href="<?php echo Yii::app()->createUrl("page/video")?>" class="<?php echo $this->getActiveClass("page/video")?>"><?php echo Yii::t("strings", "Media")?></a></li>
+      <!-- Corporate End --> 
+      
+      <!-- News -->
+      <li class="nav-header">
+        <?php echo Yii::t("strings", "News")?>
+      </li>
+      <li><a class="<?php echo $this->getActiveClass("content/news")?>" href="<?php echo Yii::app()->createUrl("page/news")?>"><?php echo Yii::t("strings", "All News")?></a></li>
+      <li><a class="<?php echo $this->getActiveClass("content/newsadd")?>" href="<?php echo Yii::app()->createUrl("page/addnews")?>"><?php echo Yii::t("strings", "Add News")?></a></li>
+      <!-- News End -->  
+      
+      <!-- Careers -->
+      <li class="nav-header"><?php echo Yii::t("strings", "Careers")?></li>
+      <li><a href="<?php echo Yii::app()->createUrl("careers/index")?>" class="<?php echo $this->getActiveClass("careers/index")?>"><?php echo Yii::t("strings", "All Positions")?></a></li>
+      <li><a href="<?php echo Yii::app()->createUrl("careers/add")?>" class="<?php echo $this->getActiveClass("careers/add")?>"><?php echo Yii::t("strings", "Add New")?></a></li>
+      <!-- Careers End -->
+          
+      
+      <!-- Store -->
+      <li class="nav-header">
+        <?php echo Yii::t("strings", "Stores")?>
+      </li>
+      <li><a class="<?php echo $this->getActiveClass("store/index")?>" href="<?php echo Yii::app()->createUrl("store/index")?>"><?php echo Yii::t("strings", "All Stores")?></a></li>
+      <li><a class="<?php echo $this->getActiveClass("store/add")?>" href="<?php echo Yii::app()->createUrl("store/add")?>"><?php echo Yii::t("strings", "Add New")?></a></li>
+      <!-- Store End -->
+      
+      <!-- Other -->
+      <li class="nav-header"><?php echo Yii::t("strings", "Other")?></li>
+      <li><a href="<?php echo Yii::app()->createUrl("page/qrcode")?>" class="<?php echo $this->getActiveClass("page/qrcode")?>"><?php echo Yii::t("strings", "QRCode")?></a></li>
+      <li><a href="<?php echo Yii::app()->createUrl("page/contact")?>" class="<?php echo $this->getActiveClass("page/contact")?>"><?php echo Yii::t("strings", "Contact")?></a></li>
+      <!-- Other End -->
+      
+      
+    </ul>
   </div>
   
 

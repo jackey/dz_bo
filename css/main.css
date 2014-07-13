@@ -2,6 +2,7 @@ a {color:#555;}
 
 body,label, input, button, select, textarea {font-size:12px;color:#fff;background: #444;}
 
+html {position: relative;}
 
 #header {
   height: 100px;
@@ -108,20 +109,41 @@ legend {
 
 #sidebar {
   position: fixed;
-  top: 130px;
   left: 0px;
   background: #303030;
   border-right: 1px solid #4F4F4F;
   color: #ccc;
   margin-left: 0px;
+  margin-top: 0px;
+  overflow-x: auto;
+  overflow-y: auto;
+  width: 16em;
+  float: left;
   height: 100%;
-  margin-top:0px;
+  margin-top: 136px;
+}
+
+#login #body {
+  margin-left: 0em;
+  margin-top:10em;
 }
 
 #body {
-  margin-left: 250px;
-  margin-top: 150px;
+  margin-left: 16em;
   width: auto;
+  margin-top: 136px;
+}
+
+.nav-list {
+  padding-bottom: 20em;
+}
+
+#login #content {
+  padding:0px;
+}
+
+#login {
+  padding: 0px;
 }
 
 .nav-list > li > a {
@@ -171,12 +193,9 @@ table.dataTable thead {
 }
 
 .login {
-  width: 220px;
-  position: absolute;
-  top: 50%;
-  margin-top: -78px;
-  left: 50%;
-  margin-left: -110px;
+  width: 20em;
+  margin-top: 10em;
+  margin: auto;
 }
 
 .index-panel-item {
@@ -221,7 +240,7 @@ input[type="file"] {
 .loading {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 35%;
 }
 
 ul.media-list li {
@@ -232,4 +251,59 @@ ul.media-list li {
   outline: none;
   border: none;
   margin-top:2em;
+}
+
+.form-con {
+  width: 50%;
+  margin: 0em auto 0em auto;
+  min-width: 500px;
+}
+
+.form-con .preview {
+  width: 10em;
+  height: 10em;
+  display: inline-block;
+  border: 5px dashed #fff;
+  line-height: 10em;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.form-con .preview-tip {
+  position: absolute;
+top: 0px;
+height: 100%;
+z-index: 2;
+color: #000;
+width: 7em;
+margin-left: -3.5em;
+left: 50%;
+}
+
+.navigation-form .control-label {
+height: 3em;
+line-height: 3em;
+background: #cb223a;
+margin: 5px 0px;
+padding-left: 2em;
+font-size: 1.2em;
+}
+
+.navigation-form input {
+  min-width: 69.5%;
+  margin-left: 5%;
+}
+
+.navigation-btn {
+  float: right;
+}
+
+textarea {
+  width:auto;
+}
+
+.tab-content{
+  overflow: inherit;
 }

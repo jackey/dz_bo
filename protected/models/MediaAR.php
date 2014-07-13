@@ -161,25 +161,25 @@ class MediaAR extends CActiveRecord {
  * @param array $size 尺寸大小 , 第一个元素是 width, 第二个元素是height
  */
   public static function thumbnail($uri, $size) {
-  if (strpos($uri, "http://") !== FALSE) {
-    $uri = str_replace(Yii::app()->getBaseUrl(TRUE), "", $uri);
-  }
-  
-  $root = dirname(Yii::app()->basePath);
-  $absPath = $root.$uri;
-  
-  $dir = pathinfo($absPath, PATHINFO_DIRNAME);
-  $filename = pathinfo($absPath, PATHINFO_FILENAME);
-  $ext = pathinfo($absPath, PATHINFO_EXTENSION);
-  
-  $newFilename = $filename."_".$size[0]. "_". $size[1]."_".$ext;
-  
-  $newAbspath = $dir.'/'. $newFilename;
-  
-  
-  $uri = str_replace($root, "" ,$newAbspath);
-  
-  return Yii::app()->getBaseUrl(TRUE). $uri;
+    if (strpos($uri, "http://") !== FALSE) {
+      $uri = str_replace(Yii::app()->getBaseUrl(TRUE), "", $uri);
+    }
+
+    $root = dirname(Yii::app()->basePath);
+    $absPath = $root.$uri;
+
+    $dir = pathinfo($absPath, PATHINFO_DIRNAME);
+    $filename = pathinfo($absPath, PATHINFO_FILENAME);
+    $ext = pathinfo($absPath, PATHINFO_EXTENSION);
+
+    $newFilename = $filename."_".$size[0]. "_". $size[1]."_".$ext;
+
+    $newAbspath = $dir.'/'. $newFilename;
+
+
+    $uri = str_replace($root, "" ,$newAbspath);
+
+    return Yii::app()->getBaseUrl(TRUE). $uri;
   }
   
 	public function makeImageThumbnail($path, $save_to, $w, $h, $isOutput = FALSE) {

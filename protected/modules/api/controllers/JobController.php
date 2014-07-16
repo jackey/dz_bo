@@ -27,7 +27,7 @@ class JobController extends Controller {
   
   public function actionIndex() {
     $request = Yii::app()->getRequest();
-    $id = $request->getParam("id", FALSE);
+    $id = $request->getParam("cid", FALSE);
     if ($id !== FALSE) {
       $job = JobAR::model()->findByPk($id);
       $this->responseJSON($job, "success");

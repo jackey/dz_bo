@@ -14,11 +14,26 @@ class ContentAR extends CActiveRecord {
   const CONTACT_CID = 10004;
   const CONTACT_ZH_CID = 10005;
   
+  const DAZZE_BRAND_INFO_CID = 10006;
+  const DAZZE_BRAND_INFO_ZH_CID=10007;
+  
+  const DIAMOND_BRAND_INFO_CID = 10008;
+  const DIAMOND_BRAND_INFO_ZH_CID=10009;
+  
+  const DZZIT_BRAND_INFO_CID = 10010;
+  const DZZIT_BRAND_INFO_ZH_CID=10011;
+  
   public $thumbnail;
   
   public $qrcodes = array();
   
   public $status = 1;
+  
+  public $brand_master_image;
+  
+  public $brand_thumbnail_image;
+  
+  public $brand_navigation_image;
   
   public $meta;
   public function tableName() {
@@ -358,6 +373,90 @@ class ContentAR extends CActiveRecord {
         $content->qrcodes[$name] = "";
       }
     }
+    
+    return $content;
+  }
+  
+  /**
+   * 更新Brand
+   * @param type $brand
+   * @param type $data
+   */
+  public function updateBrandInfo($brandName, $data) {
+    $brand = $this->loadBrandInfo($brandName);
+    
+    // 先保存内容
+    if (!$brand) {
+    // 先得到Brand 内容
+      global $language;
+      if ($language == "en") {
+        $brandCid = strtoupper($brandName)."_BRAND_INFO_CID";
+      }
+      else {
+        $brandCid = strtoupper($brandName)."_BRAND_INFO_ZH_CID";
+      }
+
+      $class = new ReflectionClass("ContentAR");
+      $brandCid =  $class->getConstant($brandCid);
+      
+      $data['type'] = "brand";
+      $data["cid"] = $brandCid;
+      $contentTmp = new ContentAR();
+      $contentTmp->attributes = $data;
+      
+      if (!$contentTmp->save()) {
+        return FALSE;
+      }
+      $brand = $contentTmp;
+    }
+    
+    // 再保存Media
+    $mediaAr = new MediaAR();
+    // Master Image
+    $mediaAr->saveMediaToObject($brand, "brand_master_image");
+    
+    // Thumbnail Image
+    $mediaAr->saveMediaToObject($brand, "brand_thumbnail_image");
+    
+    // Navigation Image
+    $mediaAr->saveMediaToObject($brand, "brand_navigation_image");
+    
+    // 保存好后 再重新load 然后返回
+    return $this->loadBrandInfo($brandName);
+  }
+  
+  /**
+   * 加载一个Brand
+   * @param type $brand
+   */
+  public function loadBrandInfo($brandName) {
+    // 先得到Brand 内容
+    global $language;
+    if ($language == "en") {
+      $brandCid = strtoupper($brandName)."_BRAND_INFO_CID";
+    }
+    else {
+      $brandCid = strtoupper($brandName)."_BRAND_INFO_ZH_CID";
+    }
+    
+    $class = new ReflectionClass("ContentAR");
+    $brandCid =  $class->getConstant($brandCid);
+    
+    $content = self::model()->findByPk($brandCid);
+    if (!$content) {
+      return FALSE;
+    }
+    
+    $mediaAr = new MediaAR();
+    // 再得到brand 相关联得Media
+    // Master Image
+    $mediaAr->attachMediaToObject($content, "brand_master_image");
+    
+    // Thumbnail Image
+    $mediaAr->attachMediaToObject($content, "brand_thumbnail_image");
+    
+    // Navigation Image
+    $mediaAr->attachMediaToObject($content, "brand_navigation_image");
     
     return $content;
   }

@@ -60,57 +60,8 @@ class ShopController extends Controller {
    * 返回系统所有的位置数组信息
    */
   public function actionLocation() {
-    // [CN, US, UK ], [ [SHANGHAI, ], [Lundon, ], [New York, ]], [[Jingan, ], []]
-    //  [CN, SHANGHAI, NANJING, TIANJIN, ]
-    // [CN => [] , US => [], SHANGHAI => [JingAn, Pudong], ]
-    $ret = array();
-    global $language;
-    $sql = "SELECT group_concat(country) as country_str FROM (SELECT country FROM shop WHERE language=:language GROUP BY country) AS country_table ";
-    $country_str = Yii::app()->db->createCommand($sql)->query(array(":language" => $language))->read();
-    $countries = explode(",", $country_str["country_str"]);
-    $ret["country"] = $countries;
-    
-    // 城市
-    $ret_cities = array();
-    $cities_group = array();
-    foreach ($countries as $country) {
-      $sql = "SELECT group_concat(city) as city_str FROM (SELECT city FROM shop WHERE language=:language AND country = :country GROUP BY city) as city_table";
-      $city_str = Yii::app()->db->createCommand($sql)->query(array(":country" => $country, ":language" => $language))->read();
-      $cities = explode(",", $city_str["city_str"]);
-      $cities_group = array_merge($cities, $cities_group);
-      $ret_cities[$country] = $cities;
-    }
-    $ret["city"] = $ret_cities;
-    
-    // 区域
-    $ret_distinct = array();
-    $query = new CDbCriteria();
-    $query->addCondition("language=:language");
-    $query->params[":language"] = $language;
-    $query->addCondition("`distinct` is not null");
-    $all_shopes = ShopAR::model()->findAll($query);
-    foreach ($all_shopes as $key => $shop) {
-      $city = $shop->city;
-      $distinct = $shop->distinct;
-      if (trim($distinct)) {
-        $ret_distinct[$city][$distinct] = $distinct;
-      }
-    }
-    
-    foreach ($ret_distinct as $city => $ret_distinct_t) {
-      $ret_distinct[$city] = array_values($ret_distinct_t);
-      if (!$ret_distinct_t || !array_shift($ret_distinct_t)) {
-        unset($ret_distinct[$city]);
-      }
-    }
-    
-    $ret["distinct"] = $ret_distinct;
-    
-    // 获取当前用户的省份
-    $city = Yii::app()->ip->toCity();
-    $ret["user_city"] = $city;
-    
-    $this->responseJSON($ret, "success");
+    $data = require_once Yii::app()->getBasePath()."/data/chinacity.php";
+    $this->responseJSON($data, "success");
   }
   
   /**
@@ -118,7 +69,6 @@ class ShopController extends Controller {
    */
   public function actionAdd() {
     $request = Yii::app()->getRequest();
-    
     if ($request->isPostRequest) {
       $data = $_POST;
       if (isset($data["shop_id"]) && $data["shop_id"]) {

@@ -72,6 +72,9 @@ class MediaAR extends CActiveRecord {
       return;
     }
     $uri = $request->getPost($field_name);
+    if (!$uri) {
+      return ;
+    }
     if (is_string($uri)) {
       if (strpos($uri, "http://") !== FALSE) {
         $uri = str_replace(Yii::app()->getBaseUrl(TRUE), "", $uri);

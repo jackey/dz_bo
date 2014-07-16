@@ -76,9 +76,6 @@ class PageController extends Controller {
     $request = Yii::app()->getRequest();
     $id = $request->getParam("id");
     $contentvideo = VideoContentAR::model()->findByPk($id);
-    if (!$contentvideo) {
-      $this->redirect(Yii::app()->createUrl("page/video"));
-    }
     
     $this->render("addvideo", array("contentvideo" => $contentvideo));
   }
@@ -89,6 +86,24 @@ class PageController extends Controller {
   
   public function actionContact() {
     $this->render("contact");
+  }
+  
+  public function actionCareers() {
+    $jobes = JobAR::model()->getList();
+    $this->render("careers", array("careeres" => $jobes));
+  }
+  
+  public function actionAddcareer() {
+    $cid = Yii::app()->getRequest()->getParam("id", false);
+    $career = FALSE;
+    if ($cid) {
+      $career = JobAR::model()->findByPk($cid);
+    }
+    $this->render("addcareer", array("career" => $career));
+  }
+  
+  public function actionBrandInfo() {
+    $this->render("brandinfo");
   }
 }
 

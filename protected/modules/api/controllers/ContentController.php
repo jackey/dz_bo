@@ -66,7 +66,12 @@ class ContentController extends Controller {
   public function actionQrcode() {
     $contentAr = new ContentAR();
     $qrcode = $contentAr->loadQrcode();
-    $this->responseJSON($qrcode->qrcodes, "success");
+    if ($qrcode) {
+      $this->responseJSON($qrcode->qrcodes, "success");
+    }
+    else {
+      $this->responseJSON(array(), "success");
+    }
   }
   
   public function actionUpdateContact() {
@@ -84,6 +89,45 @@ class ContentController extends Controller {
   public function actionContact() {
     $contentAr = new ContentAR();
     return $this->responseJSON($contentAr->loadContact(), "success");
+  }
+  
+  function actionLoadbrand() {
+    $brandName = Yii::app()->getRequest()->getParam("brand");
+    if (!$brandName) {
+      return $this->responseError("missed param");
+    }
+    
+    $contentAr = new ContentAR();
+    $brand = $contentAr->loadBrandInfo($brandName);
+    
+    if (!$brand) {
+      return $this->responseError('brand with '. $brandName. " is not existed");
+    }
+    $obj = array("title" => $brand->title, 
+        "body" => $brand->title, 
+        "cid" => $brand->cid, 
+        "brand_master_image" => $brand->brand_master_image,
+        "brand_thumbnail_image" => $brand->brand_thumbnail_image,
+        "brand_navigation_image" => $brand->brand_navigation_image);
+    $this->responseJSON($obj, "success");
+  }
+  
+  function actionUpdatabrand() {
+    $brandName = Yii::app()->getRequest()->getPost("brand");
+    if (!$brandName) {
+      return $this->responseError("missed param");
+    }
+    
+    $contentAr = new ContentAR();
+    $ret = $contentAr->updateBrandInfo($brandName, $_POST);
+    
+    if (!$ret) {
+      return $this->responseError("unkonwn error happend");
+    }
+    
+    $brand = $contentAr->loadBrandInfo($brandName);
+    
+    $this->responseJSON($brand, "success");
   }
 }
 

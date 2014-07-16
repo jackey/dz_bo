@@ -37,6 +37,60 @@
     };
   }]);
 
+  
+  AdminModule.factory("ShopService", [function () {
+      function location() {
+        return $.ajax({
+          url: "/api/shop/location",
+          type: "GET"
+        });
+      }
+      
+      function update(data) {
+        return $.ajax({
+          url: "/api/shop/add",
+          type: "POST",
+          data: $.param(data)
+        });
+      }
+      
+      function load(shop_id) {
+        return $.ajax({
+          url: "/api/shop/index",
+          data: {shop_id: shop_id},
+          type: "GET"
+        });
+      }
+      
+      return {
+        location: location,
+        update: update,
+        load: load
+      };
+  }]);
+
+  AdminModule.factory("CareerService", [function () {
+      function update(data) {
+        return $.ajax({
+          url: "/api/job/add",
+          data: $.param(data),
+          type: "POST"
+        });
+      }
+      
+      function load(cid) {
+        return $.ajax({
+          url: "/api/job",
+          data: {cid: cid},
+          type: "GET"
+        });
+      }
+      return {
+        update: update,
+        load: load
+      };
+  }]);
+
   AdminModule.factory("ContactService", [function () {
       function update(data) {
         return $.ajax({
@@ -115,9 +169,28 @@
         });
       }
       
+      function loadBrand(brand) {
+        return $.ajax({
+          url: "/api/content/loadbrand",
+          data: {brand: brand},
+          type: "get"
+        });
+      }
+      
+      function updateBrand(brand, data) {
+        data["brand"] = brand;
+        return $.ajax({
+          url: "/api/content/updatabrand",
+          data: data,
+          type: "POST"
+        });
+      }
+      
       return {
         load: load,
-        update: update
+        update: update,
+        loadBrand: loadBrand,
+        updateBrand: updateBrand
       };
   }]);
 
@@ -341,13 +414,151 @@
       });
   }]);
 
+  AdminModule.controller("ShopController", ["$scope", "$http"
+    , "LoadingIconService"
+    , "ShopService"
+    , function ($scope, $http, LoadingIconService, ShopService) {
+      
+      $scope.shop = {};
+      
+      // 自动在地图搜索地址
+      var timer;
+      $scope.$watch("shop.address", function () {
+        if ($scope.updatedByMap) {
+          return;
+        }
+        address = $scope.shop.address;
+        if (address) {
+          if (timer) {
+            clearTimeout(timer);
+          }
+          timer = setTimeout(function () {
+              var local = new BMap.LocalSearch($scope.map, {
+                renderOptions: {map: $scope.map}
+              });
+              local.enableAutoViewport();
+              local.search(address);
+              local.setMarkersSetCallback(function (pois) {
+                $.each(pois, function (index) {
+                  var poi = pois[index];
+                  poi.marker.addEventListener("click", function () {
+                    $scope.shop.address = poi.address;
+                    $scope.updatedByMap = true;
+                  });
+                });
+              });
+          }, 1000);
+        }
+      });
+      
+      $scope.addressChanged = function () {
+        $scope.updatedByMap = false;
+      };
+      
+      // 初始化
+      $scope.init = function () {
+        LoadingIconService.open();
+        // 百度地图
+        var map = $scope.map = new BMap.Map("shop-map");
+        map.enableDragging();
+        map.centerAndZoom(new BMap.Point(121.48, 31.22), 15);  
+        map.addControl(new BMap.ScaleControl());
+        map.addControl(new BMap.NavigationControl()); 
+        map.addEventListener("click", function(e){    
+         var point = new BMap.Point(e.point.lat, e.point.lng);
+         var marker = new BMap.Marker(point);
+         map.addOverlay(marker);
+         $scope.shop.lat = e.point.lat;
+         $scope.shop.lng = e.point.lng;
+         $scope.$digest();
+        });
+        
+        // Location 选项
+        ShopService.location().done(function (data) {
+          $scope.location = data["data"];
+          $scope.country_city = [];
+          for (index in $scope.location) {
+            var city = $scope.location[index];
+            $scope.country_city.push(city[0]);
+          }
+          $scope.$digest();
+          LoadingIconService.close();
+        });
+        
+        // Load Shop
+        var shop_id = angular.element("input[name='shop_id']").val();
+        ShopService.load(shop_id).done(function (data){
+          $scope.shop = data["data"];
+          $scope.city_distinct = [];
+          for (index in $scope.location) {
+            var city = $scope.location[index];
+            if (city[0] == $scope.shop.city) {
+              $scope.city_distinct = city[1];
+            }
+          }
+          $scope.$digest();
+        });
+      };
+      
+      $scope.submitForm = function () {
+        ShopService.update($scope.shop).done(function (data) {
+          console.log(data);
+        });
+      };
+      
+      $scope.cityChange = function () {
+        $scope.city_distinct = [];
+        for (index in $scope.location) {
+          var city = $scope.location[index];
+          if (city[0] == $scope.shop.city) {
+            $scope.city_distinct = city[1];
+            $scope.map.centerAndZoom(city[0], 8);
+          }
+        }
+      };
+      
+      $scope.distinctChange = function () {
+        $scope.map.centerAndZoom($scope.shop.city + " " + $scope.shop.distinct, 10);
+      };
+      
+      $scope.showToggle = function (event) {
+        var el = angular.element(event.target);
+        el.siblings(".control-group").toggleClass("hideme");
+      };
+    }]);
+
+  AdminModule.controller("CareerController", ["$scope", "$http"
+     , "LoadingIconService"
+    , "CareerService"
+    , function ($scope, $http, LoadingIconService, CareerService) {
+      $scope.formdata = {};
+      // 初始化
+      $scope.init = function () {
+        var cid = angular.element("input[name='cid']").val();
+        if (cid) {
+          CareerService.load(cid).done(function (data) {
+            if (data["status"] == 0) {
+              $scope.formdata = data["data"];
+              $scope.$digest();
+            }
+          });
+        }
+      };
+      
+      $scope.submitForm = function () {
+        LoadingIconService.open();
+        CareerService.update($scope.formdata).done(function (data) {
+          LoadingIconService.close();
+        });
+      };
+    }]);
+
   AdminModule.controller("ContentForm", ["$scope", "$http" ,function ($scope, $http) {
     
     $scope.content = {};
     
     //初始化
     $scope.init = function () {
-        // 加载 Job 对象
         var cid = angular.element("input[name='cid']").val();
         $http({
           method: "get",
@@ -563,12 +774,54 @@
         });
       };
     }]);
+  
+  AdminModule.controller("BrandinfoController", ["$scope", "$http"
+    , "LoadingIconService"
+    , "UploadMediaService"
+    , "BrandInfoService"
+    , function ($scope, $http, LoadingIconService, UploadMediaService, BrandInfoService) {
+      
+      $scope.formdata = {};
+      
+      // 初始化
+      $scope.init = function () {
+        LoadingIconService.open();
+        $scope.brand = angular.element("input[name='brand']").val();
+        BrandInfoService.loadBrand($scope.brand).done(function (data) {
+          if (data["status"] == 0 ) {
+            $scope.formdata = data["data"];
+            $scope.$digest();
+          }
+          LoadingIconService.close();
+        });
+      };
+      
+      $scope.filechange = function (self){
+        self = angular.element(self);
+        var name = self.siblings("input[type='hidden']").attr("ng-model");
+        name = name.replace(/formdata\./, "");
+        LoadingIconService.open();
+        UploadMediaService.upload(self.get(0)).done(function (data) {
+          LoadingIconService.close();
+          $scope.formdata[name] = data["data"]["uri"];
+          $scope.$digest();
+        });
+      };
+      
+      $scope.submitForm = function () {
+        LoadingIconService.open();
+        BrandInfoService.updateBrand($scope.brand, $scope.formdata).done(function (data) {
+          LoadingIconService.close();
+        });
+      };
+      
+    }]);
 
   AdminModule.controller("MenuNavigation", ["$scope", "$http"
     , "LoadingIconService"
     , "NavigationMenuService" 
     , "UploadMediaService"
-  ,function ($scope, $http, LoadingIconService, NavigationMenuService, UploadMediaService) {
+    , function ($scope, $http, LoadingIconService, NavigationMenuService, UploadMediaService) {
     
     $scope.formdata = {};
     

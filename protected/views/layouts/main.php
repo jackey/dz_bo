@@ -42,7 +42,7 @@
         <?php echo Yii::t("strings", "Brands")?>
       </li>
       <?php foreach (Yii::app()->params["brands"] as $brand_name): ?>
-      <li><a class="<?php echo $this->getActiveClass("page/brandlookbook")?>" href="<?php echo Yii::app()->createUrl("page/brandlookbook")?>"><?php echo $brand_name?></a></li>
+      <li><a class="<?php echo $this->getActiveClass("page/lookbook", array("brand" => strtolower($brand_name)))?>" href="<?php echo Yii::app()->createUrl("page/lookbook", array("brand" => strtolower($brand_name)))?>"><?php echo $brand_name?></a></li>
       <?php endforeach;?>
      <!-- Brand End --> 
      
@@ -66,17 +66,16 @@
       
       <!-- Careers -->
       <li class="nav-header"><?php echo Yii::t("strings", "Careers")?></li>
-      <li><a href="<?php echo Yii::app()->createUrl("careers/index")?>" class="<?php echo $this->getActiveClass("careers/index")?>"><?php echo Yii::t("strings", "All Positions")?></a></li>
-      <li><a href="<?php echo Yii::app()->createUrl("careers/add")?>" class="<?php echo $this->getActiveClass("careers/add")?>"><?php echo Yii::t("strings", "Add New")?></a></li>
+      <li><a href="<?php echo Yii::app()->createUrl("page/careers")?>" class="<?php echo $this->getActiveClass("page/careers")?>"><?php echo Yii::t("strings", "All Positions")?></a></li>
+      <li><a href="<?php echo Yii::app()->createUrl("page/addcareer")?>" class="<?php echo $this->getActiveClass("page/addcareer")?>"><?php echo Yii::t("strings", "Add New")?></a></li>
       <!-- Careers End -->
-          
       
       <!-- Store -->
       <li class="nav-header">
         <?php echo Yii::t("strings", "Stores")?>
       </li>
-      <li><a class="<?php echo $this->getActiveClass("store/index")?>" href="<?php echo Yii::app()->createUrl("store/index")?>"><?php echo Yii::t("strings", "All Stores")?></a></li>
-      <li><a class="<?php echo $this->getActiveClass("store/add")?>" href="<?php echo Yii::app()->createUrl("store/add")?>"><?php echo Yii::t("strings", "Add New")?></a></li>
+      <li><a class="<?php echo $this->getActiveClass("shop/index")?>" href="<?php echo Yii::app()->createUrl("shop/index")?>"><?php echo Yii::t("strings", "All Stores")?></a></li>
+      <li><a class="<?php echo $this->getActiveClass("shop/add")?>" href="<?php echo Yii::app()->createUrl("shop/add")?>"><?php echo Yii::t("strings", "Add New")?></a></li>
       <!-- Store End -->
       
       <!-- Other -->
@@ -84,7 +83,6 @@
       <li><a href="<?php echo Yii::app()->createUrl("page/qrcode")?>" class="<?php echo $this->getActiveClass("page/qrcode")?>"><?php echo Yii::t("strings", "QRCode")?></a></li>
       <li><a href="<?php echo Yii::app()->createUrl("page/contact")?>" class="<?php echo $this->getActiveClass("page/contact")?>"><?php echo Yii::t("strings", "Contact")?></a></li>
       <!-- Other End -->
-      
       
     </ul>
   </div>

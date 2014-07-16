@@ -159,13 +159,18 @@
 
   AdminModule.factory("BrandInfoService", [function () {
       function load() {
-        
+        return $.ajax({
+          url: "/api/content/loadbrandinfo",
+          type: "get"
+        });
       }
       
       function update(data) {
         // TODO::
         return $.ajax({
-          
+          url: "/api/content/updatebrandinfo",
+          type: "POST",
+          data: $.param(data)
         });
       }
       
@@ -715,14 +720,21 @@
       };
     }]);
 
-  AdminModule.controller("BrandInformation", ["$scope", "$http"
+  AdminModule.controller("BrandinfoController", ["$scope", "$http"
   , "LoadingIconService"
   , "BrandInfoService"
   , "UploadMediaService", function ($scope, $http, LoadingIconService, BrandInfoService, UploadMediaService) {
     
     $scope.formdata = {};
     $scope.init = function () {
-      
+      LoadingIconService.open();
+      BrandInfoService.load().done(function (data) {
+        LoadingIconService.close();
+        if (data["status"] == 0) {
+          $scope.formdata = data["data"];
+          $scope.$digest();
+        }
+      });
     };
     
     $scope.fileChange = function (self){
@@ -734,6 +746,14 @@
         LoadingIconService.close();
         $scope.formdata[name] = data["data"]["uri"];
         $scope.$digest();
+      });
+    };
+    
+    $scope.submitForm = function () {
+      LoadingIconService.open();
+      BrandInfoService.update($scope.formdata).done(function (data) {
+        LoadingIconService.close();
+        console.log(data);
       });
     };
     
@@ -770,12 +790,12 @@
       $scope.submitForm = function () {
         LoadingIconService.open();
         QRCodeService.update($scope.formdata).done(function (data) {
-        LoadingIconService.close();
+          LoadingIconService.close();
         });
       };
     }]);
   
-  AdminModule.controller("BrandinfoController", ["$scope", "$http"
+  AdminModule.controller("BrandController", ["$scope", "$http"
     , "LoadingIconService"
     , "UploadMediaService"
     , "BrandInfoService"

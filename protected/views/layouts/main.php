@@ -44,7 +44,7 @@
       <?php foreach (Yii::app()->params["brands"] as $brand_name): ?>
       <li><a class="<?php echo $this->getActiveClass("page/lookbook", array("brand" => strtolower($brand_name)))?>" href="<?php echo Yii::app()->createUrl("page/lookbook", array("brand" => strtolower($brand_name)))?>"><?php echo $brand_name?></a></li>
       <?php endforeach;?>
-     <!-- Brand End --> 
+     <!-- Brand End -->
      
       <!-- Corporate -->
       <li class="nav-header">
@@ -52,7 +52,7 @@
       </li>
       <li><a href="<?php echo Yii::app()->createUrl("page/navigation")?>" class="<?php echo $this->getActiveClass("page/navigation")?>"><?php echo Yii::t("strings", "Homepage (Navigation)")?></a></li>
       <li><a href="<?php echo Yii::app()->createUrl("page/corporate")?>" class="<?php echo $this->getActiveClass("page/corporate")?>"><?php echo Yii::t("strings", "Corporate Information")?></a></li>
-      <li><a href="<?php echo Yii::app()->createUrl("page/brand")?>" class="<?php echo $this->getActiveClass("page/brand")?>"><?php echo Yii::t("strings", "Brand Information")?></a></li>
+      <li><a href="<?php echo Yii::app()->createUrl("page/brandinfo")?>" class="<?php echo $this->getActiveClass("page/brandinfo")?>"><?php echo Yii::t("strings", "Brand Information")?></a></li>
       <li><a href="<?php echo Yii::app()->createUrl("page/video")?>" class="<?php echo $this->getActiveClass("page/video")?>"><?php echo Yii::t("strings", "Media")?></a></li>
       <!-- Corporate End --> 
       

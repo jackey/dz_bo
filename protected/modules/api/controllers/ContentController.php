@@ -91,7 +91,7 @@ class ContentController extends Controller {
     return $this->responseJSON($contentAr->loadContact(), "success");
   }
   
-  function actionLoadbrand() {
+  public function actionLoadbrand() {
     $brandName = Yii::app()->getRequest()->getParam("brand");
     if (!$brandName) {
       return $this->responseError("missed param");
@@ -112,7 +112,7 @@ class ContentController extends Controller {
     $this->responseJSON($obj, "success");
   }
   
-  function actionUpdatabrand() {
+  public function actionUpdatabrand() {
     $brandName = Yii::app()->getRequest()->getPost("brand");
     if (!$brandName) {
       return $this->responseError("missed param");
@@ -129,5 +129,31 @@ class ContentController extends Controller {
     
     $this->responseJSON($brand, "success");
   }
+  
+  public function actionLoadbrandinfo() {
+    $contentAr = new ContentAR();
+    
+    $brandInfomation = $contentAr->loadBrandInformationContent();
+    
+    $this->responseJSON(array(
+        "title" => $brandInfomation->title, 
+        "body" => $brandInfomation->body,
+        "dazzle_thumbnail" => $brandInfomation->dazzle_thumbnail,
+        "diamond_thumbnail" => $brandInfomation->diamond_thumbnail,
+        "dzzit_thumbnail" => $brandInfomation->dzzit_thumbnail), "success");
+  }
+  
+  public function actionUpdateBrandInfo() {
+    $request = Yii::app()->getRequest();
+    if (!$request->isPostRequest) {
+      return $this->responseError("http verb error");
+    }
+    
+    $contentAr = new ContentAR();
+    $ret = $contentAr->updateBrandInformationContent($_POST);
+    
+    $this->responseJSON($ret, "success");
+  }
+  
 }
 

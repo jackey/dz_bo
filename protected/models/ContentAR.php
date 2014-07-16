@@ -23,6 +23,9 @@ class ContentAR extends CActiveRecord {
   const DZZIT_BRAND_INFO_CID = 10010;
   const DZZIT_BRAND_INFO_ZH_CID=10011;
   
+  const BRAND_INFORMATION_CID = 10012;
+  const BRAND_INFORMATION_ZH_CID = 10013;
+  
   public $thumbnail;
   
   public $qrcodes = array();
@@ -34,6 +37,12 @@ class ContentAR extends CActiveRecord {
   public $brand_thumbnail_image;
   
   public $brand_navigation_image;
+  
+  public $dazzle_thumbnail;
+  
+  public $diamond_thumbnail;
+  
+  public $dzzit_thumbnail;
   
   public $meta;
   public function tableName() {
@@ -459,6 +468,66 @@ class ContentAR extends CActiveRecord {
     $mediaAr->attachMediaToObject($content, "brand_navigation_image");
     
     return $content;
+  }
+  
+  public function loadBrandInformationContent() {
+    global $language;
+    
+    if ($language == "en") {
+      $cid = self::BRAND_INFORMATION_CID;
+    }
+    else {
+      $cid = self::BRAND_INFORMATION_ZH_CID;
+    }
+    
+    $brandInformation = self::model()->findByPk($cid);
+    
+    if (!$brandInformation) {
+      return FALSE;
+    }
+    
+    $mediaAr = new MediaAR();
+    $mediaAr->attachMediaToObject($brandInformation, "dazzle_thumbnail");
+    $mediaAr->attachMediaToObject($brandInformation, "diamond_thumbnail");
+    $mediaAr->attachMediaToObject($brandInformation, "dzzit_thumbnail");
+    
+    return $brandInformation;
+  }
+  
+  public function updateBrandInformationContent($data) {
+    $brandInformation = $this->loadBrandInformationContent();
+    
+    if (!$brandInformation) {
+      global $language;
+
+      if ($language == "en") {
+        $cid = self::BRAND_INFORMATION_CID;
+      }
+      else {
+        $cid = self::BRAND_INFORMATION_ZH_CID;
+      }
+      $data["cid"] = $cid;
+      $data["type"] = "brand_information";
+      
+      $tmpBrand = new ContentAR();
+      $tmpBrand->attributes = $data;
+      $tmpBrand->save();
+      if ($tmpBrand->hasErrors()) {
+        return FALSE;
+      }
+      $brandInformation = $this->loadBrandInformationContent();
+    }
+    else {
+      $brandInformation->attributes = $data;
+      $brandInformation->update();
+    }
+    
+    $mediaAr = new MediaAR();
+    $mediaAr->saveMediaToObject($brandInformation, "dazzle_thumbnail");
+    $mediaAr->saveMediaToObject($brandInformation, "diamond_thumbnail");
+    $mediaAr->saveMediaToObject($brandInformation, "dzzit_thumbnail");
+    
+    return $this->loadBrandInformationContent();
   }
 }
 

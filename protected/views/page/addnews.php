@@ -29,11 +29,11 @@
         </select>
       </div>
     </div>
-    <div class="control-group">
+    <div class="control-group imagepreview">
       <div class="control-label">
         <label for=""><?php echo Yii::t("strings", "Master Image")?></label>
       </div>
-      <div class="conroles clearfix">
+      <div class="controls clearfix">
         <div class="preview">
           <img ng-src="{{media.image}}" alt="" />
         </div>
@@ -41,12 +41,12 @@
           <input type="hidden" name="master_image[]" value="{{news.thumbnail}}" ng-model="news.thumbnail"/>
       </div>
     </div>
-    <div class="control-group">
-      <div class="conroles">
-        <input type="button" ng-click="submitNews($event)" class="btn" value="<?php echo Yii::t("strings", "Submit")?>"/>
-      </div>
-    </div>
     
-    <input type="hidden" name="cid" value="<?php echo $news ? $news->cid : 0?>" ng-model="news.cid" />
+    <div class="form-actions">
+      <div class="controls">
+        <input type="button" class="btn" value="<?php echo Yii::t("strings", "Cancel")?>"/>
+        <input type="button" ng-click="submitNews($event)" class="btn" value="<?php echo Yii::t("strings", "Save")?>"/>
+      </div>
+      </div>
   </form>
 </div>

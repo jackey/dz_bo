@@ -37,6 +37,29 @@
     };
   }]);
 
+  AdminModule.factory("ArrivalService", [function () {
+    function loadArrivalWithBrand(brand) {
+      return $.ajax({
+        url: window.baseurl + "/api/arrival/index",
+        data: {brand: brand},
+        type: "get",
+      });
+    };
+    
+    function addNewArrival(model) {
+      return $.ajax({
+        url: window.baseurl + "/api/arrival/add",
+        data: model,
+        type: "post"
+      });
+    }
+    
+    return {
+      loadArrivalWithBrand: loadArrivalWithBrand,
+      addNewArrival: addNewArrival
+    };
+  }]);
+
   
   AdminModule.factory("ShopService", [function () {
       function location() {
@@ -279,6 +302,47 @@
     return {
       loadLookbookWithBrand: loadLookbookWithBrand,
       addNewLookbook: addNewLookbook
+    };
+  });
+  
+  AdminModule.controller("ArrivalGallery", function ($scope, UploadMediaService, ArrivalService, LoadingIconService) {
+    $scope.GalleryInit = function () {
+      LoadingIconService.open();
+      ArrivalService.loadArrivalWithBrand(window.brand).done(function (ret) {
+        // 成功
+        if (ret && typeof ret["status"] != "undeifned" && ret["status"] == 0) {
+          $scope.arrivales = ret["data"];
+          $scope.$digest();
+        }
+      }).always(function () {
+        LoadingIconService.close();
+      });
+      
+      $scope.object = {};
+      $scope.object.title = "gallery item";
+      $scope.object.brand = window.brand;
+    };
+    
+    $scope.UploadMedia = function(event){
+      var file = angular.element(event.target).siblings("input[name='media']");
+      if (file[0].files["length"] == 0) {
+        return;
+      }
+      LoadingIconService.open();
+      UploadMediaService.upload(file[0]).done(function (ret) {
+        // 成功
+        if (ret && typeof ret["status"] != "undeifned" && ret["status"] == 0) {
+          // 然后添加新的lookbook item
+          var object = $scope.object;
+          object.image = ret["data"]["uri"];
+          ArrivalService.addNewArrival(object).done(function (ret) {
+            $scope.arrivales.push(ret["data"]);
+            $scope.$digest();
+          }).always(function () {
+            LoadingIconService.close();
+          });
+        }
+      });
     };
   });
   
@@ -919,5 +983,14 @@
     jQuery.cookie('lang' , $(this).attr('lang') , { expires: 7, path: '/' });
     window.location.reload();
   });
+  
+  angular.element(document).ready(function () {
+    angular.element("textarea").ckeditor({
+      customConfig: window.baseurl + "/scripts/script.js"
+    });
+  });
+  
+
+  
   
 })(jQuery);

@@ -19,7 +19,6 @@
         <li ng-repeat="lookbook in lookbookes">
             <div class="thumbnail">
               <img ng-src="{{lookbook.image}}" alt="" />
-              <a href="#!/index.php"><?php echo Yii::t("strings", "Offline")?></a>
             </div>
         </li>
     </div>

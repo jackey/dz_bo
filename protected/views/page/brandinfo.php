@@ -14,7 +14,7 @@
         <?php echo Yii::t("strings", "Body")?>
       </div>
       <div class="controls">
-        <textarea cols="80" rows="8" ng-model="formdata.body" ></textarea>
+        <textarea cols="80" rows="8" name="body" ng-model="formdata.body" ></textarea>
       </div>
     </div>
     

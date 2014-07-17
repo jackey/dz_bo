@@ -99,7 +99,7 @@ legend {
 
 #header {
   border: 1px solid #eee;
-  position: fixed;
+  position: absolute;
   width: 100%;
   padding: 15px 0px;
   text-align: center;
@@ -108,7 +108,7 @@ legend {
 }
 
 #sidebar {
-  position: fixed;
+  position: absolute;
   left: 0px;
   background: #303030;
   border-right: 1px solid #4F4F4F;
@@ -119,7 +119,6 @@ legend {
   overflow-y: auto;
   width: 16em;
   float: left;
-  height: 100%;
   margin-top: 136px;
 }
 
@@ -306,4 +305,48 @@ textarea {
 
 .tab-content{
   overflow: inherit;
+}
+
+input[type="text"] {
+  width: 50%;
+}
+
+
+.imagepreview .controls {
+  width: 10.8em;
+}
+
+.imagepreview .controls input[type="file"] {
+  display: block;
+  margin: 0 auto;
+  width: 10em;
+  height: 2em;
+  position: relative;
+}
+
+.imagepreview .controls input[type="file"]:after {
+  content: "upload image";
+  width: 10em;
+  height: 2em;
+  background: #000;
+  display: block;
+  z-index: 1000;
+  position: absolute;
+  top: 0px;
+  text-align: center;
+  line-height: 2em;
+  text-transform: uppercase;
+}
+
+.form-actions input[type="button"], .form-actions  input[type="submit"], .form-actions button {
+  float: right;
+}
+
+form[name="qrcodeform"] .imagepreview {
+  float: left;
+  margin-left: 2em;
+}
+
+.form-actions {
+  clear:both;
 }

@@ -1,7 +1,7 @@
 <div class="form-con qrcode-form" ng-controller='QrcodeController' ng-init="init()">
-  <form name="qrcodeform">
+  <form name="qrcodeform" class="clearfix form">
    <?php foreach(Yii::app()->params["brands"] as $key => $name): ?>
-    <div class="control-group">
+    <div class="control-group imagepreview">
       <div class="control-label"><?php echo ucfirst($name)?></div>
       <div class="controls">
         <div class="preview">
@@ -14,6 +14,7 @@
    <?php endforeach;?>
     <div class="form-actions">
       <button class="btn" ng-click="submitForm()"><?php echo Yii::t("strings", "Save")?></button>
+      <button class="btn" ng-click="submitForm()"><?php echo Yii::t("strings", "Cancel")?></button>
     </div>
   </form>
 </div>

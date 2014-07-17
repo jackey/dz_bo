@@ -1,6 +1,6 @@
 <?php
 
-class LookbookAR extends ContentAR {
+class ArrivalAR extends ContentAR {
   public $type = "arrival";
   
   public $brand;
@@ -37,11 +37,11 @@ class LookbookAR extends ContentAR {
   }
   
   /**
-   * 找出品牌下的Lookbook
+   * 找出品牌下的Arrival
    * @param type $brand
    * @return type
    */
-  public function loadLookbookWithBrand($brand) {
+  public function loadArrivalWithBrand($brand) {
     $table = $this->tableName();
     $sql = "SELECT * FROM ". $table. " as c";
     $sql .= " LEFT JOIN field f on f.field_name='brand' AND f.cid = c.cid";

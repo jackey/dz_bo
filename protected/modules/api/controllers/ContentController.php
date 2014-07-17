@@ -134,6 +134,9 @@ class ContentController extends Controller {
     $contentAr = new ContentAR();
     
     $brandInfomation = $contentAr->loadBrandInformationContent();
+    if (!$brandInfomation) {
+      return $this->responseError("not found");
+    }
     
     $this->responseJSON(array(
         "title" => $brandInfomation->title, 

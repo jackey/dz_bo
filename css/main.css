@@ -136,11 +136,12 @@ height: auto;
   color: #ccc;
   margin-left: 0px;
   margin-top: 0px;
-  overflow-x: auto;
-  overflow-y: auto;
+  overflow-x: visible;
+  overflow-y: visible;
   width: 17%;
   min-width: 16em;
   float: left;
+  position: relative;
 }
 
 #login #body {
@@ -515,4 +516,22 @@ line-height: 2em;
 
 .table-content .table {
   color: #444;
+}
+
+#logo > img {
+  width: 50%;
+  padding: 1em;
+}
+
+#sidebar .icons {
+  font-size: 2em;
+  position: absolute;
+  right: 6px;
+  top: 0px;
+  cursor: pointer;
+  z-index: 1000000;
+}
+
+#sidebar .fadeout {
+  right: -6.5em;
 }

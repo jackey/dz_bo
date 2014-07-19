@@ -388,11 +388,11 @@
   });
   
   AdminModule.controller("NewsTable", [function () {
-      angular.element(".table-content .table").DataTable({
-        info: false,
-        pageLength: 10,
-        lengthChange: false
-      });
+//      angular.element(".table-content .table").DataTable({
+//        info: false,
+//        pageLength: 10,
+//        lengthChange: false
+//      });
   }]);
 
   AdminModule.controller("NewsForm", ["$scope", "$http", function ($scope, $http) {
@@ -990,6 +990,28 @@
     });
   });
   
+  jQuery.easing.def = "easing";
+  angular.element("#sidebar .icons").toggle(function () {
+    var icon = $(this);
+    var sideBar = $(this).parent();
+    var width = sideBar.width();
+    sideBar.animate({
+      left: -width,
+      "margin-left": - ( parseInt(width) /2 )
+    }, 1000, "easeInQuad", function () {
+      icon.hide().addClass("fadeout").fadeIn("slow");
+    });
+  }, function () {
+    var icon = $(this);
+    var sideBar = $(this).parent();
+    icon.fadeOut().removeClass("fadeout");
+    sideBar.animate({
+      left: 0,
+      "margin-left": 0
+    }, 1000, "easeInQuad", function () {
+      icon.fadeIn("slow");
+    });
+  });
 
   
   

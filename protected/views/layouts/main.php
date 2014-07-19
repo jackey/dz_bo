@@ -36,6 +36,7 @@
 	</div>
   
   <div id="sidebar" class="">
+    <div class="icons"><i class="fa fa-bars"></i></div>
     <ul class="nav nav-list">
       
       <!-- Brand -->

@@ -1,8 +1,14 @@
-<div class="top-bar">
-  <a href="<?php echo Yii::app()->createUrl("page/addvideo")?>"><?php echo Yii::t("strings", "Add Video")?></a>
+<div class="table-bar">
+  <i class="fa fa-plus-square"></i><a href="<?php echo Yii::app()->createUrl("page/addvideo")?>"><?php echo Yii::t("strings", "Add Video")?></a>
 </div>
 
 <div class="table-content" ng-controller="VideoTable" ng-init="init()">
+  <header>
+    <div class="icons">
+      <i class="fa fa-table"></i>
+    </div>
+    <h5><?php echo Yii::t("strings", "Careers Table")?></h5>
+  </header>
   <table class="table table-striped">
     <thead>
       <td><?php echo Yii::t("strings", "Title")?></td>

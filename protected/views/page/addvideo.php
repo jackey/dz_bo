@@ -1,5 +1,21 @@
 <div class="form-con video-form" ng-controller='VideoFormController' ng-init="init()">
-  <form name="videoform">
+  <form name="videoform" class="form-horizontal">
+    <div class="header clearfix">
+      <div class="icons">
+        <i class="fa fa-edit"></i>
+      </div>
+      <h4><?php echo Yii::t("strings", isset($contentvideo) ? "Edit Media" : "Add Media")?></h4>
+      <div class="toolbar">
+        <nav style="padding: 8px;">
+          <a href="javascript:;" class="btn btn-default btn-xs full-box">
+            <i class="fa fa-expand"></i>
+          </a> 
+          <a href="javascript:;" class="btn btn-danger btn-xs close-box">
+            <i class="fa fa-times"></i>
+          </a> 
+        </nav>
+      </div>
+    </div>
     <div class="control-group">
       <div class="control-label"><?php echo Yii::t("strings", "Title")?></div>
       <div class="controls">
@@ -30,7 +46,7 @@
     <input type="hidden" name="cid" ng-model="formdata.cid" value="<?php if (isset($contentvideo)) echo $contentvideo->cid?>" />
     
     <div class="form-actions">
-      <button class="btn" ng-click="submitForm()"><?php echo Yii::t("strings", "Save")?></button>
+      <button class="btn btn-primary" ng-click="submitForm()"><?php echo Yii::t("strings", "Save")?></button>
     </div>
     </div>
   </form>

@@ -1,4 +1,15 @@
+<div class="table-bar">
+  <i class="fa fa-plus-square"></i><a href="<?php echo Yii::app()->createUrl("page/addnews")?>"><?php echo Yii::t("strings", "Add News")?></a>
+</div>
+
 <div class="table-content" ng-controller="NewsTable" ng-init="init()">
+  <header>
+    <div class="icons">
+      <i class="fa fa-table"></i>
+    </div>
+    <h5><?php echo Yii::t("strings", "News Table")?></h5>
+  </header>
+  
   <div class="tabbable tabs-below">
     <div class="nav nav-tabs">
       <li class="<?php if (!isset($_GET["category"])) echo "active"?>"><a href="<?php echo Yii::app()->createUrl("page/news")?>"><?php echo Yii::t("strings", "All")?></a></li>

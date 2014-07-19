@@ -1,6 +1,10 @@
 a {color:#555;}
 
-body,label, input, button, select, textarea {font-size:12px;color:#fff;background: #444;}
+body{
+  font-size:12px;
+  color:#fff;
+  background: #080808;
+}
 
 html {position: relative;}
 
@@ -10,7 +14,19 @@ html {position: relative;}
   position: relative;
 }
 
-#header #logo {color:#000;height:58px;margin:20px auto;}
+#header #logo {
+  color:#000;
+  float: left;
+}
+
+.lang-bar a {
+  color: #e8e8e8;
+  cursor: pointer;
+}
+
+.lang-bar a.active {
+  color:#cb223a;
+}
 
 .breadcrumb {font-size:10px;}
 
@@ -84,7 +100,13 @@ legend {
   text-align: left;
 }
 
-#content {padding:50px 0 0;}
+#content {
+  width: 80%;
+  border: 10px solid #fff;
+  border-radius: 5px;
+  margin: 5em auto;
+  background: #fff;
+}
 
 .lang-bar {
   position: absolute;
@@ -98,28 +120,27 @@ legend {
 }
 
 #header {
-  border: 1px solid #eee;
-  position: absolute;
-  width: 100%;
-  padding: 15px 0px;
-  text-align: center;
-  z-index: 10;
-  background: #fff;
+border: 1px solid #4F4F4F;
+width: 100%;
+text-align: center;
+z-index: 10;
+background: #080808;
+padding: 0px;
+height: auto;
 }
 
 #sidebar {
-  position: absolute;
   left: 0px;
-  background: #303030;
   border-right: 1px solid #4F4F4F;
+  border-bottom: 1px solid #4F4F4F;
   color: #ccc;
   margin-left: 0px;
   margin-top: 0px;
   overflow-x: auto;
   overflow-y: auto;
-  width: 16em;
+  width: 17%;
+  min-width: 16em;
   float: left;
-  margin-top: 136px;
 }
 
 #login #body {
@@ -128,9 +149,10 @@ legend {
 }
 
 #body {
-  margin-left: 16em;
-  width: auto;
-  margin-top: 136px;
+float: left;
+margin: 0 auto;
+width: 82.9%;
+min-width: 800px;
 }
 
 .nav-list {
@@ -147,6 +169,18 @@ legend {
 
 .nav-list > li > a {
   color: #ccc;
+}
+
+.nav-list > li > a:before {
+  display: inline-block;
+  font-family: "FontAwesome";
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\f105";
+  margin-right: 1em;
 }
 
 .nav-list > li > a:hover,.nav-list > li > a.active {
@@ -253,16 +287,56 @@ ul.media-list li {
 }
 
 .form-con {
-  width: 50%;
   margin: 0em auto 0em auto;
   min-width: 500px;
+  border: 10px solid #303030;
+  background: #fff;
+  
+  color: #444;
+}
+
+.form-con .header {
+  background-image: -webkit-linear-gradient(top, #fff 0, #f2f2f2 100%);
+  background-image: -o-linear-gradient(top, #fff 0, #f2f2f2 100%);
+  background-image: linear-gradient(to bottom, #fff 0, #f2f2f2 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff2f2f2', GradientType=0);
+  border-bottom: 1px solid #d4d4d4;
+  -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.065);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.065);
+  color: #444;
+  padding: 0px;
+  margin: 0px;
+}
+
+.form-con .icons {
+float: left;
+line-height: 2em;
+text-align: center;
+padding: 1em 2em;
+border-right: 1px solid #ddd;
+-webkit-box-shadow: 1px 0 0 #fff;
+box-shadow: 1px 0 0 #fff;
+}
+
+.form-con .header > h4 {
+  float: left;
+padding: 0px;
+margin: 0px;
+text-indent: 2em;
+height: 3em;
+line-height: 3em;
+}
+
+.form-con .header .toolbar {
+  float: right;
 }
 
 .form-con .preview {
   width: 10em;
   height: 10em;
   display: inline-block;
-  border: 5px dashed #fff;
+  border: 5px dashed #444;
   line-height: 10em;
   text-align: center;
   cursor: pointer;
@@ -284,10 +358,17 @@ left: 50%;
 .navigation-form .control-label {
 height: 3em;
 line-height: 3em;
-background: #cb223a;
 margin: 5px 0px;
 padding-left: 2em;
 font-size: 1.2em;
+background-image: -webkit-linear-gradient(top, #eee 0, #fff 100%);
+background-image: -o-linear-gradient(top, #eee 0, #fff 100%);
+background-image: linear-gradient(to bottom, #eee 0, #fff 100%);
+background-repeat: repeat-x;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eee', endColorstr='#fff', GradientType=0);
+border-bottom: 1px solid #d4d4d4;
+-webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.065);
+box-shadow: 0 1px 4px rgba(0,0,0,0.065);
 }
 
 .navigation-form input {
@@ -349,4 +430,89 @@ form[name="qrcodeform"] .imagepreview {
 
 .form-actions {
   clear:both;
+  background-image: -webkit-linear-gradient(top, #fff 0, #f2f2f2 100%);
+  background-image: -o-linear-gradient(top, #fff 0, #f2f2f2 100%);
+  background-image: linear-gradient(to bottom, #fff 0, #f2f2f2 100%);
+  background-repeat: repeat-x;
+  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff2f2f2', GradientType=0);
+  padding: 1em 1em;
+  margin: 1em 0px 0px 0px;
+}
+
+form {
+  margin: 0px;
+}
+
+.form-actions .btn {
+  margin-right: 1.5em;
+}
+
+.form-horizontal .control-group {
+  margin: 1em 0px;
+  text-transform: uppercase;
+}
+
+.table-bar {
+  height: 2em;
+  line-height: 2em;
+  font-size: 1.5em;
+  background-image: -webkit-linear-gradient(top, #eee 0, #fff 100%);
+  background-image: -o-linear-gradient(top, #eee 0, #fff 100%);
+  background-image: linear-gradient(to bottom, #eee 0, #fff 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eee', endColorstr='#fff', GradientType=0);
+  border-bottom: 1px solid #d4d4d4;
+  -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.065);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.065);
+}
+
+.table-content {
+  border: 10px solid #303030;
+}
+
+.table-bar {
+  color: #080808;
+  font-size: 1.5em;
+  padding-left: 1em;
+  border-radius: 5px;
+}
+
+.table-bar > a {
+  padding-left: 1em;
+}
+
+.table-content header {
+  background-image: -webkit-linear-gradient(top, #fff 0, #f2f2f2 100%);
+  background-image: -o-linear-gradient(top, #fff 0, #f2f2f2 100%);
+  background-image: linear-gradient(to bottom, #fff 0, #f2f2f2 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff2f2f2', GradientType=0);
+  border-bottom: 1px solid #d4d4d4;
+  -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.065);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.065);
+  height: 4em;
+  color: #444;
+}
+
+.table-content header h5 {
+padding: 12px;
+font-weight: bold;
+float: left;
+height: 2em;
+line-height: 2em;
+margin: 0px;
+}
+
+.table-content header .icons {
+padding: 1.2em 15px;
+border-right: 1px solid #ddd;
+-webkit-box-shadow: 1px 0 0 #fff;
+box-shadow: 1px 0 0 #fff;
+float: left;
+height: 1.8em;
+line-height: 2em;
+}
+
+.table-content .table {
+  color: #444;
 }

@@ -8,7 +8,8 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery.dataTables_themeroller.min.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl;?>/css/bootstrap-responsive.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl;?>/fonts/fontawesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 
 	<title><?php echo Yii::t("strings", "Dazzle Brand Managment System")?></title>
   <script type="text/javascript">
@@ -25,12 +26,12 @@
 
 <div class="container-fluid" id="page">
 
-	<div id="header">
-		<div id="logo"><?php echo Yii::t("strings", "Dazzle Brand Managment System")?></div>
+  <div id="header" class="clearfix">
+    <div id="logo"><img src="/images/logo.png" alt="" /></div>
 
     <div class="lang-bar">
-        <?php if (Yii::app()->language == "zh_cn"): ?><a href="javascript:void(0)" lang="en_us" class="lang_en">English</a><?php endif;?>
-        <?php if (Yii::app()->language == "en_us"): ?><a href="javascript:void(0)" lang="zh_cn" class="lang_cn">中文</a><?php endif;?>
+        <a class="<?php if (Yii::app()->language == "zh_cn") echo "active"; ?>" href="javascript:void(0)" lang="zh_cn" class="lang_cn">中文</a>
+        <a class="<?php if (Yii::app()->language == "en_us") echo "active";?>" href="javascript:void(0)" lang="en_us" class="lang_en">English</a>
     </div>
 	</div>
   
@@ -60,8 +61,8 @@
       <li class="nav-header">
         <?php echo Yii::t("strings", "News")?>
       </li>
-      <li><a class="<?php echo $this->getActiveClass("content/news")?>" href="<?php echo Yii::app()->createUrl("page/news")?>"><?php echo Yii::t("strings", "All News")?></a></li>
-      <li><a class="<?php echo $this->getActiveClass("content/newsadd")?>" href="<?php echo Yii::app()->createUrl("page/addnews")?>"><?php echo Yii::t("strings", "Add News")?></a></li>
+      <li><a class="<?php echo $this->getActiveClass("page/news")?>" href="<?php echo Yii::app()->createUrl("page/news")?>"><?php echo Yii::t("strings", "All News")?></a></li>
+      <li><a class="<?php echo $this->getActiveClass("page/addnews")?>" href="<?php echo Yii::app()->createUrl("page/addnews")?>"><?php echo Yii::t("strings", "Add News")?></a></li>
       <!-- News End -->  
       
       <!-- Careers -->
@@ -89,8 +90,8 @@
   
 
   <?php if (UserAR::isLogin()) :?>
-  <div id="body" class="row-fluid">
-    <div id="content" class="span12"><?php echo $content; ?></div>
+  <div id="body">
+    <div id="content"><?php echo $content; ?></div>
   </div>
   <?php else: ?>
     <div id="content" class="span9 offset3"><?php echo $content; ?></div>

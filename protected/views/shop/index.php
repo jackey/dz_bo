@@ -1,7 +1,15 @@
-<div class="shop-table" ng-controller="ShopTable">
+<div class="table-bar">
+  <i class="fa fa-plus-square"></i><a href="<?php echo Yii::app()->createUrl("shop/add")?>"><?php echo Yii::t("strings", "Add New Shop")?></a>
+</div>
+<div class="shop-table table-content" ng-controller="ShopTable">
+  <header>
+    <div class="icons">
+      <i class="fa fa-table"></i>
+    </div>
+    <h5><?php echo Yii::t("strings", "Shop Table")?></h5>
+  </header>
   <table class="table table-striped">
     <thead>
-      <td><?php echo Yii::t("strings", "Country")?></td>
       <td><?php echo Yii::t("strings", "City")?></td>
       <td><?php echo Yii::t("strings", "Distinct")?></td>
       <td><?php echo Yii::t("strings", "Title")?></td>
@@ -14,7 +22,6 @@
     <tbody>
       <?php foreach($shopes as $shop) :?>
       <tr>
-        <td><?php echo $shop->country?></td>
         <td><?php echo $shop->city?></td>
         <td><?php echo $shop->distinct?></td>
         <td><?php echo $shop->title?></td>

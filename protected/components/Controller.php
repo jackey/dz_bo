@@ -97,11 +97,25 @@ class Controller extends CController
     }
   }
   
-  public function getActiveClass($uri) {
+  public function getActiveClass($uri, $params = array()) {
     $parts = explode("/", $uri);
     $route = $this->getRoute();
     if ($uri == $route) {
-      //return "active";
+      if ($params) {
+        $yes = 0;
+        foreach ($params as $key => $value) {
+          if (Yii::app()->getRequest()->getParam($key) == $value) {
+            $yes += 1;
+          }
+        }
+        if ($yes == count($params)) {
+          return "active";
+        }
+        else {
+          return "";
+        }
+      }
+      return "active";
     }
     return "";
   }

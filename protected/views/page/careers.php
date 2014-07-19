@@ -1,6 +1,14 @@
+  <div class="table-bar">
+    <i class="fa fa-plus-square"></i><a href="<?php echo Yii::app()->createUrl("page/addcareer")?>"><?php echo Yii::t("strings", "Career Add New")?></a>
+  </div>
+
 <div class="table-content" ng-controller="CareerTable" ng-init="init()">
-      <a href="<?php echo Yii::app()->createUrl("page/addcareer")?>"><?php echo Yii::t("strings", "Career Add New")?></a>
+  <header>
+    <div class="icons">
+      <i class="fa fa-table"></i>
     </div>
+    <h5><?php echo Yii::t("strings", "Careers Table")?></h5>
+  </header>
     <table class="table table-striped">
       <thead>
         <td><?php echo Yii::t("strings", "Title")?></td>

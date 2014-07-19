@@ -1,5 +1,21 @@
 <div class="form-con form-brand" ng-controller="BrandinfoController" ng-init="init()">
-  <form name="brandform" enctype="multipart/form-data">
+  <form name="brandform" class="form-horizontal" enctype="multipart/form-data">
+    <div class="header clearfix">
+      <div class="icons">
+        <i class="fa fa-edit"></i>
+      </div>
+      <h4><?php echo Yii::t("strings", "Update Brand Information")?></h4>
+      <div class="toolbar">
+        <nav style="padding: 8px;">
+          <a href="javascript:;" class="btn btn-default btn-xs full-box">
+            <i class="fa fa-expand"></i>
+          </a> 
+          <a href="javascript:;" class="btn btn-danger btn-xs close-box">
+            <i class="fa fa-times"></i>
+          </a> 
+        </nav>
+      </div>
+    </div>
     <div class="control-group">
       <div class="control-label">
         <?php echo Yii::t("strings", "Title")?>
@@ -57,8 +73,8 @@
       </div>
     </div>
     
-    <div class="action">
-      <button class="btn" ng-click="submitForm()"><?php echo Yii::t("strings", "Save")?></button>
+    <div class="form-actions">
+      <button class="btn btn-primary" ng-click="submitForm()"><?php echo Yii::t("strings", "Save")?></button>
     </div>
     
   </form>

@@ -1,6 +1,22 @@
-<div class="" ng-controller="ShopController" ng-init="init()">
+<div class="form-con qrcode-form" ng-controller="ShopController" ng-init="init()">
   <div class="">
     <form name="shopform" class="form-horizontal" action="<?php echo Yii::app()->baseUrl ?>/shop/add" method="POST" enctype="multipart/form-data">
+    <div class="header clearfix">
+      <div class="icons">
+        <i class="fa fa-edit"></i>
+      </div>
+      <h4><?php echo Yii::t("strings", "Add New Shop")?></h4>
+      <div class="toolbar">
+        <nav style="padding: 8px;">
+          <a href="javascript:;" class="btn btn-default btn-xs full-box">
+            <i class="fa fa-expand"></i>
+          </a> 
+          <a href="javascript:;" class="btn btn-danger btn-xs close-box">
+            <i class="fa fa-times"></i>
+          </a> 
+        </nav>
+      </div>
+    </div>
       <fieldset>
         <legend><?php echo ($shop) ? Yii::t("strings", "Edit Shop").' <span class="divider"> - </span> '.$shop->title : Yii::t("strings", "Shop") ?></legend>
         
@@ -48,8 +64,8 @@
       
       <input type="hidden" name="shop_id" value="<?php echo $shop ? $shop->shop_id : ""?>"/>
 
-      <div class="control-group">
-        <input type="button" class="btn" ng-click="submitForm()" value="<?php echo Yii::t("strings", "Submit") ?>"/> 
+      <div class="form-actions">
+        <input type="button" class="btn btn-primary" ng-click="submitForm()" value="<?php echo Yii::t("strings", "Submit") ?>"/> 
       </div>
     </form>
   </div></div>

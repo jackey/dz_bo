@@ -1,5 +1,21 @@
 <div class="form-con news-form" ng-controller="NewsForm" ng-init="init()">
-  <form name="newsform" action="<?php echo Yii::app()->baseUrl ."/addform"?>" method="post">
+  <form name="newsform" class="form-horizontal" action="<?php echo Yii::app()->baseUrl ."/addform"?>" method="post">
+    <div class="header clearfix">
+      <div class="icons">
+        <i class="fa fa-edit"></i>
+      </div>
+      <h4><?php echo Yii::t("strings", "Add News")?></h4>
+      <div class="toolbar">
+        <nav style="padding: 8px;">
+          <a href="javascript:;" class="btn btn-default btn-xs full-box">
+            <i class="fa fa-expand"></i>
+          </a> 
+          <a href="javascript:;" class="btn btn-danger btn-xs close-box">
+            <i class="fa fa-times"></i>
+          </a> 
+        </nav>
+      </div>
+    </div>
     <div class="control-group">
       <div class="control-label">
         <label for=""><?php echo Yii::t("strings", "Title")?></label>
@@ -44,8 +60,8 @@
     
     <div class="form-actions">
       <div class="controls">
-        <input type="button" class="btn" value="<?php echo Yii::t("strings", "Cancel")?>"/>
-        <input type="button" ng-click="submitNews($event)" class="btn" value="<?php echo Yii::t("strings", "Save")?>"/>
+        <input type="button" class="btn btn-primary" value="<?php echo Yii::t("strings", "Cancel")?>"/>
+        <input type="button" ng-click="submitNews($event)" class="btn-primary btn" value="<?php echo Yii::t("strings", "Save")?>"/>
       </div>
       </div>
   </form>

@@ -1,7 +1,22 @@
 <div class="navigation-form form-con" ng-controller="MenuNavigation" ng-init="init()">
-  <h4><?php echo Yii::t("strings", "Menu Navigation Management");?></h4>
 
   <form class="form" name="navigationform">
+    <div class="header clearfix">
+      <div class="icons">
+        <i class="fa fa-edit"></i>
+      </div>
+      <h4><?php echo Yii::t("strings", "Update Navigation Menu")?></h4>
+      <div class="toolbar">
+        <nav style="padding: 8px;">
+          <a href="javascript:;" class="btn btn-default btn-xs full-box">
+            <i class="fa fa-expand"></i>
+          </a> 
+          <a href="javascript:;" class="btn btn-danger btn-xs close-box">
+            <i class="fa fa-times"></i>
+          </a> 
+        </nav>
+      </div>
+    </div>
     <input type="file" name="file" class="hideme" onchange="angular.element(this).scope().fileUpload(this)"/>
     <?php $names = NavigationMenuAR::$names;?>
     <?php foreach ($names as $name): ?>
@@ -50,10 +65,8 @@
         <input type="text" placeholder="<?php echo Yii::t("strings", "menu navigation title")?>" name="title_home" ng-model="formdata.title_home"/>
       </div>
     </div>-->
-    <div class="actions">
-      <div class="controls clearfix">
-        <button class="btn navigation-btn" ng-click="submitForm()" ><?php echo Yii::t("strings" ,"Save")?></button>
-      </div>
+    <div class="form-actions">
+      <button class="btn btn-primary" ng-click="submitForm()" ><?php echo Yii::t("strings" ,"Save")?></button>
     </div>
   </form>
 </div>

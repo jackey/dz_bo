@@ -1,5 +1,21 @@
 <div class="corporate-form form-con" ng-controller="Corporate" ng-init="init()">
-  <form  enctype="multipart/form-data" method="post" name="corporate">
+  <form class="form-horizontal" enctype="multipart/form-data" method="post" name="corporate">
+    <div class="header clearfix">
+      <div class="icons">
+        <i class="fa fa-edit"></i>
+      </div>
+      <h4><?php echo Yii::t("strings", "Update Corporate Information")?></h4>
+      <div class="toolbar">
+        <nav style="padding: 8px;">
+          <a href="javascript:;" class="btn btn-default btn-xs full-box">
+            <i class="fa fa-expand"></i>
+          </a> 
+          <a href="javascript:;" class="btn btn-danger btn-xs close-box">
+            <i class="fa fa-times"></i>
+          </a> 
+        </nav>
+      </div>
+    </div>
     <div class="control-group">
       <div class="control-label">
         <?php echo Yii::t("strings", "Title")?>
@@ -31,8 +47,8 @@
       </div>
     </div>
     
-    <div class="action">
-      <button ng-click="submitForm()" class="btn"><?php echo Yii::t("strings", "Save")?></button>
+    <div class="form-actions">
+      <button ng-click="submitForm()" class="btn btn-primary"><?php echo Yii::t("strings", "Save")?></button>
     </div>
   </form>
 </div>

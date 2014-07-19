@@ -986,32 +986,51 @@
   
   angular.element(document).ready(function () {
     angular.element("textarea").ckeditor({
-      customConfig: window.baseurl + "/scripts/script.js"
+      customConfig: window.baseurl + "/scripts/config.js"
+    });
+    
+    angular.element("#sidebar > .icons").click(function () {
+      console.log("CLICKED ");
+      var icon = $(this);
+      var sideBar = $(this).parent();
+      if (icon.hasClass("fadeout")) {
+        icon.removeClass("fadeout");
+        sideBar.animate({
+          left: 0,
+          "margin-left": 0
+        }, 1000, "easeInQuad", function () {
+          icon.fadeIn("slow");
+        });
+      }
+      else {
+        var width = sideBar.width();
+        sideBar.animate({
+          left: -width,
+          "margin-left": - ( parseInt(width) /2 )
+        }, 1000, "easeInQuad", function () {
+          icon.hide().addClass("fadeout").fadeIn("slow");
+        });
+      }
+    });
+    
+    angular.element(".full-box").click(function () {
+      var content = angular.element("#content");
+      if (content.hasClass("full-screen")) {
+        content.removeAttr('style').removeClass("full-screen");
+      }
+      else {
+        content.animate({
+          width: "99.1%",
+          margin: "0px 0px"
+        }, 1000, function () {
+          content.addClass("full-screen");
+        });
+      }
     });
   });
   
   jQuery.easing.def = "easing";
-  angular.element("#sidebar .icons").toggle(function () {
-    var icon = $(this);
-    var sideBar = $(this).parent();
-    var width = sideBar.width();
-    sideBar.animate({
-      left: -width,
-      "margin-left": - ( parseInt(width) /2 )
-    }, 1000, "easeInQuad", function () {
-      icon.hide().addClass("fadeout").fadeIn("slow");
-    });
-  }, function () {
-    var icon = $(this);
-    var sideBar = $(this).parent();
-    icon.fadeOut().removeClass("fadeout");
-    sideBar.animate({
-      left: 0,
-      "margin-left": 0
-    }, 1000, "easeInQuad", function () {
-      icon.fadeIn("slow");
-    });
-  });
+
 
   
   

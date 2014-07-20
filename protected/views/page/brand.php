@@ -33,7 +33,7 @@
         </div>
         <div class="control-group">
           <div class="control-label">
-            <label><?php echo Yii::t("strings", "body")?></label>
+            <label><?php echo Yii::t("strings", "Body")?></label>
           </div>
           <div class="controls">
             <textarea type="text" rows="10" cols="80" ng-model="formdata.body"></textarea>

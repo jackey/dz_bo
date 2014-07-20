@@ -14,10 +14,17 @@ class ContentController extends Controller {
       return $this->responseError("http param error", ErrorAR::ERROR_MISSED_REQUIRED_PARAMS);
     }
     
-    $content = ContentAR::model()->findByPk($cid);
-    $content->status = ContentAR::STATUS_DISABLE;
+    if (is_array($cid)) {
+      ContentAR::model()->deleteInPk($cid);
+    }
+    else {
+      $content = ContentAR::model()->findByPk($cid);
+      $content->status = ContentAR::STATUS_DISABLE;
+
+      $content->save();
+    }
     
-    $content->save();
+
     
     return $this->responseJSON("success", "success");
   }

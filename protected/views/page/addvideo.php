@@ -23,6 +23,18 @@
       </div>
     </div>
     <div class="control-group">
+      <div class="control-label">
+        <label for=""><?php echo Yii::t("strings", "Category")?></label>
+      </div>
+      <div class="controls">
+        <select ng-model="formdata.category">
+          <?php foreach (Yii::app()->params["brands"] as $brand): ?>
+          <option value="<?php echo strtolower($brand)?>"><?php echo ucfirst($brand)?></option>
+          <?php endforeach;?>
+        </select>
+      </div>
+    </div>
+    <div class="control-group imagepreview">
       <div class="control-label"><?php echo Yii::t("strings", "Thumbnail")?></div>
       <div class="controls">
         <div class="preview">
@@ -30,6 +42,7 @@
         </div>
         <input type="file" accept="image/*" onchange='angular.element(this).scope().filechange(this)'/>
         <input type="hidden" name="thumbnail" ng-model="formdata.thumbnail"/>
+        <div class="alert alert-success"><?php echo Yii::t("strings", "Image Size: "). " 1616x911"?></div>
       </div>
     </div>
     
@@ -38,9 +51,11 @@
       <label><?php echo Yii::t("strings", "MP4 Format")?></label>
       <input type="file" accept="video/*" onchange='angular.element(this).scope().filechange(this)'/>
       <input type="hidden" ng-model="formdata.video_mp4" />
+      <div class="alert"><?php echo "MP4 Video: "?>{{formdata.video_mp4}}</div>
       <label for=""><?php echo Yii::t("strings", "webm Format")?></label>
       <input type="file" accept='video/*' onchange='angular.element(this).scope().filechange(this)'/>
       <input type="hidden" ng-model="formdata.video_webm" />
+      <div class="alert"><?php echo "Webm Video: "?>{{formdata.video_webm}}</div>
     </fieldset>
     
     <input type="hidden" name="cid" ng-model="formdata.cid" value="<?php if (isset($contentvideo)) echo $contentvideo->cid?>" />

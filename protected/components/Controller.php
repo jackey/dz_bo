@@ -100,6 +100,9 @@ class Controller extends CController
   public function getActiveClass($uri, $params = array()) {
     $parts = explode("/", $uri);
     $route = $this->getRoute();
+    if ($route == "page/addvideo" && $uri == "page/video") {
+      return "active";
+    }
     if ($uri == $route) {
       if ($params) {
         $yes = 0;

@@ -529,5 +529,15 @@ class ContentAR extends CActiveRecord {
     
     return $this->loadBrandInformationContent();
   }
+  
+  /**
+   * 删除一组cid 下的 数据
+   */
+  public function deleteInPk($cids) {
+    $query = new CDbCriteria();
+    $query->addInCondition("cid", $cids);
+    
+    return self::model()->deleteAll($query);
+  }
 }
 

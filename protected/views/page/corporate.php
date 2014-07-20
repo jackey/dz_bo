@@ -34,7 +34,7 @@
       </div>
     </div>
     
-    <div class="control-group">
+    <div class="control-group imagepreview">
       <div class="control-label">
         <?php echo Yii::t("strings", "Thumbnail")?>
       </div>
@@ -43,6 +43,7 @@
             <img ng-src="{{formdata.thumbnail}}" alt="" />
           </span>
         <input type="file" name="file" onchange="angular.element(this).scope().fileChange(this)" />
+        <div class="alert alert-success"><?php echo Yii::t("strings", "Image Size: "). " 739x639"?></div>
         <input type="hidden" ng-model="formdata.thumbnail" />
       </div>
     </div>

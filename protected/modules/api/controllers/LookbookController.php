@@ -55,6 +55,17 @@ class LookbookController extends Controller {
     return $this->responseJSON($lookbookes, "success");
   }
   
+  public function actionDelete() {
+    $request = Yii::app()->getRequest();
+    $cids = $request->getPost("cids");
+    
+    if ($cids && is_array($cids)) {
+      LookbookAR::model()->deleteInPk($cids);
+    }
+    
+    $this->responseJSON($cids, "success");
+  }
+  
   public function actionIngroup() {
   $lookbook = new LookbookGalleryAR();
   $gallery_list = $lookbook->getList();

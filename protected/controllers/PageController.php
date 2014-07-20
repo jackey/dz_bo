@@ -105,5 +105,11 @@ class PageController extends Controller {
   public function actionBrandInfo() {
     $this->render("brandinfo");
   }
+  
+  public function actionLogout () {
+    UserAR::logout();
+    
+    $this->redirect(Yii::app()->createUrl("index/index"));
+  }
 }
 

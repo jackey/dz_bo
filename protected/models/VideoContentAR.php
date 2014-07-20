@@ -9,6 +9,8 @@ class VideoContentAR extends ContentAR {
   
   public $type = "videocontent";
   
+  public $category;
+  
   public $video_mp4;
   public $video_webm;
   
@@ -17,6 +19,7 @@ class VideoContentAR extends ContentAR {
   }
   
   public function afterSave() {
+    parent::afterSave();
     $mediaAr = new MediaAR();
     $mediaAr->saveMediaToObject($this, "thumbnail");
     
@@ -29,6 +32,7 @@ class VideoContentAR extends ContentAR {
   }
   
   public function afterFind() {
+    parent::afterFind();
     $mediaAr = new MediaAR();
     $mediaAr->attachMediaToObject($this, "thumbnail");
     
@@ -48,7 +52,7 @@ class VideoContentAR extends ContentAR {
   }
   
   public function getFields() {
-    return array();
+    return array("category");
   }
   
   public function saveVideo() {

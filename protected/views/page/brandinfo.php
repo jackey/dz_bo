@@ -34,42 +34,17 @@
       </div>
     </div>
     
-    <div class="control-group">
+    <div class="control-group imagepreview">
       <div class="control-label">
-        <?php echo Yii::t("strings", "Dazzle Thumbnail")?>
+        <?php echo Yii::t("strings", "Thumbnail")?>
       </div>
       <div class="controls">
         <span class="preview">
           <img ng-src="{{formdata.dazzle_thumbnail}}" alt="" />
         </span>
         <input type="file" accept="image/*" onchange="angular.element(this).scope().fileChange(this)"/>
+        <div class="alert alert-success"><?php echo Yii::t("strings", "Image Size: "). " 658x671"?></div>
         <input type="hidden" ng-model="formdata.dazzle_thumbnail" />
-      </div>
-    </div>
-    
-    <div class="control-group">
-      <div class="control-label">
-        <?php echo Yii::t("strings", "Diamond Thumbnail")?>
-      </div>
-      <div class="controls">
-        <span class="preview">
-          <img ng-src="{{formdata.diamond_thumbnail}}" alt="" />
-        </span>
-        <input type="file" accept="image/*" onchange="angular.element(this).scope().fileChange(this)"/>
-        <input type="hidden" ng-model="formdata.diamond_thumbnail" />
-      </div>
-    </div>
-    
-    <div class="control-group">
-      <div class="control-label">
-        <?php echo Yii::t("strings", "Dzzit Thumbnail")?>
-      </div>
-      <div class="controls">
-        <span class="preview">
-          <img ng-src="{{formdata.dzzit_thumbnail}}" alt="" />
-        </span>
-        <input type="file" accept="image/*" onchange="angular.element(this).scope().fileChange(this)"/>
-        <input type="hidden" ng-model="formdata.dzzit_thumbnail" />
       </div>
     </div>
     

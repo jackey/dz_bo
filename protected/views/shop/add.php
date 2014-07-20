@@ -40,6 +40,19 @@
         </div>
         
         <div class="control-group">
+          <div class="control-label">
+            <label for=""><?php echo Yii::t("strings", "Category")?></label>
+          </div>
+          <div class="controls">
+            <select ng-model="shop.category">
+              <?php foreach (Yii::app()->params["brands"] as $brand): ?>
+              <option value="<?php echo strtolower($brand)?>"><?php echo ucfirst($brand)?></option>
+              <?php endforeach;?>
+            </select>
+          </div>
+        </div>
+        
+        <div class="control-group">
         <label class="control-label" for=""><?php echo Yii::t("strings", "Address") ?></label>
         <div class="controls">
           <input type="text" name="address" ng-change="addressChanged()" ng-model="shop.address" />

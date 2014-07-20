@@ -17,27 +17,16 @@
       </div>
     </div>
     <div class="control-group">
-      <div class="control-label">
-        <label><?php echo Yii::t("strings", "Toll Free Customer Service Tel")?></label>
-      </div>
       <div class="controls">
-        <input type="text" ng-model="formdata.title" />
+        <input type="hidden" ng-model="formdata.title" />
       </div>
     </div>
     <div class="control-group">
       <div class="control-label">
-        <label><?php echo Yii::t("strings", "Working Hour Mon-Fri")?></label>
+        <label><?php echo Yii::t("strings", "Contact")?></label>
       </div>
       <div class="controls">
-        <input type="text" ng-model="formdata.body" />
-      </div>
-    </div>
-    <div class="control-group">
-      <div class="control-label">
-        <label><?php echo Yii::t("strings", "Contact Email")?></label>
-      </div>
-      <div class="controls">
-        <input type="text" ng-model="formdata.summary" />
+        <textarea ng-model="formdata.body" ></textarea>
       </div>
     </div>
     <div class="form-actions">

@@ -50,13 +50,15 @@
         <label for=""><?php echo Yii::t("strings", "Master Image")?></label>
       </div>
       <div class="controls clearfix">
-        <div class="preview">
-          <img ng-src="{{media.image}}" alt="" />
+        <div class="preview" ng-repeat="media in news.thumbnail">
+          <img ng-src="{{media}}" alt="" />
         </div>
         <input type="file" name="media" accept="image/*"/>
-          <input type="hidden" name="master_image[]" value="{{news.thumbnail}}" ng-model="news.thumbnail"/>
+        <input type="hidden" value="{{news.thumbnail}}" ng-model="news.thumbnail"/>
       </div>
     </div>
+    
+    <input type="hidden" name="cid" value="<?php echo Yii::app()->getRequest()->getParam("id", 0)?>"/>
     
     <div class="form-actions">
       <div class="controls">

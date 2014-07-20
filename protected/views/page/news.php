@@ -21,6 +21,7 @@
     <table class="table table-striped">
       <thead>
         <td><?php echo Yii::t("strings", "Title")?></td>
+        <td><?php echo Yii::t("strings", "Category")?></td>
         <td><?php echo Yii::t("strings", "Date")?></td>
         <td><?php echo Yii::t("strings", "Actions")?></td>
       </thead>
@@ -28,6 +29,7 @@
         <?php foreach($news_list as $news) :?>
         <tr>
           <td><?php echo $news->title?></td>
+          <td><?php echo $news->category?></td>
           <td><?php echo $news->cdate?></td>
           <td>
             <a href="<?php echo Yii::app()->baseUrl."/page/addnews?id=". $news->cid?>">Edit</a>

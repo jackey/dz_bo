@@ -36,7 +36,7 @@ class ShopAR extends CActiveRecord {
     return array(
         array("title, address, lat, lng", "required"),
         array("lat, lng", "isfloat"),
-        array("shop_id, country, city, distinct, phone, cdate, mdate, status", "safe"),
+        array("shop_id, country, city, distinct, phone, cdate, mdate, status, category", "safe"),
     );
   }
   

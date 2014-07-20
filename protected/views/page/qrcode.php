@@ -24,6 +24,7 @@
           <img ng-src="{{formdata.qrcode_<?php echo strtolower($name)?>}}" alt="" />
         </div>
         <input type="file" accept="image/*" onchange="angular.element(this).scope().filechange(this)"/>
+        <div class="alert alert-success"><?php echo Yii::t("strings", "Image Size: "). " 171x204"?></div>
         <input type="hidden" ng-model="formdata.qrcode_<?php echo strtolower($name)?>" />
       </div>
     </div>

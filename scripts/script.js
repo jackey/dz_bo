@@ -54,9 +54,18 @@
       });
     }
     
+    function remove(cids) {
+      return $.ajax({
+        url: window.baseurl + "/api/content/delete",
+        data: $.param({cid: cids}),
+        type: "POST"
+      });
+    }
+    
     return {
       loadArrivalWithBrand: loadArrivalWithBrand,
-      addNewArrival: addNewArrival
+      addNewArrival: addNewArrival,
+      remove: remove
     };
   }]);
 
@@ -64,15 +73,18 @@
   AdminModule.factory("ShopService", [function () {
       function location() {
         return $.ajax({
-          url: "/api/shop/location",
+          url: window.baseurl+ "/api/shop/location",
           type: "GET"
         });
       }
       
       function update(data) {
+        console.log("update data: ");
+        console.log(data);
+        console.log($.param(data));
         return $.ajax({
-          url: "/api/shop/add",
-          type: "POST",
+          url: window.baseurl+"/api/shop/add",
+          type: "post",
           data: $.param(data)
         });
       }
@@ -117,7 +129,7 @@
   AdminModule.factory("ContactService", [function () {
       function update(data) {
         return $.ajax({
-          url: "/api/content/updatecontact",
+          url: window.baseurl + "/api/content/updatecontact",
           type: "post",
           data: $.param(data)
         });
@@ -299,9 +311,18 @@
       });
     }
     
+    function removeLookbook(cids) {
+      return $.ajax({
+        url: window.baseurl + "/api/content/delete",
+        data: $.param({cid: cids}),
+        type: "POST"
+      });
+    }
+    
     return {
       loadLookbookWithBrand: loadLookbookWithBrand,
-      addNewLookbook: addNewLookbook
+      addNewLookbook: addNewLookbook,
+      removeLookbook: removeLookbook
     };
   });
   
@@ -342,6 +363,19 @@
             LoadingIconService.close();
           });
         }
+      });
+    };
+    
+    $scope.RemoveMedia = function (event) {
+      var deleted_cids = [];
+      $(".checked").each(function () {
+        deleted_cids.push($("> span", angular.element(this)).attr("data-cid"));
+      });
+      
+      LoadingIconService.open();
+      ArrivalService.remove(deleted_cids).done(function (ret) {
+        $scope.GalleryInit();
+        LoadingIconService.close();
       });
     };
   });
@@ -385,6 +419,19 @@
         }
       });
     };
+    
+    $scope.RemoveMedia = function (event) {
+      var deleted_cids = [];
+      $(".checked").each(function () {
+        deleted_cids.push($("> span", angular.element(this)).attr("data-cid"));
+      });
+      
+      LoadingIconService.open();
+      LookbookService.removeLookbook(deleted_cids).done(function (ret) {
+        $scope.GalleryInit();
+        LoadingIconService.close();
+      });
+    };
   });
   
   AdminModule.controller("NewsTable", [function () {
@@ -405,6 +452,7 @@
         
         // 加载 news 对象
         var cid = angular.element("input[name='cid']").val();
+        console.log(cid);
         if (cid > 0 )  {
           $http({
             method: "get",
@@ -446,7 +494,13 @@
             success: function (res) {
               if (typeof res["status"] != "undefined") {
                 var uri = res["data"]["uri"];
-                $scope.news.thumbnail = (uri);
+                if ($scope.news.thumbnail) {
+                  $scope.news.thumbnail.push(uri);
+                }
+                else {
+                  $scope.news.thumbnail = [uri];
+                }
+                
                 $scope.$digest();
               }
               else {
@@ -557,7 +611,10 @@
         // Load Shop
         var shop_id = angular.element("input[name='shop_id']").val();
         ShopService.load(shop_id).done(function (data){
-          $scope.shop = data["data"];
+          if (typeof data["data"] != "undefined" && typeof data["data"].length == "undefined") {
+            $scope.shop = data["data"];
+          }
+          console.log($scope.shop);
           $scope.city_distinct = [];
           for (index in $scope.location) {
             var city = $scope.location[index];
@@ -769,8 +826,14 @@
           LoadingIconService.open();
           UploadMediaService.uploadVideo(self.get(0)).done(function (data) {
             LoadingIconService.close();
-            $scope.formdata[name] = data["data"]["uri"];
-            $scope.$digest();
+            if (data["status"] == 0) {
+              $scope.formdata[name] = data["data"]["uri"];
+              $scope.$digest();
+            }
+            else {
+              self.val("");
+              alert(data["message"]);
+            }
           });
         }
       };
@@ -948,7 +1011,7 @@
       }
       UploadMediaService.upload(file).done(function(data) {
         if (data && typeof data["status"] != "undefined" && data["status"] == 0) {
-          var uri_name = angular.element(".preview.uploading").siblings("input[type='hidden']").attr("name");
+          var uri_name = angular.element(self).siblings("input[type='hidden']").attr("name");
           $scope.formdata[uri_name] = data["data"]["uri"];
           $scope.$digest();
           angular.element(".preview.uploading").removeClass("uploading");
@@ -1027,11 +1090,29 @@
         });
       }
     });
+    
+    $(".thumbnail").live("mousemove", function () {
+      var self = angular.element(this);
+      if (!self.hasClass("checked")) {
+        angular.element(" > span", self).css("display", "block");
+      }
+    }).live("mouseout" ,function () {
+      var self = angular.element(this);
+      if (!self.hasClass("checked")) {
+        angular.element(" > span", self).css("display", "none");
+      }
+    });
+    
+    $(".thumbnail > span").live("click", function () {
+      if ($(this).parent().hasClass("checked")) {
+        $(this).removeAttr("style").parent().removeClass("checked");
+      }
+      else {
+        $(this).css({"display": "block", color: "#cb223a"}).parent().addClass("checked");
+      }
+    });
   });
   
   jQuery.easing.def = "easing";
-
-
-  
   
 })(jQuery);

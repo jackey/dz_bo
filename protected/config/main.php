@@ -116,7 +116,7 @@ return array(
         "uploadDir" => (dirname(dirname(dirname(__FILE__))))."/upload",
         "close_error" => FALSE,
         "brands" => array(
-            "18" => "Dazze", "19" =>  "Diamond", "20" => "Dzzit"
+            "18" => "Dazzle", "19" =>  "Diamond Dazzle", "20" => "Dzzit"
         ),
     ),
 );

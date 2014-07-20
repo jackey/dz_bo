@@ -33,7 +33,6 @@ class NewsController extends Controller {
     $news_id = $request->getParam("news_id");
     if ($news_id) {
       $news = NewsAR::model()->findByPk($news_id);
-      $news->thumbnail = MediaAR::thumbnail($news->thumbnail, array(345, 258));
       $this->responseJSON($news, "success");
     }
     else {

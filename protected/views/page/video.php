@@ -7,11 +7,12 @@
     <div class="icons">
       <i class="fa fa-table"></i>
     </div>
-    <h5><?php echo Yii::t("strings", "Careers Table")?></h5>
+    <h5><?php echo Yii::t("strings", "Video Table")?></h5>
   </header>
   <table class="table table-striped">
     <thead>
       <td><?php echo Yii::t("strings", "Title")?></td>
+      <td><?php echo Yii::t("strings", "Category")?></td>
       <td><?php echo Yii::t("strings", "Date")?></td>
       <td><?php echo Yii::t("strings", "Thumbnail")?></td>
       <td><?php echo Yii::t("strings", "Actions")?></td>
@@ -20,6 +21,7 @@
         <?php foreach ($videocontentes as $content): ?>
       <tr>
         <td><?php echo $content->title?></td>
+        <td><?php echo $content->category?></td>
         <td><?php echo $content->cdate?></td>
         <td><img src="<?php echo MediaAR::thumbnail($content->thumbnail, array(50, 50))?>" alt="" /></td>
         <td>

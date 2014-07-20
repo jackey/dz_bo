@@ -39,7 +39,7 @@
             <textarea type="text" rows="10" cols="80" ng-model="formdata.body"></textarea>
           </div>
         </div>
-        <div class="control-group">
+        <div class="control-group imagepreview">
           <div class="control-label">
             <?php echo Yii::t("strings", "Master Image")?>
           </div>

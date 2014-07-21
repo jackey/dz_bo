@@ -100,9 +100,9 @@ class Controller extends CController
   public function getActiveClass($uri, $params = array()) {
     $parts = explode("/", $uri);
     $route = $this->getRoute();
-    if ($route == "page/addvideo" && $uri == "page/video") {
-      return "active";
-    }
+//    if ($route == "page/addvideo" && $uri == "page/video") {
+//      return "slide-down-menu";
+//    }
     if ($uri == $route) {
       if ($params) {
         $yes = 0;
@@ -121,5 +121,12 @@ class Controller extends CController
       return "active";
     }
     return "";
+  }
+  
+  public function beforeAction($action) {
+    if (isset($_SERVER["HTTP_USER_AGENT"]) && strpos($_SERVER["HTTP_USER_AGENT"], "MSIE") !== FALSE) {
+      print "IE Bbowser";
+    }
+    return parent::beforeAction($action);
   }
 }

@@ -30,7 +30,7 @@
         <label for=""><?php echo Yii::t("strings", "Body")?></label>
       </div>
       <div class="controls">
-        <textarea  name="body" ng-model="news.body"  cols="80" rows="10"></textarea>
+        <textarea  name="body" ng-ckeditor ng-model="news.body"  cols="80" rows="10"></textarea>
       </div>
     </div>
     <div class="control-group">
@@ -59,6 +59,7 @@
     </div>
     
     <input type="hidden" name="cid" value="<?php echo Yii::app()->getRequest()->getParam("id", 0)?>"/>
+    
     
     <div class="form-actions">
       <div class="controls">

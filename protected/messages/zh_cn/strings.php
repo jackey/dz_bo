@@ -33,4 +33,9 @@ return array(
     "Brand Information" => "品牌信息",
     "Media" => "媒体",
     "Homepage (Navigation)" => "首页 （导航）",
+    "Add Media" => "添加媒体",
+    "Add Video" => "添加媒体",
+    "Video Table" => "媒体列表",
+    "Date" => "日期",
+    "Actions" => "操作"
 );

@@ -26,7 +26,7 @@
         <label><?php echo Yii::t("strings", "Contact")?></label>
       </div>
       <div class="controls">
-        <textarea ng-model="formdata.body" ></textarea>
+        <textarea ng-ckeditor ng-model="formdata.body" ></textarea>
       </div>
     </div>
     <div class="form-actions">

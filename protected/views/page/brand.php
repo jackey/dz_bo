@@ -36,7 +36,7 @@
             <label><?php echo Yii::t("strings", "Body")?></label>
           </div>
           <div class="controls">
-            <textarea type="text" rows="10" cols="80" ng-model="formdata.body"></textarea>
+            <textarea type="text" ng-ckeditor rows="10" cols="80" ng-model="formdata.body"></textarea>
           </div>
         </div>
         <div class="control-group imagepreview">

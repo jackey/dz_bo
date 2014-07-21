@@ -55,8 +55,9 @@
       <li><a href="<?php echo Yii::app()->createUrl("page/navigation")?>" class="<?php echo $this->getActiveClass("page/navigation")?>"><?php echo Yii::t("strings", "Homepage (Navigation)")?></a></li>
       <li><a href="<?php echo Yii::app()->createUrl("page/corporate")?>" class="<?php echo $this->getActiveClass("page/corporate")?>"><?php echo Yii::t("strings", "Corporate Information")?></a></li>
       <li><a href="<?php echo Yii::app()->createUrl("page/brandinfo")?>" class="<?php echo $this->getActiveClass("page/brandinfo")?>"><?php echo Yii::t("strings", "Brand Information")?></a></li>
-      <li><a href="<?php echo Yii::app()->createUrl("page/video")?>" class="<?php echo $this->getActiveClass("page/video")?>"><?php echo Yii::t("strings", "Media")?></a></li>
-      <!-- Corporate End --> 
+      <li class="<?php echo Yii::app()->getController()->getRoute() == "page/video" || Yii::app()->getController()->getRoute() == "page/addvideo" ? "slide-down-menu": "" ?>"><a href="<?php echo Yii::app()->createUrl("page/video")?>" class="<?php echo $this->getActiveClass("page/video")?>"><?php echo Yii::t("strings", "Media")?></a></li>
+      <li><a href="<?php echo Yii::app()->createUrl("page/addvideo")?>" class="submenu <?php echo $this->getActiveClass("page/addvideo")?> hideme"><?php echo Yii::t("strings", "Add Media")?></a></li>
+      <!-- Corporate End -->
       
       <!-- News -->
       <li class="nav-header">

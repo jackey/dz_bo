@@ -22,7 +22,7 @@
     </div>
     <div class="control-group">
       <div class="control-label"><label for=""><?php echo Yii::t("strings", "Job")?></label></div>
-      <div class="controls"><textarea ng-model="formdata.body" rows="8" cols="80" /></textarea></div>
+      <div class="controls"><textarea ng-ckeditor ng-model="formdata.body" rows="8" cols="80" /></textarea></div>
     </div>
     <div class="form-actions">
       <button class="btn btn-primary" ng-click="submitForm()"><?php echo Yii::t("strings", "Save")?></button>

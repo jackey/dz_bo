@@ -635,3 +635,20 @@ form[name="newsform"] input[type="file"] {
   cursor: pointer;
   text-indent: 20px;
 }
+
+.nav a.hideme {
+  display: none;
+}
+
+.hideme {
+  display: none;
+}
+
+li.slide-down-menu + li > a.hideme {
+  display:block;
+  padding-left: 2em;
+}
+
+li.slide-down-menu + li > a.hideme:before {
+  content: "\f105\f105";
+}

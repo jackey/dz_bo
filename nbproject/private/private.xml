@@ -4,43 +4,63 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Users/jackeychen/Workspace/dz_bo/css/main.css</file>
-            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/modules/api/controllers/ArrivalController.php</file>
-            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/modules/api/controllers/ContentController.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/views/shop/index.php</file>
             <file>file:/Users/jackeychen/Workspace/dz_bo/protected/controllers/IndexController.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/modules/api/controllers/NewsController.php</file>
             <file>file:/Users/jackeychen/Workspace/dz_bo/protected/models/ContentAR.php</file>
-            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/views/page/addnews.php</file>
-            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/views/page/brandinfo.php</file>
             <file>file:/Users/jackeychen/Workspace/dz_bo/protected/views/page/qrcode.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/config/main.php</file>
             <file>file:/Users/jackeychen/Workspace/dz_bo/protected/views/layouts/main.php</file>
             <file>file:/Users/jackeychen/Workspace/dz_bo/protected/models/JobAR.php</file>
             <file>file:/Users/jackeychen/Workspace/dz_bo/scripts/config.js</file>
             <file>file:/Users/jackeychen/Workspace/dz_bo/protected/components/Controller.php</file>
             <file>file:/Users/jackeychen/Workspace/dz_bo/scripts/ckeditor/contents.css</file>
-            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/modules/api/controllers/LookbookController.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/views/page/contact.php</file>
             <file>file:/Users/jackeychen/Workspace/dz_bo/protected/models/ShopAR.php</file>
-            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/views/page/careers.php</file>
             <file>file:/Users/jackeychen/Workspace/dz_bo/scripts/ckeditor/config.js</file>
-            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/views/shop/add.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/scripts/jquery.easing.js</file>
             <file>file:/Users/jackeychen/Workspace/dz_bo/protected/modules/api/controllers/ShopController.php</file>
-            <file>file:/Users/jackeychen/Workspace/dz_bo/scripts/ckeditor/ckeditor_basic.js</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/models/UserAR.php</file>
             <file>file:/Users/jackeychen/Workspace/dz_bo/protected/controllers/PageController.php</file>
-            <file>file:/Users/jackeychen/Workspace/dz_bo/scripts/jquery.form.js</file>
-            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/views/page/arrival.php</file>
-            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/models/LookbookAR.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/scripts/ckeditor/ckeditor_basic.js</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/models/VideoAR.php</file>
             <file>file:/Users/jackeychen/Workspace/dz_bo/protected/controllers/ShopController.php</file>
-            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/data/chinacity.php</file>
-            <file>file:/Users/jackeychen/Workspace/dz_bo/scripts/ckeditor/skins/v2/skin.js</file>
             <file>file:/Users/jackeychen/Workspace/dz_bo/protected/views/page/addvideo.php</file>
             <file>file:/Users/jackeychen/Workspace/dz_bo/scripts/ckeditor/_samples/sample.js</file>
-            <file>file:/Users/jackeychen/Workspace/dz_bo/yii/cli/views/webapp/protected/components/Controller.php</file>
             <file>file:/Users/jackeychen/Workspace/dz_bo/protected/views/page/lookbook.php</file>
-            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/modules/api/controllers/JobController.php</file>
             <file>file:/Users/jackeychen/Workspace/dz_bo/protected/views/page/addcareer.php</file>
-            <file>file:/Users/jackeychen/Workspace/dz_bo/scripts/script.js</file>
             <file>file:/Users/jackeychen/Workspace/dz_bo/protected/views/page/brand.php</file>
-            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/modules/api/controllers/SnsController.php</file>
             <file>file:/Users/jackeychen/Workspace/dz_bo/protected/models/MediaAR.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/modules/api/controllers/SnsController.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/views/page/navigation.php</file>
             <file>file:/Users/jackeychen/Workspace/dz_bo/protected/models/ArrivalAR.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/modules/api/controllers/MediaController.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/modules/api/controllers/ContentController.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/modules/api/controllers/ArrivalController.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/views/index/login.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/messages/en_us/strings.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/views/page/corporate.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/views/page/addnews.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/views/page/brandinfo.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/views/index/index.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/modules/api/controllers/VideocontentController.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/modules/api/controllers/LookbookController.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/views/page/video.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/messages/zh_cn/strings.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/views/page/careers.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/models/VideoContentAR.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/views/shop/add.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/views/page/arrival.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/scripts/jquery.form.js</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/models/LookbookAR.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/views/page/news.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/data/chinacity.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/scripts/ckeditor/skins/v2/skin.js</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/config/console.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/views/layouts/login.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/yii/cli/views/webapp/protected/components/Controller.php</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/scripts/script.js</file>
+            <file>file:/Users/jackeychen/Workspace/dz_bo/protected/modules/api/controllers/JobController.php</file>
         </group>
     </open-files>
 </project-private>

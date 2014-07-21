@@ -30,7 +30,7 @@
         <?php echo Yii::t("strings", "Body")?>
       </div>
       <div class="controls">
-        <textarea ng-model="formdata.body" cols="80" rows="8" /></textarea>
+        <textarea ng-ckeditor ng-model="formdata.body" cols="80" rows="8" /></textarea>
       </div>
     </div>
     

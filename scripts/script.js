@@ -1,6 +1,31 @@
 (function ($) {
   var AdminModule = angular.module("adminModule", []);
   
+  AdminModule.directive("ngCkeditor", function () {
+    return {
+      restrict: "A",
+      require: ["ngModel"],
+      scope: false,
+      link: function (scope, element, attrs, ctrls) {
+        var ngModel = ctrls[0];
+        var ckeditor = CKEDITOR.replace(element[0], {customConfig: window.baseurl + "/scripts/config.js"});
+        setInterval(function () {
+          if(ckeditor.checkDirty()) {
+            var data = ckeditor.getData();
+            if (ngModel.$viewValue != data) {
+              ngModel.$setViewValue(data);
+            }
+          }
+        }, 200);
+        
+        ckeditor.on("instanceReady", function() {
+          var data = ngModel.$viewValue;
+          ckeditor.setData(data);
+        });
+      }
+    };
+  });
+  
   // 文件上传Service
   AdminModule.factory("UploadMediaService", ["$http" ,function ($http) {
     function upload(file) {
@@ -444,6 +469,7 @@
 
   AdminModule.controller("NewsForm", ["$scope", "$http", function ($scope, $http) {
       $scope.media = {};
+      $scope.editorOptions = {};
       $scope.media.image = "";
       $scope.news = {};
       $scope.news.thumbnail = "";
@@ -452,7 +478,6 @@
         
         // 加载 news 对象
         var cid = angular.element("input[name='cid']").val();
-        console.log(cid);
         if (cid > 0 )  {
           $http({
             method: "get",
@@ -1048,9 +1073,9 @@
   });
   
   angular.element(document).ready(function () {
-    angular.element("textarea").ckeditor({
-      customConfig: window.baseurl + "/scripts/config.js"
-    });
+//    angular.element("textarea").ckeditor({
+//      customConfig: window.baseurl + "/scripts/config.js"
+//    });
     
     angular.element("#sidebar > .icons").click(function () {
       console.log("CLICKED ");

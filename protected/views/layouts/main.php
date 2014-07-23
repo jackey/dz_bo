@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en"  ng-app="adminModule">
+<html lang="<?php echo (string)Yii::app()->getLanguage()?>"  ng-app="adminModule">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -27,7 +27,7 @@
 <div class="container-fluid" id="page">
 
   <div id="header" class="clearfix">
-    <div id="logo"><img src="/images/logo.png" alt="" /></div>
+    <div id="logo"><a href="<?php echo Yii::app()->createUrl("index/index")?>"><img src="/images/logo.png" alt="" /></a></div>
 
     <div class="lang-bar">
         <a class="<?php if (Yii::app()->language == "zh_cn") echo "active"; ?>" href="javascript:void(0)" lang="zh_cn" class="lang_cn">中文</a>

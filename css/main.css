@@ -614,6 +614,7 @@ form[name="newsform"] input[type="file"] {
 
 #content .wrapper .dashboard li.item a {
   color: #ccc;
+  display: block;
 }
 
 #content .wrapper .dashboard li.item .fa {
@@ -651,4 +652,17 @@ li.slide-down-menu + li > a.hideme {
 
 li.slide-down-menu + li > a.hideme:before {
   content: "\f105\f105";
+}
+
+.navigation-form .control-group {
+  float: left;
+  margin-left: 5em;
+}
+
+.navigation-form input[type="text"] {
+ width: 100%; 
+}
+
+form[name='newsform'] .imagepreview .controls input[type="file"]:after {
+  content: "Add more image";
 }

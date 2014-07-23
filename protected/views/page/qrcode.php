@@ -1,37 +1,37 @@
-<div class="form-con qrcode-form" ng-controller='QrcodeController' ng-init="init()">
-  <div class="header clearfix">
+<div class="table-bar">
+  <i class="fa fa-plus-square"></i><a href="<?php echo Yii::app()->createUrl("page/addqacode")?>"><?php echo Yii::t("strings", "Add QACode")?></a>
+</div>
+
+<div class="table-content">
+  <header>
     <div class="icons">
-      <i class="fa fa-edit"></i>
+      <i class="fa fa-table"></i>
     </div>
-    <h4><?php echo Yii::t("strings", "Update Social QRCode")?></h4>
-    <div class="toolbar">
-      <nav style="padding: 8px;">
-        <a href="javascript:;" class="btn btn-default btn-xs full-box">
-          <i class="fa fa-expand"></i>
-        </a> 
-        <a href="javascript:;" class="btn btn-danger btn-xs close-box">
-          <i class="fa fa-times"></i>
-        </a> 
-      </nav>
-    </div>
+    <h5><?php echo Yii::t("strings", "QRCode Table")?></h5>
+  </header>
+  
+  <div class="tabbable tabs-below">
+    <table class="table table-striped">
+      <thead>
+        <td><?php echo Yii::t("strings", "Title")?></td>
+        <td><?php echo Yii::t("strings", "Category")?></td>
+        <td><?php echo Yii::t("strings", "Date")?></td>
+        <td><?php echo Yii::t("strings", "Actions")?></td>
+      </thead>
+      <tbody>
+        <?php foreach($qrcodes as $qrcode) :?>
+        <tr>
+          <td><?php echo $qrcode->title?></td>
+          <td><?php echo $qrcode->category?></td>
+          <td><?php echo $qrcode->cdate?></td>
+          <td>
+            <a href="<?php echo Yii::app()->baseUrl."/page/addqacode?id=". $qrcode->cid?>">Edit</a>
+            <a href="javascript:void(0)" data-cid="<?php echo $qrcode->cid?>" ng-click="deleteContent()">Delete</a>
+          </td>
+        </tr>
+        <?php endforeach;?>
+      </tbody>
+    </table>
   </div>
-  <form name="qrcodeform" class="clearfix form">
-   <?php foreach(Yii::app()->params["brands"] as $key => $name): ?>
-    <div class="control-group imagepreview">
-      <div class="control-label"><?php echo ucfirst($name)?></div>
-      <div class="controls">
-        <div class="preview">
-          <img ng-src="{{formdata.qrcode_<?php echo strtolower($name)?>}}" alt="" />
-        </div>
-        <input type="file" accept="image/*" onchange="angular.element(this).scope().filechange(this)"/>
-        <div class="alert alert-success"><?php echo Yii::t("strings", "Image Size: "). " 171x204"?></div>
-        <input type="hidden" ng-model="formdata.qrcode_<?php echo strtolower($name)?>" />
-      </div>
-    </div>
-   <?php endforeach;?>
-    <div class="form-actions">
-      <button class="btn btn-primary" ng-click="submitForm()"><?php echo Yii::t("strings", "Save")?></button>
-      <button class="btn btn-primary" ng-click="submitForm()"><?php echo Yii::t("strings", "Cancel")?></button>
-    </div>
-  </form>
+
 </div>

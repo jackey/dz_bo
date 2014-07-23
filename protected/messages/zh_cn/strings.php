@@ -37,5 +37,7 @@ return array(
     "Add Video" => "添加媒体",
     "Video Table" => "媒体列表",
     "Date" => "日期",
-    "Actions" => "操作"
+    "Actions" => "操作",
+    "Upload" => "上传",
+    "Remove Selected Image" => "删除选择后图片"
 );

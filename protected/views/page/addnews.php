@@ -63,7 +63,6 @@
     
     <div class="form-actions">
       <div class="controls">
-        <input type="button" class="btn btn-primary" value="<?php echo Yii::t("strings", "Cancel")?>"/>
         <input type="button" ng-click="submitNews($event)" class="btn-primary btn" value="<?php echo Yii::t("strings", "Save")?>"/>
       </div>
       </div>

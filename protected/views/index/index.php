@@ -5,16 +5,16 @@
     </div>
     <ul class="row-fluid dashboard">
       <li class="item">
-        <i class="fa fa-book"></i><a href="<?php echo Yii::app()->createUrl("page/news")?>"><?php echo Yii::t("strings", "News")?></a>
+        <a href="<?php echo Yii::app()->createUrl("page/news")?>"><i class="fa fa-book"></i><?php echo Yii::t("strings", "News")?></a>
       </li>
       <li class="item">
-        <i class="fa fa-shopping-cart"></i><a href="<?php echo Yii::app()->createUrl("shop/index")?>"><?php echo Yii::t("strings", "Store")?></a>
+        <a href="<?php echo Yii::app()->createUrl("shop/index")?>"><i class="fa fa-shopping-cart"></i><?php echo Yii::t("strings", "Store")?></a>
       </li>
       <li class="item">
-        <i class="fa fa-user"></i><a href="<?php echo Yii::app()->createUrl("page/careers")?>"><?php echo Yii::t("strings", "Position")?></a>
+        <a href="<?php echo Yii::app()->createUrl("page/careers")?>"><i class="fa fa-user"></i><?php echo Yii::t("strings", "Position")?></a>
       </li>
       <li class="item">
-        <i class="fa fa-video-camera"></i><a href="<?php echo Yii::app()->createUrl("page/video")?>"><?php echo Yii::t("strings", "Video")?></a>
+        <a href="<?php echo Yii::app()->createUrl("page/video")?>"><i class="fa fa-video-camera"></i><?php echo Yii::t("strings", "Video")?></a>
       </li>
     </ul>
   </div>

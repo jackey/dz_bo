@@ -81,7 +81,12 @@ class PageController extends Controller {
   }
   
   public function actionQrcode() {
-    $this->render("qrcode");
+    $qrcodes = QacodeAR::model()->getList();
+    $this->render("qrcode", array("qrcodes" => $qrcodes));
+  }
+  
+  public function actionAddqacode() {
+    $this->render("addqrcode");
   }
   
   public function actionContact() {

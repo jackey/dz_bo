@@ -124,9 +124,6 @@ class Controller extends CController
   }
   
   public function beforeAction($action) {
-    if (isset($_SERVER["HTTP_USER_AGENT"]) && strpos($_SERVER["HTTP_USER_AGENT"], "MSIE") !== FALSE) {
-      print "IE Bbowser";
-    }
     return parent::beforeAction($action);
   }
 }

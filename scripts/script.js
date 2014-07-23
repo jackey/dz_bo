@@ -201,17 +201,18 @@
   AdminModule.factory("QRCodeService", function () {
     function update(data) {
       return $.ajax({
-        url: "/api/content/updateqrcode",
+        url: "/api/qrcode/add",
         type: 'post',
         data: $.param(data)
       });
     }
     
-    function load() {
-      return $.ajax({
-        url: "/api/content/qrcode",
-        type: "get"
-      });
+    function load(cid) {
+        return $.ajax({
+          type: "get",
+          data: {id: cid},
+          url: "/api/qrcode/index"
+        });
     }
     
     return {update: update, load: load};
@@ -916,9 +917,10 @@
     , "QRCodeService"
     , "UploadMediaService", function ($scope, $http, LoadingIconService, QRCodeService, UploadMediaService) {
       $scope.formdata = {};
+      var cid = angular.element("input[name='cid']").val();
       $scope.init = function () {
         LoadingIconService.open();
-        QRCodeService.load().done(function (data) {
+        QRCodeService.load(cid).done(function (data) {
           LoadingIconService.close();
           if (data["data"]) {
             $scope.formdata = data["data"];
@@ -1022,6 +1024,7 @@
     
     // 触发上传文件
     $scope.triggerImageUpload = function (event) {
+      return;
       var self = $(event.currentTarget);
       self.addClass("uploading");
       var file = angular.element("input[name='file']");
@@ -1116,14 +1119,27 @@
       }
     });
     
+    var time;
     $(".thumbnail").live("mousemove", function () {
       var self = angular.element(this);
       if (!self.hasClass("checked")) {
+        if (time) {
+          clearTimeout(time);
+        }
+        time = setTimeout(function () {
+        }, 200);
+        
         angular.element(" > span", self).css("display", "block");
       }
-    }).live("mouseout" ,function () {
+    }).live("mouseleave" ,function (event) {
       var self = angular.element(this);
       if (!self.hasClass("checked")) {
+        if (time) {
+          clearTimeout(time);
+        }
+        time = setTimeout(function () {
+        }, 200);
+        
         angular.element(" > span", self).css("display", "none");
       }
     });
@@ -1131,9 +1147,11 @@
     $(".thumbnail > span").live("click", function () {
       if ($(this).parent().hasClass("checked")) {
         $(this).removeAttr("style").parent().removeClass("checked");
+        $(this).children("i.fa").removeClass("fa-check-square");
       }
       else {
         $(this).css({"display": "block", color: "#cb223a"}).parent().addClass("checked");
+        $(this).children("i.fa").addClass("fa-check-square");
       }
     });
   });

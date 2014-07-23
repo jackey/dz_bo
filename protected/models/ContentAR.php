@@ -372,8 +372,8 @@ class ContentAR extends CActiveRecord {
     // 加载 QRCode
     $brands = Yii::app()->params["brands"];
     $mediaAr = new MediaAR();
-    foreach ($brands as $brand) {
-      $name = "qrcode_". strtolower($brand);
+    foreach ($brands as $key => $brand) {
+      $name = "qrcode_". strtolower($key);
       $media = $mediaAr->loadMediaWithObject($content, $name);
       if ($media) {
         $content->qrcodes[$name] = Yii::app()->getBaseUrl(TRUE). unserialize($media->uri);

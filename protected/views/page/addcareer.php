@@ -26,7 +26,6 @@
     </div>
     <div class="form-actions">
       <button class="btn btn-primary" ng-click="submitForm()"><?php echo Yii::t("strings", "Save")?></button>
-      <button class="btn btn-primary"><?php echo Yii::t("strings", "Cancel")?></button>
     </div>
     <input type="hidden" name="cid" value="<?php echo ($career) ? $career->cid : 0?>" ng-model="formdata.cid" />
   </form>

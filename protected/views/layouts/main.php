@@ -55,8 +55,6 @@
       <li><a href="<?php echo Yii::app()->createUrl("page/navigation")?>" class="<?php echo $this->getActiveClass("page/navigation")?>"><?php echo Yii::t("strings", "Homepage (Navigation)")?></a></li>
       <li><a href="<?php echo Yii::app()->createUrl("page/corporate")?>" class="<?php echo $this->getActiveClass("page/corporate")?>"><?php echo Yii::t("strings", "Corporate Information")?></a></li>
       <li><a href="<?php echo Yii::app()->createUrl("page/brandinfo")?>" class="<?php echo $this->getActiveClass("page/brandinfo")?>"><?php echo Yii::t("strings", "Brand Information")?></a></li>
-      <li class="<?php echo Yii::app()->getController()->getRoute() == "page/video" || Yii::app()->getController()->getRoute() == "page/addvideo" ? "slide-down-menu": "" ?>"><a href="<?php echo Yii::app()->createUrl("page/video")?>" class="<?php echo $this->getActiveClass("page/video")?>"><?php echo Yii::t("strings", "Media")?></a></li>
-      <li><a href="<?php echo Yii::app()->createUrl("page/addvideo")?>" class="submenu <?php echo $this->getActiveClass("page/addvideo")?> hideme"><?php echo Yii::t("strings", "Add Media")?></a></li>
       <!-- Corporate End -->
       
       <!-- News -->
@@ -66,6 +64,14 @@
       <li><a class="<?php echo $this->getActiveClass("page/news")?>" href="<?php echo Yii::app()->createUrl("page/news")?>"><?php echo Yii::t("strings", "All News")?></a></li>
       <li><a class="<?php echo $this->getActiveClass("page/addnews")?>" href="<?php echo Yii::app()->createUrl("page/addnews")?>"><?php echo Yii::t("strings", "Add New")?></a></li>
       <!-- News End -->  
+      
+      <!-- Media -->
+      <li class="nav-header">
+        <?php echo Yii::t("strings", "Media")?>
+      </li>
+      <li><a class="<?php echo $this->getActiveClass("page/video")?>" href="<?php echo Yii::app()->createUrl("page/video")?>"><?php echo Yii::t("strings", "All Media")?></a></li>
+      <li><a href="<?php echo Yii::app()->createUrl("page/addvideo")?>" class="<?php echo $this->getActiveClass("page/addvideo")?>"><?php echo Yii::t("strings", "Add Media")?></a></li>
+      <!-- Media End -->
       
       <!-- Careers -->
       <li class="nav-header"><?php echo Yii::t("strings", "Careers")?></li>

@@ -34,14 +34,17 @@ class QrcodeController extends Controller {
   public function actionIndex() {
     $request = Yii::app()->getRequest();
     
-    $cid = $request->getParam("id");
+    $cid = $request->getParam("id", FALSE);
     if ($cid) {
       $qrcode = QacodeAR::model()->findByPk($cid);
       $this->responseJSON($qrcode, "success");
     }
-    else {
+    else if ($cid === FALSE){
       $qrcodes = QacodeAR::model()->getList();
       $this->responseJSON($qrcodes, "success");
+    }
+    else {
+      $this->responseError("params error");
     }
   }
 }

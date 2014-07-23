@@ -654,7 +654,7 @@
       
       $scope.submitForm = function () {
         ShopService.update($scope.shop).done(function (data) {
-          console.log(data);
+          window.location.href = window.baseurl + "/shop/index";
         });
       };
       

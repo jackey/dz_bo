@@ -408,7 +408,7 @@ input[type="text"] {
 }
 
 .imagepreview .controls input[type="file"]:after {
-  content: "upload image";
+  content: attr(upload);
   width: 10em;
   height: 2em;
   background: #000;
@@ -419,6 +419,7 @@ input[type="text"] {
   text-align: center;
   line-height: 2em;
   text-transform: uppercase;
+  color: #fff;
 }
 
 .form-actions input[type="button"], .form-actions  input[type="submit"], .form-actions button {

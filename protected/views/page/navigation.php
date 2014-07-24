@@ -25,7 +25,7 @@
           <span class="preview" ng-click="triggerImageUpload($event)">
             <img ng-src="{{formdata.<?php echo $name."_media_uri"?>}}" alt="" />
           </span>
-          <input type="file" name="file" class="hideme" onchange="angular.element(this).scope().fileUpload(this)"/>
+          <input upload="<?php echo Yii::t("strings", "Upload Image")?>" type="file" name="file" class="hideme" onchange="angular.element(this).scope().fileUpload(this)"/>
           <div class="alert alert-success"><?php echo Yii::t("strings", "Image Size: "). " 264x246"?></div>
           <input type="hidden" name="<?php echo $name."_media_uri"?>" ng-model="formdata.<?php echo $name."_media_uri"?>"/>
           <input type="text" placeholder="<?php echo Yii::t("strings", "menu navigation title")?>" name="<?php echo $name?>" ng-model="formdata.<?php echo $name?>"/>

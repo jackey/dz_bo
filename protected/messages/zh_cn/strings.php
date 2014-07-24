@@ -44,4 +44,5 @@ return array(
     "Position" => "招聘",
     "Video" => "视频",
     "Dashboard" => "Dazzle管理后台",
+    "Upload Image" => "上传图片",
 );

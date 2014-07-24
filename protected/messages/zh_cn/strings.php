@@ -39,5 +39,9 @@ return array(
     "Date" => "日期",
     "Actions" => "操作",
     "Upload" => "上传",
-    "Remove Selected Image" => "删除选择后图片"
+    "Remove Selected Image" => "删除选择后图片",
+    "Store" => "店铺",
+    "Position" => "招聘",
+    "Video" => "视频",
+    "Dashboard" => "Dazzle管理后台",
 );

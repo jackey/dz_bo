@@ -53,7 +53,7 @@
       <input type="hidden" ng-model="formdata.video_mp4" />
       <div class="alert"><?php echo "MP4 Video: "?>{{formdata.video_mp4}}</div>
       <label for=""><?php echo Yii::t("strings", "webm Format")?></label>
-      <input type="file" accept='video/*' onchange='angular.element(this).scope().filechange(this)'/>
+      <input type="file" upload="<?php echo Yii::t("strings", "Upload Image")?>" accept='video/*' onchange='angular.element(this).scope().filechange(this)'/>
       <input type="hidden" ng-model="formdata.video_webm" />
       <div class="alert"><?php echo "Webm Video: "?>{{formdata.video_webm}}</div>
     </fieldset>

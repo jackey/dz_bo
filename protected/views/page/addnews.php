@@ -53,12 +53,12 @@
         <div class="preview" ng-repeat="media in news.thumbnail">
           <img ng-src="{{media}}" alt="" />
         </div>
-        <input type="file" name="media" accept="image/*"/>
+        <input type="file" upload="<?php echo Yii::t("strings", "Add More Image")?>" name="media" accept="image/*"/>
         <input type="hidden" value="{{news.thumbnail}}" ng-model="news.thumbnail"/>
       </div>
     </div>
     
-    <input type="hidden" name="cid" value="<?php echo Yii::app()->getRequest()->getParam("id", 0)?>"/>
+    <input type="hidden"  name="cid" value="<?php echo Yii::app()->getRequest()->getParam("id", 0)?>"/>
     
     
     <div class="form-actions">

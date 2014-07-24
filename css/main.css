@@ -665,5 +665,5 @@ li.slide-down-menu + li > a.hideme:before {
 }
 
 form[name='newsform'] .imagepreview .controls input[type="file"]:after {
-  content: "Add more image";
+  
 }

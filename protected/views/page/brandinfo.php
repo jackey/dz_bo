@@ -42,7 +42,7 @@
         <span class="preview">
           <img ng-src="{{formdata.dazzle_thumbnail}}" alt="" />
         </span>
-        <input type="file" accept="image/*" onchange="angular.element(this).scope().fileChange(this)"/>
+        <input type="file" upload="<?php echo Yii::t("strings", "Upload Image")?>" accept="image/*" onchange="angular.element(this).scope().fileChange(this)"/>
         <div class="alert alert-success"><?php echo Yii::t("strings", "Image Size: "). " 658x671"?></div>
         <input type="hidden" ng-model="formdata.dazzle_thumbnail" />
       </div>

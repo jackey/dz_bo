@@ -45,4 +45,5 @@ return array(
     "Video" => "视频",
     "Dashboard" => "Dazzle管理后台",
     "Upload Image" => "上传图片",
+    "Add More Image" => "添加更多图片",
 );

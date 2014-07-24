@@ -59,7 +59,7 @@
             <div class="preview">
               <img ng-src="{{formdata.brand_thumbnail_image}}" alt="" />
             </div>
-            <input type="file" accept="image/*" onchange="angular.element(this).scope().filechange(this)" />
+            <input type="file" upload="<?php echo Yii::t("strings", "Upload Image")?>"  accept="image/*" onchange="angular.element(this).scope().filechange(this)" />
             <div class="alert alert-success"><?php echo Yii::t("strings", "Image Size: "). " 573x393"?></div>
             <input type="hidden" ng-model="formdata.brand_thumbnail_image" />
           </div>
@@ -71,7 +71,7 @@
             <div class="preview">
               <img ng-src="{{formdata.brand_navigation_image}}" alt="" />
             </div>
-            <input type="file" accept="image/*"  onchange="angular.element(this).scope().filechange(this)" />
+            <input type="file" upload="<?php echo Yii::t("strings", "Upload Image")?>"  accept="image/*"  onchange="angular.element(this).scope().filechange(this)" />
             <div class="alert alert-success"><?php echo Yii::t("strings", "Image Size: "). " 1249x1077"?></div>
             <input type="hidden" ng-model="formdata.brand_navigation_image" />
           </div>
@@ -83,7 +83,7 @@
             <div class="preview">
               <img ng-src="{{formdata.brand_navigation_full_image}}" alt="" />
             </div>
-            <input type="file" accept="image/*"  onchange="angular.element(this).scope().filechange(this)" />
+            <input type="file" upload="<?php echo Yii::t("strings", "Upload Image")?>"  accept="image/*"  onchange="angular.element(this).scope().filechange(this)" />
             <div class="alert alert-success"><?php echo Yii::t("strings", "Image Size: "). " 1290x1080"?></div>
             <input type="hidden" ng-model="formdata.brand_navigation_full_image" />
           </div>

@@ -46,4 +46,7 @@ return array(
     "Dashboard" => "Dazzle管理后台",
     "Upload Image" => "上传图片",
     "Add More Image" => "添加更多图片",
+    "Edit" => "编辑",
+    "Delete" => "删除",
+    "Close Shop" => "关闭店铺"
 );

@@ -869,6 +869,7 @@
         VideoContentService.add($scope.formdata).done(function (data) {
           //TODO::
           LoadingIconService.close();
+          window.location.href = window.baseurl + "/page/video";
         });
       };
     }]);

@@ -32,8 +32,9 @@
           <td><?php echo $news->category?></td>
           <td><?php echo $news->cdate?></td>
           <td>
-            <a href="<?php echo Yii::app()->baseUrl."/page/addnews?id=". $news->cid?>">Edit</a>
-            <a href="javascript:void(0)" data-cid="<?php echo $news->cid?>" ng-click="deleteContent()">Delete</a>
+            <a href="<?php echo Yii::app()->baseUrl."/page/addnews?id=". $news->cid?>"><?php echo Yii::t("strings", "Edit")?></a>
+            &nbsp;|&nbsp;
+            <a href="javascript:void(0)" data-cid="<?php echo $news->cid?>" ng-click="deleteContent()"><?php echo Yii::t("strings", "Delete")?></a>
           </td>
         </tr>
         <?php endforeach;?>

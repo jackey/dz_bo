@@ -40,7 +40,7 @@
         <div class="preview">
           <img ng-src='{{formdata.thumbnail}}' alt="" />
         </div>
-        <input type="file" accept="image/*" onchange='angular.element(this).scope().filechange(this)'/>
+        <input type="file" accept="image/*" upload="<?php echo Yii::t("strings", "Upload Image")?>" onchange='angular.element(this).scope().filechange(this)'/>
         <input type="hidden" name="thumbnail" ng-model="formdata.thumbnail"/>
         <div class="alert alert-success"><?php echo Yii::t("strings", "Image Size: "). " 1616x911"?></div>
       </div>

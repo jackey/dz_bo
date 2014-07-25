@@ -73,5 +73,6 @@ return array(
     "Add QRCode" => "添加QRCode",
     "QRCode Table" => "QRCode 列表", 
     "QRCode Image" => "QRCode 图片",
+    "All Media" => "媒体列表",
     "Update Contact Information" => "更新联系我们"
 );

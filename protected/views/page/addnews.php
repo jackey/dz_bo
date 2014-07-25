@@ -50,6 +50,18 @@
         <label for=""><?php echo Yii::t("strings", "Master Image")?></label>
       </div>
       <div class="controls clearfix">
+        <div class="preview">
+          <img ng-src="{{news.master_image}}" alt="" />
+        </div>
+        <input type="file" upload="<?php echo Yii::t("strings", "Upload Image")?>" name="master_image" accept="image/*"/>
+        <input type="hidden" value="{{news.master_image}}" ng-model="news.master_image"/>
+      </div>
+    </div>
+    <div class="control-group imagepreview">
+      <div class="control-label">
+        <label for=""><?php echo Yii::t("strings", "Slide Image")?></label>
+      </div>
+      <div class="controls clearfix">
         <div class="preview" ng-repeat="media in news.thumbnail">
           <img ng-src="{{media}}" alt="" />
         </div>

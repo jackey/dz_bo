@@ -48,5 +48,6 @@ return array(
     "Add More Image" => "添加更多图片",
     "Edit" => "编辑",
     "Delete" => "删除",
-    "Close Shop" => "关闭店铺"
+    "Close Shop" => "关闭店铺",
+    "Slide Image" => "幻灯片图片",
 );

@@ -28,8 +28,11 @@
   
   // 文件上传Service
   AdminModule.factory("UploadMediaService", ["$http" ,function ($http) {
-    function upload(file) {
-      file = file.files[0];
+    function upload(file, index) {
+      if (typeof index == "undefined") {
+        index = 0;
+      }
+      file = file.files[index];
       // 上传
       var formdata = new FormData();
       formdata.append("media", file);
@@ -376,20 +379,23 @@
         return;
       }
       LoadingIconService.open();
-      UploadMediaService.upload(file[0]).done(function (ret) {
-        // 成功
-        if (ret && typeof ret["status"] != "undeifned" && ret["status"] == 0) {
-          // 然后添加新的lookbook item
-          var object = $scope.object;
-          object.image = ret["data"]["uri"];
-          ArrivalService.addNewArrival(object).done(function (ret) {
-            $scope.arrivales.push(ret["data"]);
-            $scope.$digest();
-          }).always(function () {
-            LoadingIconService.close();
-          });
-        }
-      });
+      var len = file[0].files.length;
+      for (var i = 0; i < len; i++) {
+        UploadMediaService.upload(file[0], i).done(function (ret) {
+          // 成功
+          if (ret && typeof ret["status"] != "undeifned" && ret["status"] == 0) {
+            // 然后添加新的lookbook item
+            var object = $scope.object;
+            object.image = ret["data"]["uri"];
+            ArrivalService.addNewArrival(object).done(function (ret) {
+              $scope.arrivales.push(ret["data"]);
+              $scope.$digest();
+            }).always(function () {
+              LoadingIconService.close();
+            });
+          }
+        });
+      }
     };
     
     $scope.RemoveMedia = function (event) {
@@ -430,20 +436,24 @@
         return;
       }
       LoadingIconService.open();
-      UploadMediaService.upload(file[0]).done(function (ret) {
-        // 成功
-        if (ret && typeof ret["status"] != "undeifned" && ret["status"] == 0) {
-          // 然后添加新的lookbook item
-          var object = $scope.object;
-          object.image = ret["data"]["uri"];
-          LookbookService.addNewLookbook(object).done(function (ret) {
-            $scope.lookbookes.push(ret["data"]);
-            $scope.$digest();
-          }).always(function () {
-            LoadingIconService.close();
-          });
-        }
-      });
+      var len = file[0].files.length;
+      for (var i = 0; i < len; i++) {
+        UploadMediaService.upload(file[0], i).done(function (ret) {
+          // 成功
+          if (ret && typeof ret["status"] != "undeifned" && ret["status"] == 0) {
+            // 然后添加新的lookbook item
+            var object = $scope.object;
+            object.image = ret["data"]["uri"];
+            LookbookService.addNewLookbook(object).done(function (ret) {
+              $scope.lookbookes.push(ret["data"]);
+              $scope.$digest();
+            }).always(function () {
+              LoadingIconService.close();
+            });
+          }
+        });
+      }
+
     };
     
     $scope.RemoveMedia = function (event) {
@@ -502,8 +512,9 @@
           var el = angular.element(event.target);
           var file = el[0].files[0];
           var fileReader = new FileReader();
+          var name = el.attr("name");
           fileReader.onloadend = function (e) {
-            $scope.media.image = (e.target.result);
+            $scope.news[name] = (e.target.result);
             $scope.$digest();
           };
           fileReader.readAsDataURL(file);
@@ -520,11 +531,11 @@
             success: function (res) {
               if (typeof res["status"] != "undefined") {
                 var uri = res["data"]["uri"];
-                if ($scope.news.thumbnail) {
-                  $scope.news.thumbnail.push(uri);
+                if ($scope.news[name]) {
+                  $scope.news[name].push(uri);
                 }
                 else {
-                  $scope.news.thumbnail = [uri];
+                  $scope.news[name] = [uri];
                 }
                 
                 $scope.$digest();

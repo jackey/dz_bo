@@ -25,7 +25,7 @@
       <form class="form" name="MediaForm" enctype="multipart/form-data">
         <div class="control-group">
           <div class="controls">
-            <input type="file" name="media" accept="image/*"/>
+            <input type="file" name="media" accept="image/*" multiple/>
             <input type="hidden" name="title" ng-model="object.title"/>
             <input ng-click="UploadMedia($event)" type="button" class="btn btn-primary" value="<?php echo Yii::t("strings", "Upload")?>"/>
             <input type="button" ng-click="RemoveMedia($event)" class="btn btn-primary" value="<?php echo Yii::t("strings", "Remove Selected Image")?>"/>

@@ -60,7 +60,7 @@
         </div>
         
         <div class="control-group">
-          <label for="" class="control-label">Lat/ Lng</label>
+          <label for="" class="control-label"><?php echo Yii::t("strings", "Lat/ Lng")?></label>
           <div class="controls">
             <input type="text" name="lat" ng-model="shop.lat"/>
             <input type="text" name="lng" ng-model="shop.lng"/>

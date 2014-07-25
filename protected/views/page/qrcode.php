@@ -1,5 +1,5 @@
 <div class="table-bar">
-  <i class="fa fa-plus-square"></i><a href="<?php echo Yii::app()->createUrl("page/addqacode")?>"><?php echo Yii::t("strings", "Add QACode")?></a>
+  <i class="fa fa-plus-square"></i><a href="<?php echo Yii::app()->createUrl("page/addqacode")?>"><?php echo Yii::t("strings", "Add QRCode")?></a>
 </div>
 
 <div class="table-content">

@@ -53,7 +53,7 @@
         <div class="preview">
           <img ng-src="{{news.master_image}}" alt="" />
         </div>
-        <input type="file" upload="<?php echo Yii::t("strings", "Upload Image")?>" name="master_image" accept="image/*"/>
+        <input type="file" onchange="angular.element(this).scope().filechange(this)" upload="<?php echo Yii::t("strings", "Upload Image")?>" name="master_image" accept="image/*"/>
         <input type="hidden" value="{{news.master_image}}" ng-model="news.master_image"/>
       </div>
     </div>
@@ -65,7 +65,7 @@
         <div class="preview" ng-repeat="media in news.thumbnail">
           <img ng-src="{{media}}" alt="" />
         </div>
-        <input type="file" upload="<?php echo Yii::t("strings", "Add More Image")?>" name="media" accept="image/*"/>
+        <input type="file" onchange="angular.element(this).scope().filechange(this)" multiple upload="<?php echo Yii::t("strings", "Add More Image")?>" name="thumbnail" accept="image/*"/>
         <input type="hidden" value="{{news.thumbnail}}" ng-model="news.thumbnail"/>
       </div>
     </div>

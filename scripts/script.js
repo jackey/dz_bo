@@ -478,12 +478,8 @@
 //      });
   }]);
 
-  AdminModule.controller("NewsForm", ["$scope", "$http", function ($scope, $http) {
-      $scope.media = {};
-      $scope.editorOptions = {};
-      $scope.media.image = "";
+  AdminModule.controller("NewsForm", ["$scope", "$http", "LoadingIconService", "UploadMediaService",  function ($scope, $http, LoadingIconService, UploadMediaService) {
       $scope.news = {};
-      $scope.news.thumbnail = "";
       
       $scope.init = function () {
         
@@ -499,7 +495,6 @@
             if (typeof res["status"] != 'undefined' && res["status"] == 0 ){ 
               var data = res["data"];
               $scope.news = data;
-              $scope.media.image = data.thumbnail;
             }
             else {
               alert("未知错误");
@@ -508,44 +503,33 @@
         }
         
         // 绑定图片上传事件
-        angular.element("input[type='file']").live("change", function(event) {
-          var el = angular.element(event.target);
-          var file = el[0].files[0];
-          var fileReader = new FileReader();
+        $scope.filechange = function (el) {
+          el = angular.element(el);
           var name = el.attr("name");
-          fileReader.onloadend = function (e) {
-            $scope.news[name] = (e.target.result);
-            $scope.$digest();
-          };
-          fileReader.readAsDataURL(file);
-
-          // 上传
-          var formdata = new FormData();
-          formdata.append("media", file);
-          $.ajax({
-            url: window.baseurl + "/api/media/temp",
-            type: "post",
-            data: formdata,
-            processData: false,
-            contentType: false,
-            success: function (res) {
-              if (typeof res["status"] != "undefined") {
-                var uri = res["data"]["uri"];
-                if ($scope.news[name]) {
-                  $scope.news[name].push(uri);
+          var multiple = el.attr("multiple");
+          
+          LoadingIconService.open();
+          if (multiple) {
+            var len = el.get(0).files.length;
+            for (var i = 0; i < len; i++) {
+              UploadMediaService.upload(el.get(0), i).done(function (data) {
+                LoadingIconService.close();
+                if (typeof $scope.news[name] == "undefined" || Object.prototype.toString.apply($scope.news[name]) != "[object Array]") {
+                  $scope.news[name] = [];
                 }
-                else {
-                  $scope.news[name] = [uri];
-                }
-                
+                $scope.news[name].push(data["data"]["uri"]);
                 $scope.$digest();
-              }
-              else {
-                alert("未知错误");
-              }
+              });
             }
-          });
-        });
+          }
+          else {
+            UploadMediaService.upload(el.get(0)).done(function (data) {
+              LoadingIconService.close();
+              $scope.news[name] = data["data"]["uri"];
+              $scope.$digest();
+            });
+          }
+        };
       };
       
       $scope.submitNews = function (event) {

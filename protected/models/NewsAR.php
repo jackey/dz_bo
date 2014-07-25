@@ -14,6 +14,8 @@ class NewsAR extends ContentAR {
   // thumbnail media 字段
   public $thumbnail;
   
+  public $master_image;
+  
   public $category;
   
   /**
@@ -30,6 +32,7 @@ class NewsAR extends ContentAR {
   public function afterSave() {
     $mediaAr = new MediaAR();
     $mediaAr->saveMediaToObject($this, "thumbnail");
+    $mediaAr->saveMediaToObject($this, "master_image");
     
     parent::afterSave();
     return TRUE;
@@ -38,6 +41,7 @@ class NewsAR extends ContentAR {
   public function afterFind() {
     $mediaAr = new MediaAR();
     $mediaAr->attachMediaToObject($this, "thumbnail");
+    $mediaAr->attachMediaToObject($this, "master_image");
     
     parent::afterFind();
   }
@@ -46,6 +50,7 @@ class NewsAR extends ContentAR {
   public function getAttributes($names = null) {
     $attributes = parent::getAttributes($names);
     $attributes["thumbnail"] = $this->thumbnail;
+    $attributes["master_image"] = $this->master_image;
     
     return $attributes;
   }

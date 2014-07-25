@@ -47,7 +47,7 @@
             <div class="preview">
               <img ng-src="{{formdata.brand_master_image}}" alt="" />
             </div>
-            <input type="file"  accept="image/*" onchange="angular.element(this).scope().filechange(this)" />
+            <input type="file" upload="<?php echo Yii::t("strings", "Upload Image")?>"  accept="image/*" onchange="angular.element(this).scope().filechange(this)" />
             <div class="alert alert-success"><?php echo Yii::t("strings", "Image Size: "). " 605x1050"?></div>
             <input type="hidden" ng-model="formdata.brand_master_image" />
           </div>

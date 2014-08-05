@@ -1,0 +1,997 @@
+@charset "utf-8";
+/* INFORMATION */
+#information{	
+	background:#000;
+	color:#FFF;
+}
+#information .top{
+	height:180px;
+	position:fixed;
+	top:50%;
+	right:5%;
+	width:14px;
+	z-index:99999;
+	margin-top:-65px;
+}
+#information .top .menucontrol li{
+	margin-bottom:15px;
+}
+#information .top .home{
+	position:absolute;
+	top:0;
+	left:0;
+}
+#information .top .ver{
+	position:absolute;
+	top:25px;
+	right:0;
+}
+#information .ver li{
+	float:left;
+}
+#information .ver .menuitem a{
+	display:block;
+	margin-right:25px;
+	font-size:14px;
+}
+
+#information .wrap{
+	background:#000;
+	min-height:700px;
+	min-width:1440px;
+
+}
+
+#information .vessel .text .title{
+	height:65px;
+}
+#information .vessel{
+	font-family:Helvetica, Arial, serif,SimHei,"微软雅黑";
+	font-size:14px;	
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:20px;
+}
+
+#information .vessel .infoarrow{
+	position:absolute;
+	bottom:0;
+	left:50%;
+	margin-left:-28px;
+	margin-bottom:150px;
+	width:57px;
+	height:31px;
+}
+#information .info1 .pic{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:-755px;
+	margin-top:-320px;
+	width:739px;
+	height:639px;
+}
+#information .info1 .text{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:120px;
+	margin-top:-320px;
+	width:445px;
+	height:515px;
+}
+#information .info2 .pic{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:26px;
+	margin-top:-320px;
+	width:590px;
+	height:603px;
+}
+#information .info2 .pic #branddazzle{
+	width:188px;
+	height:317px;
+	display:block;
+	position:absolute;
+	top:0;
+	left:295px;
+	z-index:99999;
+}
+#information .info2 .pic #branddiamond{
+	width:188px;
+	height:317px;
+	display:block;
+	position:absolute;
+	top:190px;
+	left:92px;
+	z-index:99999;
+}
+#information .info2 .pic #branddzzit{
+	width:188px;
+	height:317px;
+	display:block;
+	position:absolute;
+	top:290px;
+	left:318px;
+	z-index:99999;
+}
+#information .info2 .text{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:-573px;
+	margin-top:-220px;
+	width:445px;
+	height:370px;
+}
+#information .infomedia .menu{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:-500px;
+	margin-top:-180px;
+	width:300px;
+	height:360px;
+}
+#information .infomedia .menu .title{
+	margin-bottom:35px;
+}
+#information .infomedia .menu li{
+	float:none;
+	margin-bottom:5px;
+}
+#information .infomedia #beginVideo{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:-120px;
+	margin-top:-180px;
+	width:640px;
+	height:360px;
+}
+#information #beginVideo #mediaplayer{
+	width:640px;
+	height:360px;
+}
+#information .info3 .pic{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:-758px;
+	margin-top:-320px;
+	width:740px;
+	height:641px;
+}
+#information .info3 .pic .careerlist{
+	position:absolute;
+	top:0;
+	background:url(/images/servicebg.png);
+	width:740px;
+	height:641px;
+}
+#information .info3 .pic .careerlist .careerlistclose{
+	position:absolute;
+	top:0;
+	right:0;
+}
+#information .info3 .text{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:157px;
+	margin-top:-320px;
+	width:445px;
+	height:515px;
+}
+#information .info4 .pic{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:-420px;
+	margin-top:-350px;
+	width:840px;
+	height:22px;
+}
+#information .info4 .ViewArea{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:-450px;
+	margin-top:-300px;
+	width:900px;
+	height:580px;
+	overflow:hidden;
+	font-size:10px;
+}
+#information .info4 .ViewArea .Employee{
+	float:left;
+	width:200px;
+	height：580px;
+	margin-right:25px;
+}
+#information .info4 .ViewControl{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:-650px;
+	margin-top:-300px;
+	width:1300px;
+	height:60px;
+	overflow:hidden;
+}
+#information .info4 .ViewControl .ControlLeftBtn{
+	float:left;
+}
+#information .info4 .ViewControl .ControlRightBtn{
+	float:right;
+}
+#information .info4 .ViewControl .ControlBtn{
+	display:none;
+}
+#information .infomenu{
+	position:absolute;
+	bottom:0;
+	left:50%;
+	margin-left:-78px;
+	width:156px;
+	height:135px;
+}
+
+
+
+/*newindex*/
+#information .index{
+	font-family: Helvetica, SimHei , Sans-Serif;
+	font-size:12px;	
+}
+#information .index .logo{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:-265px;
+	margin-top:-246px;
+	width:531px;
+	height:493px;
+}
+#information .index .logo #logotxt{
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:995;
+	display:none;
+	width:531px;
+	height:493px;
+}
+#information .index .logo #logobg{
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:990;
+	display:none;
+}
+#information .index .menutriangle{
+	position:absolute;
+	left:50%;
+	margin-left:-128px;
+	width:264px;
+	height:246px;	
+	z-index:980;
+	filter:alpha(opacity=0);
+	-moz-opacity:0;
+	-khtml-opacity: 0;
+	opacity: 0;
+}
+#information .index .menumask{
+	position:absolute;
+	width:138px;
+	height:239px;
+	z-index:999;
+}
+#information .index .masktopleft{
+	top:0;	
+}
+#information .index .masktopright{
+	top:0;
+	right:0;	
+}
+#information .index .maskbottomleft{
+	bottom:0;	
+}
+#information .index .maskbottomright{
+	bottom:0;	
+	right:0;
+}
+#information .index #menucorporate{
+	top:0;
+	margin-left:-396px;
+}
+#information .index #menuinvestors{
+	margin-left:-396px;
+	bottom:0;
+}
+#information .index #menubrand{
+	margin-left:130px;
+	top:0;
+}
+#information .index #menucareers{
+	margin-left:130px;
+	bottom:0;
+}
+
+
+#information .fixmenu{
+	position:fixed;
+	bottom:0;
+	left:50%;
+	margin-left:-395px;
+	width:790px;
+	z-index:99990;
+}
+#information .fixmenu li{
+	float:left;
+	filter:alpha(opacity=0);
+	-moz-opacity:0;
+	-khtml-opacity: 0;
+	opacity: 0;
+}
+#information .fixmenu .menuitem{
+	width:174px;
+	height:80px;
+	text-align:center;
+}
+#information .fixmenu .menuitem a{
+	width:174px;
+	height:18px;
+	display:block;
+	margin-top:50px;
+	font-size:14px;
+}
+#information .fixmenu .borderright a{
+	border-right:#FFF 1px solid;
+}
+
+#information .fixver{
+	position:fixed;
+	top:25px;
+	right:0;
+	z-index:99990;
+}
+#information .fixver li{
+	float:left;
+	filter:alpha(opacity=0);
+	-moz-opacity:0;
+	-khtml-opacity: 0;
+	opacity: 0;
+}
+#information .fixver .menuitem a{
+	display:block;
+	margin-right:25px;
+	font-size:14px;
+}
+
+
+/* brand */
+#brand{
+	background:#000;
+}
+#brand .wrap{
+	background:#000;
+	min-height:700px;
+	min-width:1440px;
+	filter:alpha(opacity=0);
+	-moz-opacity:0;
+	-khtml-opacity: 0;
+	opacity: 0;
+}
+#brand .wrap .pic img{
+	height:100%;
+}
+#brand .wrap .bg{
+	height:100%;
+}
+#brand .wrap .bg img{
+	filter:alpha(opacity=0);
+	-moz-opacity:0;
+	-khtml-opacity: 0;
+	opacity: 0;
+}
+#brand .wrap .hexagon{
+	position:absolute;
+	top:0;
+	left:50%;
+	height:100%;
+}
+#brand .wrap .Diamond .brandpage{
+	position:absolute;
+	top:50%;
+	left:0;
+	height:72px;
+	width:100%;
+	margin-top:-36px;
+	text-align:center;
+}
+#brand .wrap .Diamond .brandpage img{
+	height:20px;
+	width:305px;
+	margin-top:18px;
+}
+#brand .wrap .dzzit img{
+	float:left;
+}
+#brand .wrap .dzzit .brandpage{
+	position:absolute;
+	top:50%;
+	left:0;
+	height:72px;
+	width:100%;
+	margin-top:-36px;
+}
+#brand .wrap .dzzit .brandpage img{
+	float:left;
+	height:21px;
+	width:58px;
+	margin-left:70px;
+	margin-top:18px;
+}
+#brand .wrap .Dazzle img{
+	float:left;
+}
+#brand .wrap .Dazzle .brandpage{
+	position:absolute;
+	top:50%;
+	left:0;
+	height:72px;
+	width:100%;
+	margin-top:-36px;
+}
+#brand .wrap .Dazzle .brandpage img{
+	float:right;
+	height:20px;
+	width:104px;
+	margin-right:70px;
+	margin-top:18px;
+}
+
+#brand .menu{
+	position:absolute;
+	bottom:-1px;
+	left:0;
+	width:100%;
+	z-index:999;	
+	background:url(/images/brandbg.png);
+}
+#brand .menu ul{
+	margin:auto;
+	width:800px;
+}
+#brand .menu li{
+	float:left;
+}
+#brand .menu .menuitem{
+	width:174px;
+	height:80px;
+	text-align:center;
+}
+#brand .menu .menuitem a{
+	width:174px;
+	height:18px;
+	display:block;
+	margin-top:50px;
+	font-size:16px;
+}
+#brand .menu .borderright a{
+	border-right:#FFF 1px solid;
+}
+
+/* brand */
+#brandpage{
+	background:#fff;
+}
+#brandpage .wrap{
+	background:#000;
+	min-height:700px;
+	min-width:1440px;
+
+	filter:alpha(opacity=0);
+	-moz-opacity:0;
+	-khtml-opacity: 0;
+	opacity: 0;
+
+}
+
+#brandpage .top{
+	height:86px;
+	width:100%;
+	z-index:99999;
+	color:#000;
+	background:#FFF;
+}
+#brandpage .top a{
+	color:#000;
+}
+#brandpage .top .home{
+	position:absolute;
+	top:0;
+	left:0;
+}
+#brandpage .top .ver{
+	position:absolute;
+	top:25px;
+	right:0;
+}
+#brandpage .ver li{
+	float:left;
+}
+#brandpage .ver .menuitem a{
+	display:block;
+	margin-right:25px;
+	font-size:16px;
+}
+
+#brandpage .ViewArea{
+	width:100%;
+	height:100%;
+	overflow:hidden;
+}
+#brandpage .ViewArea .itemView{
+	height:100%;
+}
+#brandpage .ViewArea .itemView .item{
+	float:left;
+	height:100%;
+	position:relative;
+}
+#brandpage .ViewArea .itemView .Dazzle .pic{
+	position:absolute;
+	top:5%;
+	left:50%;
+	height:90%;
+	width:50%;
+	margin-left:-600px;
+}
+#brandpage .ViewArea .itemView .Dazzle .pic img{
+	height:100%;
+}
+#brandpage .ViewArea .itemView .Dazzle .cont{
+	position:absolute;
+	top:10%;
+	left:50%;
+	height:50%;
+	width:50%;
+	color:#FFF;
+}
+#brandpage .ViewArea .itemView .Dazzle .brandpagearrow{
+	position:absolute;
+	top:50%;
+	right:5%;
+	margin-top:-27px;
+}
+#brandpage .ViewArea .itemView .Dazzle .cont img{
+	margin-bottom:40px;
+}
+#brandpage .ViewArea .itemView .Dazzle .link{
+	position:absolute;
+	top:40%;
+	left:50%;
+	height:40%;
+	width:30%;
+	color:#FFF;	
+	margin-left:200px;
+	margin-top:100px;
+}
+
+#brandpage .ViewArea .itemView .Diamond{
+	background:#FFF;
+}
+#brandpage .ViewArea .itemView .Diamond .pic{
+	position:absolute;
+	top:5%;
+	left:50%;
+	height:90%;
+	width:50%;
+	margin-left:-100px;
+}
+#brandpage .ViewArea .itemView .Diamond .pic img{
+	height:100%;
+}
+#brandpage .ViewArea .itemView .Diamond .cont{
+	position:absolute;
+	top:15%;
+	left:50%;
+	height:60%;
+	width:50%;
+	margin-left:-650px;
+}
+#brandpage .ViewArea .itemView .Diamond .brandpagearrow{
+	position:absolute;
+	top:50%;
+	right:5%;
+	margin-top:-27px;
+}
+#brandpage .ViewArea .itemView .Diamond .cont img{
+	margin-bottom:40px;
+}
+#brandpage .ViewArea .itemView .Diamond .link{
+	position:absolute;
+	top:55%;
+	left:50%;
+	height:40%;
+	width:30%;
+	color:#FFF;	
+	margin-left:350px;
+}
+
+#brandpage .ViewArea .itemView .dzzit{
+	background:#f0e5a9;
+}
+#brandpage .ViewArea .itemView .dzzit .pic{
+	position:absolute;
+	top:5%;
+	left:50%;
+	height:90%;
+	width:50%;
+	margin-left:-600px;
+}
+#brandpage .ViewArea .itemView .dzzit .pic img{
+	height:100%;
+}
+#brandpage .ViewArea .itemView .dzzit .cont{
+	position:absolute;
+	top:10%;
+	left:50%;
+	height:50%;
+	width:50%;
+}
+#brandpage .ViewArea .itemView .dzzit .brandpagearrow{
+	position:absolute;
+	top:50%;
+	right:5%;
+	margin-top:-27px;
+}
+#brandpage .ViewArea .itemView .dzzit .cont img{
+	margin-bottom:40px;
+}
+#brandpage .ViewArea .itemView .dzzit .link{
+	position:absolute;
+	top:40%;
+	left:50%;
+	height:40%;
+	width:30%;
+	color:#FFF;	
+	margin-left:200px;
+	margin-top:100px;
+}
+
+#brandpage .ViewControl{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:-720px;
+	margin-top:-30px;
+	width:1440px;
+	height:60px;
+	overflow:hidden;
+	display:none;
+}
+#brandpage .ViewControl .ControlLeftBtn{
+	float:left;
+}
+#brandpage .ViewControl .ControlRightBtn{
+	float:right;
+}
+#brandpage .ViewControl .ControlBtn{
+	display:none;
+}
+
+/*lookbook*/
+#lookbook, #lookbook a{
+	color:#000;
+}
+#lookbook .top{
+	position:relative;
+	height:86px;
+}
+#lookbook .top .home{
+	position:absolute;
+	top:0;
+	left:0;
+}
+#lookbook .top .ver{
+	position:absolute;
+	top:25px;
+	right:0;
+}
+#lookbook .ver li{
+	float:left;
+}
+#lookbook .ver .menuitem a{
+	display:block;
+	margin-right:25px;
+	font-size:16px;
+}
+#lookbook .dress{
+	overflow:hidden;
+}
+#lookbook .ViewArea{
+	width:100%;
+	height:100%;
+	overflow:hidden;
+}
+#lookbook .ViewArea .itemView{
+	height:100%;
+}
+#lookbook .ViewArea .itemView .item{
+	float:left;
+	height:100%;
+	position:relative;
+}
+#lookbook .ViewArea .itemView img{
+	height:100%;
+}
+
+#lookbook .ViewControl{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:-47.5%;
+	margin-top:-30px;
+	width:95%;
+	height:60px;
+	overflow:hidden;
+}
+#lookbook .ViewControl .ControlLeftBtn{
+	float:left;
+}
+#lookbook .ViewControl .ControlRightBtn{
+	float:right;
+}
+#lookbook .ViewControl .ControlBtn{
+	display:none;
+}
+
+/*service*/
+#service{	
+	position:fixed;
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	min-height:700px;
+	min-width:1440px;
+	z-index:99999;
+}
+#service .wrap{
+	min-height:700px;
+	min-width:1440px;
+}
+#service .window{
+	position:fixed;
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	min-height:700px;
+	min-width:1440px;
+}
+#service .servicebg{
+	width:100%;
+	height:100%;
+	background:url(/images/servicebg.png);
+}
+#service .servicebox{
+	width:528px;
+	height:492px;
+	background:url(/images/servicebox.png);
+	background-size:100% 100%;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:-262px;
+	margin-top:-244px;
+}
+#service .serviceclose{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:260px;
+	margin-top:-235px;
+}
+#service .servicecloseblack{
+	position:absolute;
+	top:45px;
+	right:45px;
+}
+#service .servicebox .content{
+	margin-top:136px;
+	margin-left:120px;
+	width:300px;
+	height:350px;
+	text-align:center;
+	color:#ffffff;
+	position:relative;
+	font-size:14px;
+}
+#service .servicebox .content .mail{	
+  text-decoration:underline;
+}
+#service .servicebox .content .title{
+	margin-bottom:50px;
+}
+#service .servicebox .content .textleft{
+	float:left;
+	width:207px;
+	text-align:left;
+	margin-left:60px;
+}
+#service .servicebox .content .textright{
+	float:left;
+	width:207px;
+	text-align:left;
+}
+
+#service .code{
+	overflow:hidden;
+}
+#service .ViewArea{
+	width:250px;
+	height:205px;
+	margin:auto;
+	overflow:hidden;
+}
+#service .ViewArea .itemView{
+	width:250px;
+	height:205px;
+}
+#service .ViewArea .itemView .item{
+	float:left;
+	width:250px;
+	height:205px;
+	text-align:center;
+	position:relative;
+}
+#service .ViewArea .itemView img{
+	width:136px;
+	height:167px;
+}
+
+#service .ViewControl{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:-125px;
+	margin-top:-30px;
+	width:250px;
+	height:60px;
+	overflow:hidden;
+	display:block;
+}
+#service .ViewControl .socialControlLeftBtn{
+	float:left;
+	width:15px;
+}
+#service .ViewControl .socialControlRightBtn{
+	float:right;
+	width:15px;
+}
+#service .ViewControl img{
+	width:100%;
+}
+#service .ViewControl .ControlBtn{
+	display:none;
+}
+#service .mapcontrol{
+	position:absolute;
+	left:0;
+	top:0;
+	height:100%;
+	z-index:99999;
+}
+#service .mapcontrol .bg{
+	height:100%;
+}
+#service .mapcontrol .bg img{
+	height:100%;
+}
+#service .mapcontrol .menu{
+	position:absolute;
+	left:100px;
+	top:50%;
+	margin-top:-20px;
+	z-index:99999;
+	background:none;
+}
+#service .mapcontrol .select{
+	position:absolute;
+	left:330px;
+	top:50%;
+	margin-top:-370px;
+	z-index:99999;
+}
+#service .mapcontrol .select .selectarea{
+	position:absolute;
+	width:250px;
+	height:200px;
+
+}
+#service .mapcontrol #selectdazzle{
+	top:0;
+}
+#service .mapcontrol #selectdiamond{
+	top:300px;	
+}
+#service .mapcontrol #selectdzzit{
+	top:580px;		
+}
+#service .mapcontrol .select .selectarea .selecttitle{
+	margin-bottom:45px;
+	text-align:center;
+}
+#service .mapcontrol .select .selectarea .selectbox{
+	position:relative;
+	width:250px;
+	height:80px;
+}
+#service .mapcontrol .select .selectarea .selectobj{
+	width:230px;
+	background:#000;
+	color:#FFF;
+	border:none;
+	border-bottom:#FFF 1px solid;
+	position:absolute;	
+}
+#service .mapcontrol .select .selectarea .selectobj .Selected{
+	background:url(/images/selectbg.png) no-repeat right center;
+}
+#service .mapcontrol .select .selectarea .selectobj a{
+	display:block;
+	width:100%;
+}
+#service .mapcontrol .select .selectarea .selectprovince{
+	top:0;
+}
+#service .mapcontrol .select .selectarea .selectcity{
+	top:25px;
+}
+#service .mapcontrol .select .selectarea .selectstore{
+	top:50px;
+}
+#service .mapcontrol .select #selectdzzit .selectprovince{
+	bottom:75px;
+	top:inherit;
+}
+#service .mapcontrol .select #selectdzzit .selectcity{
+	bottom:50px;
+	top:inherit;
+}
+#service .mapcontrol .select #selectdzzit .selectstore{
+	bottom:25px;
+	top:inherit;
+}
+#service .mapcontrol .select .selectarea .selectobj .selectlist{
+	display:none;
+	//max-height:150px;
+	overflow:hidden;
+}
+#service .mapcontrol .select .selectarea .confirm{
+	margin-left:168px;
+}
+#service .map{
+	position:absolute;
+	right:0;
+	top:0;
+	height:100%;
+	width:100%;
+	background:#FFF;
+}
+
+#service .map #mapContent{
+	position:absolute;
+	right:0;
+	top:0;
+	height:100%;
+	width:100%;
+}
+#service .map #mapContent .top{
+	margin-left:0;
+	margin-top:0;
+}
+

@@ -1,0 +1,1 @@
+<?php function GalleryFastDownload() { return $GLOBALS['gallery']->fastDownload('albums/dazzle/lookbook/6.jpg', '6.jpg', 'Mon, 16 Jun 2014 18:16:37 GMT', 'image/jpeg', 59274);} ?>

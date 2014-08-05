@@ -1,0 +1,440 @@
+@charset "utf-8";
+/* INFORMATION */
+#information .wrap{
+	min-height:600px;
+	min-width:1300px;
+}
+#service{	
+	min-height:600px;
+	min-width:1300px;
+}
+#information{	
+	min-height:600px;
+	min-width:1300px;
+}
+#information .top{
+	height:80px;
+	position:fixed;
+	top:50%;
+	right:3%;
+	width:10px;
+	z-index:99999;
+	margin-top:-40px;
+}
+#information .top .menucontrol li{
+	margin-bottom:6px;
+	height:8px;
+}
+#information .top .menucontrol img{
+	height:8px;
+}
+
+
+#information .vessel .text .title{
+	height:55px;
+}
+#information .vessel .text .title img{
+	height:19px;
+}
+#information .vessel{
+	font-size:12px;	
+	line-height:18px;
+}
+
+#information .vessel .infoarrow{
+	position:absolute;
+	bottom:0;
+	left:50%;
+	margin-left:-16px;
+	margin-bottom:98px;
+	width:32px;
+	height:20px;
+}
+#information .vessel .infoarrow img{
+	width:32px;
+	height:20px;
+}
+#information .info1 .pic{
+	margin-left:-648px;
+	margin-top:-275px;
+	width:635px;
+	height:548px;
+}
+#information .info1 .pic img{	
+	width:635px;
+	height:548px;
+}
+#information .info1 .text{
+	margin-left:100px;
+	margin-top:-275px;
+	width:387px;
+}
+
+#information .info2 .pic{
+	margin-left:22px;
+	margin-top:-272px;
+	width:550px;
+	height:540px;
+}
+#information .info2 .pic img{
+	width:550px;
+	height:540px;
+}
+#information .info2 .pic #branddazzle{
+	width:188px;
+	height:317px;
+	display:block;
+	position:absolute;
+	top:0;
+	left:295px;
+	z-index:99999;
+}
+#information .info2 .pic #branddiamond{
+	width:188px;
+	height:317px;
+	display:block;
+	position:absolute;
+	top:190px;
+	left:92px;
+	z-index:99999;
+}
+#information .info2 .pic #branddzzit{
+	width:188px;
+	height:317px;
+	display:block;
+	position:absolute;
+	top:290px;
+	left:318px;
+	z-index:99999;
+}
+#information .info2 .text{
+	margin-left:-490px;
+	margin-top:-206px;
+	width:380px;
+	height:400px;
+}
+#information .info3 .pic{
+	margin-left:-648px;
+	margin-top:-275px;
+	width:635px;
+	height:548px;
+}
+#information .info3 .pic img{	
+	width:635px;
+	height:548px;
+}
+#information .info3 .pic .careerlist{
+	width:635px;
+	height:548px;
+}
+#information .info3 .pic .careerlist .careerlistclose img{
+	width:30px;
+	height:30px;
+}
+#information .info3 .text{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:157px;
+	margin-top:-270px;
+	width:445px;
+	height:515px;
+}
+
+
+#information .fixmenu{
+	left:50%;
+	margin-left:-337px;
+	width:674px;
+}
+#information .fixmenu li{
+	float:left;
+	filter:alpha(opacity=0);
+	-moz-opacity:0;
+	-khtml-opacity: 0;
+	opacity: 0;
+}
+#information .fixmenu .menuitem{
+	width:147px;
+	height:80px;
+}
+#information .fixmenu .menuitem a{
+	width:147px;
+	height:18px;
+	margin-top:50px;
+	font-size:14px;
+}
+#information .fixmenu .menulogo img{
+	width:85px;
+	height:78px;
+}
+
+
+
+/*newindex*/
+#information .index .logo{
+	margin-left:-220px;
+	margin-top:-204px;
+	width:440px;
+	height:409px;
+}
+#information .index .logo #logotxt{
+	width:440px;
+	height:409px;
+}
+#information .index .logo #logotxt img{
+	width:440px;
+	height:409px;
+}
+#information .index .logo #logobg img{
+	width:440px;
+	height:409px;
+}
+
+#information .index .menutriangle{
+	width:220px;
+	height:205px;	
+}
+#information .index .menutriangle img{
+	width:220px;
+	height:205px;	
+}
+#information .index .menumask{
+	width:113px;
+	height:205px;
+}
+
+#information .index #menucorporate{
+	margin-left:-329px;
+}
+#information .index #menuinvestors{
+	margin-left:-329px;
+}
+#information .index #menubrand{
+	margin-left:108px;
+}
+#information .index #menucareers{
+	margin-left:108px;
+}
+
+/*service*/
+#service .wrap{
+	min-height:600px;
+	min-width:1300px;
+}
+#service .window{
+	min-height:600px;
+	min-width:1300px;
+}
+#service .servicebox{
+	width:440px;
+	height:410px;
+	margin-left:-220px;
+	margin-top:-205px;
+}
+#service .serviceclose{
+	margin-left:192px;
+	margin-top:-205px;
+}
+#service .serviceclose img{
+	width:28px;
+	height:28px;
+}
+#service .servicecloseblack{
+	top:40px;
+	right:40px;
+}
+#service .servicecloseblack img{
+	width:28px;
+	height:28px;
+}
+
+#service .servicebox .content{
+	margin-top:90px;
+	margin-left:110px;
+	width:220px;
+	height:220px;
+	font-size:10px;
+}
+
+#service .servicebox .content .title{
+	margin-bottom:30px;
+}
+#service .servicebox .content .textleft{
+	float:left;
+	width:207px;
+	margin-left:60px;
+}
+#service .servicebox .content .textright{
+	float:left;
+	width:207px;
+}
+
+
+#service .ViewArea{
+	width:150px;
+	height:150px;
+}
+#service .ViewArea .itemView{
+	width:150px;
+	height:150px;
+}
+#service .ViewArea .itemView .item{
+	width:150px;
+	height:150px;
+}
+#service .ViewArea .itemView img{
+	width:113px;
+	height:143px;
+}
+#service .ViewControl{
+	margin-left:-125px;
+	margin-top:0px;
+}
+#service .mapcontrol .menu{
+	left:60px;
+	margin-top:-15px;
+}
+#service .mapcontrol .menu img{
+	height:30px;
+}
+
+#service .mapcontrol .select{
+	left:250px;
+	margin-top:-260px;
+}
+#service .mapcontrol .select .selectarea{
+	width:150px;
+	height:180px;
+
+}
+#service .mapcontrol .select .selectarea .selecttitle{
+	margin-bottom:30px;
+}
+#service .mapcontrol .select .selectarea .selecttitle img{
+	height:10px;
+}
+#service .mapcontrol .select .selectarea .selectbox{
+	width:160px;
+	height:80px;
+}
+#service .mapcontrol .select .selectarea .selectobj{
+	width:160px;
+}
+#service .mapcontrol #selectdazzle{
+	top:0;
+}
+#service .mapcontrol #selectdiamond{
+	top:200px;	
+}
+#service .mapcontrol #selectdzzit{
+	top:450px;		
+}
+#service .mapcontrol .select .selectarea .confirm{
+	margin-left:114px;
+}
+#service .mapcontrol .select .selectarea .confirm img{
+	height:15px;
+}
+/* brand */
+#brand .wrap{
+	min-height:600px;
+	min-width:1300px;
+}
+
+/* brand */
+#brandpage .wrap{
+	min-height:600px;
+	min-width:1300px;
+}
+#brandpage .top{
+	height:56px;
+}
+#brandpage .top img{
+	height:56px;
+}
+#brandpage .top .ver{
+	top:20px;
+}
+#brandpage .ver .menuitem a{
+	font-size:12px;
+}
+#brandpage .ViewArea .itemView .Dazzle .pic{
+	margin-left:-490px;
+}
+#brandpage .ViewArea .itemView .Dazzle .cont img{
+	height:429px;
+}
+#brandpage .ViewArea .itemView .Dazzle .brandpagearrow{
+	margin-top:-20px;
+}
+#brandpage .ViewArea .itemView .Dazzle .brandpagearrow img{
+	height:40px;
+}
+#brandpage .ViewArea .itemView .Dazzle .link{
+	margin-left:100px;
+	margin-top:50px;
+}
+#brandpage .ViewArea .itemView .Dazzle .link img{
+	height:300px;
+}
+#brandpage .ViewArea .itemView .Diamond .pic{
+	margin-left:-100px;
+}
+#brandpage .ViewArea .itemView .Diamond .cont{
+	margin-left:-600px;
+}
+#brandpage .ViewArea .itemView .Diamond .brandpagearrow{
+	margin-top:-20px;
+}
+#brandpage .ViewArea .itemView .Diamond .brandpagearrow img{
+	height:40px;
+}
+#brandpage .ViewArea .itemView .Diamond .cont img{
+	height:203px;
+}
+#brandpage .ViewArea .itemView .Diamond .link{
+	margin-left:300px;
+}
+#brandpage .ViewArea .itemView .Diamond .link img{
+	height:250px;
+}
+#brandpage .ViewArea .itemView .dzzit .pic{
+	margin-left:-490px;
+}
+
+#brandpage .ViewArea .itemView .dzzit .cont{
+	top:20%;
+}
+#brandpage .ViewArea .itemView .dzzit .cont img{
+	height:334px;
+}
+#brandpage .ViewArea .itemView .dzzit .link{
+	margin-left:110px;
+	margin-top:40px;
+}
+#brandpage .ViewArea .itemView .dzzit .link img{
+	height:310px;
+}
+
+#brandpage .ViewArea .itemView .dzzit .brandpagearrow{
+	margin-top:-20px;
+}
+#brandpage .ViewArea .itemView .dzzit .brandpagearrow img{
+	height:40px;
+}
+
+
+/*lookbook*/
+#lookbook .top{
+	height:56px;
+}
+#lookbook .top img{
+	height:56px;
+}
+#lookbook .top .ver{
+	top:20px;
+}
+#lookbook .ver .menuitem a{
+	font-size:12px;
+}

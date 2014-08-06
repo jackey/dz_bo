@@ -92,15 +92,12 @@
                     <div class="cont code">
                             <div class="ViewArea">
                               <div class="itemView">
-                                    <div class="item">
-                                        <img src="/images/codedazzle.png"/>                    	
-                                    </div>
-                                    <div class="item">
-                                        <img src="/images/codedzzit.png"/>                    	
-                                    </div>
-                                    <div class="item">
-                                        <img src="/images/codediamond.png"/>                    	
-                                    </div>
+                                    <?php $qrcodes = getQrcodes();?>
+                                    <?php foreach ($qrcodes as $qrcode): ?>
+                                        <div class="item">
+                                            <img src="<?php echo getThumbnailURL($qrcode->thumbnail)?>"/>                     
+                                        </div>
+                                    <?php endforeach;?>
                               </div>
                             </div>
                             <div class="ViewControl">
@@ -117,19 +114,7 @@
             <div class="servicebox">
             	<div class="content">
             		<div class="title"><img src="/images/servicecontact.png"/></div>
-                  <div class="cont">
-                    	TOLL FREE CUSTOMER SERVICE  <br/>
-                        021- 3250 0106<br/><br/><br/>
-                        
-                        
-                                          WORKING HOURS   <br/>                 
-                        MONDAY TO FRIDAY  <br/>
-                        9:00 -18:00 <br/>
-                      (Excluding National Holidays)<br/><br/><br/>
-                        
-                                                                             
-                                                            EMAIL  <br/>                                     
-                    <a class="mail" href="mailto:dazzle-fashion@dazzle-fashion.com">dazzle-fashion@dazzle-fashion.com</a></div>
+                    <div class="cont"><?php echo getContact()->body;?> </div>
                 </div>
             </div>  
             <a href="javascript:void(0);" class="serviceclose" ><img src="/images/close.png" /></a>        
@@ -259,39 +244,36 @@
         </div>
             <a  href="javascript:void(0)" class="infoarrow"  ><img src="/images/infoarrow.png" /></a>
         </div>
-		<div class="vessel info2">
-			<div class="pic">
-            	<div class="relative">
+        <div class="vessel info2">
+      <?php $brandinfo = loadBrandInformation();?>
+            <div class="pic">
+                <div class="relative">
+                    <?php if ($brandinfo->dazzle_thumbnail):?>
+                    <img id="brandinfopic" src="<?php echo getThumbnailURL($brandinfo->dazzle_thumbnail)?>" border="0" usemap="#Map" />
+                    <?php else: ?>
                     <img id="brandinfopic" src="/images/info2.png" border="0" usemap="#Map" />
+                    <?php endif;?>
                     <map name="Map">
-                      <area shape="poly" coords="111,157,19,317,111,476,292,476,385,315,293,159" href="/en/brandpage.php?brand=diamond">
-                      <area shape="poly" coords="293,158,383,1,569,3,657,157,569,317,386,314" href="/en/brandpage.php?brand=dazzle">
-                      <area shape="poly" coords="386,316,292,475,383,634,566,633,657,471,568,318" href="/en/brandpage.php?brand=dzzit">
+                      <area shape="poly" coords="111,157,19,317,111,476,292,476,385,315,293,159" href="/cn/brandpage.php?brand=diamond">
+                      <area shape="poly" coords="293,158,383,1,569,3,657,157,569,317,386,314" href="/cn/brandpage.php?brand=dazzle">
+                      <area shape="poly" coords="386,316,292,475,383,634,566,633,657,471,568,318" href="/cn/brandpage.php?brand=dzzit">
                     </map>
                     <map name="Mapsmall">
-                      <area shape="poly" coords="95,124,17,253,92,380,242,381,321,255,243,126" href="/en/brandpage.php?brand=diamond">
-                      <area shape="poly" coords="242,128,324,-6,476,1,547,127,472,255,322,256" href="/en/brandpage.php?brand=dazzle">
-                      <area shape="poly" coords="322,255,245,381,320,509,473,508,549,381,473,254" href="/en/brandpage.php?brand=dzzit">
+                      <area shape="poly" coords="95,124,17,253,92,380,242,381,321,255,243,126" href="/cn/brandpage.php?brand=diamond">
+                      <area shape="poly" coords="242,128,324,-6,476,1,547,127,472,255,322,256" href="/cn/brandpage.php?brand=dazzle">
+                      <area shape="poly" coords="322,255,245,381,320,509,473,508,549,381,473,254" href="/cn/brandpage.php?brand=dzzit">
                     </map>
                 </div>
             </div>
-			<div class="text">
-            	<div class="title"><img src="/images/infotitle2.png" /></div>
-                <div class="cont">
-                
-                DAZZLE is a leading high street fashion brand. DAZZLE is designed for independent and expressive young ladies who are chic and refined. DAZZLE is unique in the way that it is, unrestrictive and personal. For each new season, the focus is on the expression of female body curves; the design retains the essence of the style, and it makes the DAZZLE lady stand out from the crowd.<br/><br/>
-
-DIAMOND DAZZLE blends elements of modernity and luxury, and it is committed to create the new image for women in the 21st century. Exact handcrafting details, complex sewing technique, and the touch of haute couture have all been widely applied in DIAMOND DAZZLE new arrivals of each season.<br/><br/>
-
-d'zzit is for young girls who adore European fashion style, appreciate cosmopolitan beauty standards, and are keen on the latest fashion trends globally. 
-
-                </div>
+            <div class="text">
+                <div class="title"><img src="/cn/img/infotitle2.png" /></div>
+                <div class="cont"><?php echo $brandinfo->body?></div>
             </div>
             <a  href="javascript:void(0)" class="infoarrow"  ><img src="/images/infoarrow.png" /></a>
         </div>
         <div class="vessel infomedia">
 			<div class="menu">
-            	<div class="title"><img src="/images/infotitlemedia.png" /></div>
+            	<div class="title"><img src="/images/infotitlemedia.png"></div>
                 <div class="cont">
                     <?php $videoes = getVideoList();?>
                     <ul>
@@ -320,154 +302,22 @@ d'zzit is for young girls who adore European fashion style, appreciate cosmopoli
             </div>
             <a  href="javascript:void(0)" class="infoarrow"  ><img src="/images/infoarrow.png" /></a>
         </div>
+        <?php $jobs = getCareerList();?>
         <div class="vessel info3">
 			<div class="pic">
                     <img src="/images/info3.png" />
-                    <div class="careerlist" id="clothdesign" style="display:block;">
-                        <div class="testcareer">
-                            <div class="testbox">
-                                <h3>Assistant to Apparel Designer:</h3>
-                                <dl>
-                                    <dt>Position Requirements:</dt>
-                                    <dd>1.Assist designers for design works</dd>
-                                    <dd>2.Be proactive, willing to learn and possess great design potentials</dd>
-                                    <dd>3.This position is ideal for university graduates, training will be provided on the job</dd>
-                                </dl>
-                                <dl>
-                                    <dt>Qualifications</dt>
-                                    <dd>1.Bachelor degree</dd>
-                                    <dd>2.Loves fashion</dd>
-                                </dl>
+                    <?php foreach ($jobs as $job): ?>
+                        <div class="careerlist" id="career-<?php echo $job->cid?>">
+                            <div class="testcareer">
+                                <div class="testbox">
+                                    <h3><?php echo $job->title?></h3>
+                                    <?php echo $job->body?>
+                                </div>
                             </div>
+                            <a  href="javascript:void(0)" class="careerlistclose"  ><img src="/images/close.png"/></a>
                         </div>
-                        <a  href="javascript:void(0)" class="careerlistclose"  ><img src="/images/close.png"/></a>
-                    </div>
+                    <?php endforeach;?>
                     
-                    <div class="careerlist" id="imagedesign">
-                        <div class="testcareer">
-                            <div class="testbox">
-                                <h3>Assistant to Graphic Designer:</h3>
-                                <dl>
-                                    <dt>Position Requirements</dt>
-                                    <dd>1.Assist graphic designer for each season’s pattern design works</dd>
-                                    <dd>2.Make changes to the work based on Graphic Designer’s feedback</dd>
-                                    <dd>3.Collect real-time fashion elements</dd>
-                                </dl>
-                                <dl>
-                                    <dt>Qualifications</dt>
-                                    <dd>1.University graduates majored in graphic design/textile design preferred</dd>
-                                    <dd>2.Proficiency in graphic design software such as Photoshop, CoreIDRAW, and AI</dd>
-                                    <dd>3.Good drawing skills, perceptive to new fashion trend</dd>
-                                    <dd>4.A team player with great communication skills</dd>
-                                </dl>
-                            </div>
-                        </div>
-                        <a  href="javascript:void(0)" class="careerlistclose"  ><img src="/images/close.png"/></a>
-                    </div>
-                    
-                    <div class="careerlist" id="shenjimanager">
-                        <div class="testcareer">
-                            <div class="testbox">
-                                <h3>Auditing Manager</h3>
-                                <dl>
-                                    <dt>Position Requirements</dt>
-                                    <dd>1.Audit the business process of retailer, and authorized sellers management</dd>
-                                    <dd>2.Conduct internal auditing to regulate the brand promotion process</dd>
-                                    <dd>3.Conduct internal auditing to regulate the renovation and installation process in shopping malls</dd>
-                                    <dd>4.Conduct auditing to supervise authorized sellers’ sales refunding process</dd>
-                                    <dd>5.Conduct internal auditing to supervise the fixed assets purchase and payment</dd>
-                                    <dd>6.Conduct internal auditing to supervise the material purchasing and payment process</dd>
-                                    <dd>7.Check the transaction proceedings </dd>
-                                    <dd>8.Investment management and internal auditing for withdrawal management</dd>
-                                    <dd>9.Other related tasks</dd>
-                                </dl>
-                                <dl>
-                                    <dt>Qualifications</dt>
-                                    <dd>1.College degree with concentration in marketing, and auditing related studies</dd>
-                                    <dd>2.8 years plus working experience</dd>
-                                    <dd>3.Quick to grasp the key points of the business</dd>
-                                    <dd>4.Responsible, honest; able to keep the corporate confidential</dd>
-                                    <dd>5.Be able to work with finance department and other departments to fulfill auditing tasks</dd>
-                                    <dd>6.Business travels are required for the job</dd>
-                                </dl>
-                            </div>
-                        </div>
-                        <a  href="javascript:void(0)" class="careerlistclose"  ><img src="/images/close.png"/></a>
-                    </div>
-                    
-                    <div class="careerlist" id="dataanylize">
-                        <div class="testcareer">
-                            <div class="testbox">
-                                <h3>Data Analyst</h3>
-                                <dl>
-                                    <dt>Position Requirements</dt>
-                                    <dd>1.Conduct analysis and research to the market environment of fashion industry </dd>
-                                    <dd>2.Conduct analysis and research to the CoBP cases and OCA compliance</dd>
-                                    <dd>3.Conduct analysis to business management data</dd>
-                                    <dd>4.Conduct training sessions to management team</dd>
-                                </dl>
-                                <dl>
-                                    <dt>Qualifications</dt>
-                                    <dd>1.Post-graduate degree from one of the key universities </dd>
-                                    <dd>2.Strong trans-discipline study background, with undergraduate level Mathematics, Applied Mathematics, Physics, Statistics or Computer Science knowledge; with post-graduate level Statistics, Marketing or MBA (Marketing concentration) studies</dd>
-                                    <dd>3.Has great understanding of statistics modeling, proficiency in using statistics software such as SPSS, R, SAS, or EVIEWS</dd>
-                                    <dd>4.Great with communications, attention to the detail </dd>
-                                    <dd>5.Willing to learn new things, good at generalize the main points</dd>
-                                </dl>
-                            </div>
-                        </div>
-                        <a  href="javascript:void(0)" class="careerlistclose"  ><img src="/images/close.png"/></a>
-                    </div>
-                    
-                    <div class="careerlist" id="shenjiyuan">
-                        <div class="testcareer">
-                            <div class="testbox">
-                                <h3>Auditor</h3>
-                                <dl>
-                                    <dt>Position Requirements</dt>
-                                    <dd>1.Identify key risky areas and follow-up for improvement realization</dd>
-                                    <dd>2.Prepare well-organized audit reports</dd>
-                                    <dd>3.Review and evaluate significant business processes control effectiveness, identify issues and provide suggestions</dd>
-                                    <dd>4.pply all the audit findings with business functions to achieve feasible improvement actions</dd>
-                                    <dd>5.Ad hoc auditing and business management assistance</dd>
-                                </dl>
-                                <dl>
-                                    <dt>Qualifications</dt>
-                                    <dd>1.College graduate with degree in Auditing, Finance, or Law</dd>
-                                    <dd>2.2 years or plus auditing experience, accounting firm professionals preferred</dd>
-                                    <dd>3. Familiar with accounting, auditing and taxation process</dd>
-                                    <dd>4.Proficiency in office and auditing software</dd>
-                                    <dd>5.A team player and a quick learner</dd>
-                                </dl>
-                            </div>
-                        </div>
-                        <a  href="javascript:void(0)" class="careerlistclose"  ><img src="/images/close.png"/></a>
-                    </div>
-                    
-                    <div class="careerlist" id="fazhan">
-                        <div class="testcareer">
-                            <div class="testbox">
-                                <h3>Training and Development Manager</h3>
-                                <dl>
-                                    <dt>Position Requirements</dt>
-                                    <dd>1.Develop the internal training program; work with external vendors to achieve training objectives; help new employees to adapt to the work</dd>
-                                    <dd>2.Assist other departments to carry out training programs</dd>
-                                    <dd>3.Periodically review the talent development process</dd>
-                                    <dd>4.Facilitate company’s introduction process to new employees </dd>
-                                    <dd>5.Develop company’s overall training plan</dd>
-                                    <dd>6.Promote DAZZLE’s company culture and values</dd>
-                                    <dd>7.Provide strong training and employee development support to all the departments</dd>
-                                    <dd>8.Provide support based on individual department’s need</dd>
-                                </dl>
-                                <dl>
-                                    <dt>Qualifications</dt>
-                                    <dd>1.Above 8 years working experience in HR management of retail, FMCG companies, experience in fashion industry is highly preferred</dd>
-                                    <dd>2.Bachelor degree in HR management or business management </dd>
-                                </dl>
-                            </div>
-                        </div>
-                        <a  href="javascript:void(0)" class="careerlistclose"  ><img src="/images/close.png"/></a>
-                    </div>
             </div>
 
                         <style>
@@ -485,12 +335,9 @@ d'zzit is for young girls who adore European fashion style, appreciate cosmopoli
 			<div class="text">            
                 <div class="title"><img src="/images/infotitle3.png" /></div>
                 <div class="cont">
-                <a href="javascript:void(0)" data-pic="clothdesign" class="careerlistitem"><img src="/images/careerli.png"/>Assistant to Apparel Designer</a><br/><br/>
-                <a href="javascript:void(0)" data-pic="imagedesign" class="careerlistitem"><img src="/images/careerli.png"/>Assistant to Graphic Designer</a><br/><br/>
-                <a href="javascript:void(0)" data-pic="shenjimanager" class="careerlistitem"><img src="/images/careerli.png"/>Auditing Manager</a><br/><br/>
-                <a href="javascript:void(0)" data-pic="dataanylize" class="careerlistitem"><img src="/images/careerli.png"/>Data Analyst</a><br/><br/>
-                <a href="javascript:void(0)" data-pic="shenjiyuan" class="careerlistitem"><img src="/images/careerli.png"/>Auditor</a><br/><br/>
-                <a href="javascript:void(0)" data-pic="fazhan" class="careerlistitem"><img src="/images/careerli.png"/>Training and Development Manager</a><br/><br/>                
+                <?php foreach ($jobs as $job): ?>
+                    <a href="javascript:void(0)" data-pic="career-<?php echo $job->cid?>" class="careerlistitem"><img src="/images/careerli.png"/><?php echo $job->title?></a><br/><br/>
+                <?php endforeach;?>     
                 </div>
                 <div class="cont">
                 <br/><br/><br/><br/>

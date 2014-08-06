@@ -174,6 +174,22 @@ function getArrivalWithBrandName($brandName) {
   return $arrivals;
 }
 
+function getQrcodes() {
+  $qrcodes = QacodeAR::model()->getList();
+  foreach ($qrcodes as &$qrcode) {
+    $mediaName = "thumbnail";
+    $media = $qrcode->{$mediaName};
+    if (strpos($media, "http://") !== FALSE) {
+      $media = str_replace(Yii::app()->getBaseUrl(TRUE), "", $media);
+      $qrcode->{$mediaName} = $media;
+    }
+  }
 
+  return $qrcodes;
+}
+
+function getContact() {
+  return ContentAR::model()->loadContact();
+}
 
 ?>

@@ -112,7 +112,8 @@ class ContentController extends Controller {
     }
     $obj = array("title" => $brand->title, 
         "body" => $brand->title, 
-        "cid" => $brand->cid, 
+        "cid" => $brand->cid,
+        "language" => $brand->language,
         "brand_master_image" => $brand->brand_master_image,
         "brand_thumbnail_image" => $brand->brand_thumbnail_image,
         "brand_navigation_full_image" => $brand->brand_navigation_full_image,

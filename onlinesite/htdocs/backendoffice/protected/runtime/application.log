@@ -354,3 +354,140 @@ REQUEST_URI=/cn/lookbook.php?brand=diamond
 Stack trace:
 #0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/cn/lookbook.php(124): CWebApplication->handleError()
 REQUEST_URI=/cn/lookbook.php?brand=diamond
+2014/08/06 20:41:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "http://dzonline.local/cn/backendoffice/upload/93d4c64f274812a94f6996bc1ed1fda0.mp4".' in /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(141): CWebApplication->runController('http://dzonline...')
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/backendoffice/http://dzonline.local/cn/backendoffice/upload/93d4c64f274812a94f6996bc1ed1fda0.mp4
+HTTP_REFERER=http://dzonline.local/
+---
+2014/08/06 20:41:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "http://dzonline.local/cn/backendoffice/upload/01685d73fbf1ed496071146c13f7efb7.mp4".' in /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(141): CWebApplication->runController('http://dzonline...')
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/backendoffice/http://dzonline.local/cn/backendoffice/upload/01685d73fbf1ed496071146c13f7efb7.mp4
+HTTP_REFERER=http://dzonline.local/
+---
+2014/08/06 20:42:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "http://dzonline.local/cn/backendoffice/upload/3b8b002cdab00cfe7ff7db7c7885c55f.mp4".' in /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(141): CWebApplication->runController('http://dzonline...')
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/backendoffice/http://dzonline.local/cn/backendoffice/upload/3b8b002cdab00cfe7ff7db7c7885c55f.mp4
+HTTP_REFERER=http://dzonline.local/
+---
+2014/08/06 20:42:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "http://dzonline.local/cn/backendoffice/upload/93d4c64f274812a94f6996bc1ed1fda0.mp4".' in /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(141): CWebApplication->runController('http://dzonline...')
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/backendoffice/http://dzonline.local/cn/backendoffice/upload/93d4c64f274812a94f6996bc1ed1fda0.mp4
+HTTP_REFERER=http://dzonline.local/
+---
+2014/08/06 20:44:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "http://dzonline.local/cn/backendoffice/upload/93d4c64f274812a94f6996bc1ed1fda0.mp4".' in /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(141): CWebApplication->runController('http://dzonline...')
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/backendoffice/http://dzonline.local/cn/backendoffice/upload/93d4c64f274812a94f6996bc1ed1fda0.mp4
+HTTP_REFERER=http://dzonline.local/
+---
+2014/08/06 20:53:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "http://dzonline.local/cn/backendoffice/upload/93d4c64f274812a94f6996bc1ed1fda0.mp4".' in /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(141): CWebApplication->runController('http://dzonline...')
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/backendoffice/http://dzonline.local/cn/backendoffice/upload/93d4c64f274812a94f6996bc1ed1fda0.mp4
+HTTP_REFERER=http://dzonline.local/
+---
+2014/08/06 20:54:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "http://dzonline.local/cn/backendoffice/upload/93d4c64f274812a94f6996bc1ed1fda0.mp4".' in /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(141): CWebApplication->runController('http://dzonline...')
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/backendoffice/http://dzonline.local/cn/backendoffice/upload/93d4c64f274812a94f6996bc1ed1fda0.mp4
+HTTP_REFERER=http://dzonline.local/
+---
+2014/08/06 21:35:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "http://dzonline.local/cn/backendoffice/upload/93d4c64f274812a94f6996bc1ed1fda0.mp4".' in /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(141): CWebApplication->runController('http://dzonline...')
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/backendoffice/http://dzonline.local/cn/backendoffice/upload/93d4c64f274812a94f6996bc1ed1fda0.mp4
+HTTP_REFERER=http://dzonline.local/
+---
+2014/08/06 22:31:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "http://dzonline.local/cn/backendoffice/upload/93d4c64f274812a94f6996bc1ed1fda0.mp4".' in /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(141): CWebApplication->runController('http://dzonline...')
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/backendoffice/http://dzonline.local/cn/backendoffice/upload/93d4c64f274812a94f6996bc1ed1fda0.mp4
+HTTP_REFERER=http://dzonline.local/
+---
+2014/08/06 22:52:25 [error] [php] Undefined variable: jobs (/Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/en/index.php:323)
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/en/index.php(323): CWebApplication->handleError()
+REQUEST_URI=/en/index.php
+2014/08/06 22:53:06 [error] [php] Undefined variable: jobs (/Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/en/index.php:323)
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/en/index.php(323): CWebApplication->handleError()
+REQUEST_URI=/en/index.php
+2014/08/06 22:53:07 [error] [php] Undefined variable: jobs (/Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/en/index.php:323)
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/en/index.php(323): CWebApplication->handleError()
+REQUEST_URI=/en/index.php
+2014/08/06 22:53:56 [error] [php] Undefined variable: jobs (/Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/en/index.php:323)
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/en/index.php(323): CWebApplication->handleError()
+REQUEST_URI=/en/index.php
+2014/08/06 22:53:56 [error] [php] Undefined variable: jobs (/Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/en/index.php:323)
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/en/index.php(323): CWebApplication->handleError()
+REQUEST_URI=/en/index.php
+2014/08/06 23:13:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "http://dzonline.local/cn/backendoffice/upload/93d4c64f274812a94f6996bc1ed1fda0.mp4".' in /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(141): CWebApplication->runController('http://dzonline...')
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/backendoffice/http://dzonline.local/cn/backendoffice/upload/93d4c64f274812a94f6996bc1ed1fda0.mp4
+HTTP_REFERER=http://dzonline.local/cn/index.php
+---
+2014/08/06 23:18:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "http://dzonline.local/cn/backendoffice/upload/93d4c64f274812a94f6996bc1ed1fda0.mp4".' in /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(141): CWebApplication->runController('http://dzonline...')
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/backendoffice/http://dzonline.local/cn/backendoffice/upload/93d4c64f274812a94f6996bc1ed1fda0.mp4
+HTTP_REFERER=http://dzonline.local/cn/index.php
+---
+2014/08/06 23:18:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "http://dzonline.local/cn/backendoffice/upload/93d4c64f274812a94f6996bc1ed1fda0.mp4".' in /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(141): CWebApplication->runController('http://dzonline...')
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/backendoffice/http://dzonline.local/cn/backendoffice/upload/93d4c64f274812a94f6996bc1ed1fda0.mp4
+HTTP_REFERER=http://dzonline.local/cn/index.php
+---
+2014/08/06 23:24:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "http://dzonline.local/cn/backendoffice/upload/93d4c64f274812a94f6996bc1ed1fda0.mp4".' in /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(141): CWebApplication->runController('http://dzonline...')
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/backendoffice/http://dzonline.local/cn/backendoffice/upload/93d4c64f274812a94f6996bc1ed1fda0.mp4
+HTTP_REFERER=http://dzonline.local/cn/index.php
+---

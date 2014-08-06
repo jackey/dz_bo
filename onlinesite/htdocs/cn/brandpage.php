@@ -121,7 +121,7 @@
                                 <?php echo $brand_obj->body?>
                               </div>
                         </div>
-                        <div class="link"><img id="dazzlelinkpic" src="<?php echo getThumbnailURL($brand_obj->brand_thumbnail_image)?>" border="0" usemap="#Map" />
+                        <div class="link"><img id="<?php echo strtolower($key)?>linkpic" src="<?php echo getThumbnailURL($brand_obj->brand_thumbnail_image)?>" border="0" usemap="#Map" />
                           <map name="Map">
                             <area shape="rect" coords="411,60,480,196" href="/cn/lookbook.php?brand=<?php echo strtolower($key)?>">
                             <area shape="rect" coords="484,217,600,247" href="/cn/lookbook.php?brand=<?php echo strtolower($key)?>">

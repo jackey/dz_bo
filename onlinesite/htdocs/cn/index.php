@@ -91,15 +91,12 @@
                     <div class="cont code">
                             <div class="ViewArea">
                               <div class="itemView">
-                                    <div class="item">
-                                        <img src="/images/codedazzle.png"/>                    	
-                                    </div>
-                                    <div class="item">
-                                        <img src="/images/codedzzit.png"/>                    	
-                                    </div>
-                                    <div class="item">
-                                        <img src="/images/codediamond.png"/>                    	
-                                    </div>
+                                    <?php $qrcodes = getQrcodes();?>
+                                    <?php foreach ($qrcodes as $qrcode): ?>
+                                        <div class="item">
+                                            <img src="<?php echo getThumbnailURL($qrcode->thumbnail)?>"/>                     
+                                        </div>
+                                    <?php endforeach;?>
                               </div>
                             </div>
                             <div class="ViewControl">
@@ -117,13 +114,7 @@
             	<div class="content">
             		<div class="title"><img src="/cn/img/servicecontact.png"/></div>
                   <div class="cont">
-                    	免费客服热线  <br/>
-                        021- 3250 0106<br/><br/><br/>
-						客服热线时间： <br/>                 
-                        周一到周五 <br/>
-                        9:00 -18:00 <br/>
-                        （国定假日除外）<br/><br/><br/>
-                        邮箱   <br/>                                     
+                    	<?php echo getContact()->body;?>                                   
                     <a class="mail" href="mailto:dazzle-fashion@dazzle-fashion.com">dazzle-fashion@dazzle-fashion.com</a></div>
                 </div>
             </div>  
@@ -249,7 +240,7 @@
             <?php endif;?>
             </div>
 			<div class="text">
-            	<div class="title"><img src="/images/infotitle1.png" /></div>
+            	<div class="title"><img src="/cn/img/infotitle1.png"></div>
                 <div class="cont">  <?php echo $corporate->body?></div>
         </div>
             <a  href="javascript:void(0)" class="infoarrow"  ><img src="/images/infoarrow.png" /></a>
@@ -288,9 +279,9 @@
                 <div class="cont">
                 	<ul>
                       <?php foreach ($videoes as $video):?>
-                          <li><a  href="javascript:void(0)" data-webm-source="<?php echo $video->video_webm?>" data-mp4-source="<?php echo $video->video_mp4?>" class="videoitem" ><?php echo $video->title?></a></li>
+                          <li><a  href="javascript:void(0)" data-webm-source="<?php echo getThumbnailURL($video->video_webm)?>" data-mp4-source="<?php echo getThumbnailURL($video->video_mp4) ?>" class="videoitem" ><?php echo $video->title?></a></li>
                       <?php endforeach;?> 
-                    </ul>                
+                    </ul>
                 </div>
             </div>
             <?php $video = array_shift($videoes);?>
@@ -298,14 +289,14 @@
                 <video id="beginVideo" poster="<?php echo getThumbnailURL($video->thumbnail)?>"
                      controls
                      loop="loop"> 
-                      <source src="/video/dazzle_final.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
-                      <source src="/video/dazzle_final.webm" type='video/webm; codecs="vp8, vorbis"' />
+                      <source src="<?php echo getThumbnailURL($video->video_mp4)?>" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+                      <source src="<?php echo getThumbnailURL($video->video_webm)?>" type='video/webm; codecs="vp8, vorbis"' />
                      <div id="mediaplayer">JW Player goes here</div>
                      
                     <script type="text/javascript">
                         jwplayer("mediaplayer").setup({
                             flashplayer: "/flash/player.swf",
-                            file: "<?php echo $video->video_mp4?>"
+                            file: "<?php echo getThumbnailURL($video->video_mp4) ?>"
                         });
                     </script>  
                 </video>

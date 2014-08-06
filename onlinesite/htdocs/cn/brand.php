@@ -161,11 +161,11 @@
             <?php foreach ($brandNames as $key => $brandName): ?>
                 <?php $brand = getBrand($brandName)?>
                 <div class="<?php echo $key?> pic hexagon">
-                    <?php echo $brand->brand_navigation_image?>
-                    <a href="javascript:void(0)" data-href="/cn/brandpage.php?brand=<?php echo strtolower($key)?>" data-src="<?php echo $brand->brand_navigation_full_image?>" class="brandpage">
-                        <?php if ($key == "Dazzle"): ?>
+                   <img src="<?php echo getThumbnailURL($brand->brand_navigation_image)?>"> 
+                    <a href="javascript:void(0)" data-href="/cn/brandpage.php?brand=<?php echo strtolower($key)?>" data-src="<?php echo getThumbnailURL($brand->brand_navigation_full_image)?>" class="brandpage">
+                        <?php if ($key == "Diamond"): ?>
                         <img src="/images/linkdiamond.png"/>
-                        <?php elseif ($key == "Diamond"): ?>
+                        <?php elseif ($key == "Dazzle"): ?>
                         <img src="/images/linkDazzle.png" />
                         <?php else: ?>
                         <img src="/images/linkdzzit.png" />

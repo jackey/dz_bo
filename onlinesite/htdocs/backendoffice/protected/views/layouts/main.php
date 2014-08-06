@@ -57,11 +57,12 @@
       <!-- Corporate End -->
       
       <!-- News -->
-      <li class="nav-header">
+      <!-- <li class="nav-header">
         <?php echo Yii::t("strings", "News")?>
       </li>
       <li><a class="<?php echo $this->getActiveClass("page/news")?>" href="<?php echo Yii::app()->createUrl("page/news")?>"><?php echo Yii::t("strings", "All News")?></a></li>
       <li><a class="<?php echo $this->getActiveClass("page/addnews")?>" href="<?php echo Yii::app()->createUrl("page/addnews")?>"><?php echo Yii::t("strings", "Add New")?></a></li>
+      -->
       <!-- News End -->  
       
       <!-- Media -->

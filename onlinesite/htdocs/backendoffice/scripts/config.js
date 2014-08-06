@@ -6,7 +6,8 @@ CKEDITOR.editorConfig = function( config )
          config.skin = "office2003";
          config.toolbar = "Full";
           config.toolbar_Full =
-          [
+          [ 
+                    {name: 'document', items: ['Source']},
                   //{ name: 'document', items : [ 'Source','-','Save','NewPage','DocProps','Preview','Print','-','Templates' ] },
                   //{ name: 'clipboard', items : [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ] },
                   { name: 'editing', items : [ 'Find','Replace','-','SelectAll','-','SpellChecker', 'Scayt' ] },

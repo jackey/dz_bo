@@ -696,6 +696,7 @@
         LoadingIconService.open();
         CareerService.update($scope.formdata).done(function (data) {
           LoadingIconService.close();
+          window.location.href = window.baseurl + "/page/careers";
         });
       };
     }]);

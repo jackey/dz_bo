@@ -46,6 +46,7 @@ class ArrivalAR extends ContentAR {
     $sql = "SELECT * FROM ". $table. " as c";
     $sql .= " LEFT JOIN field f on f.field_name='brand' AND f.cid = c.cid";
     $sql .= " WHERE f.field_content=:brand AND c.type='arrival'";
+
     
     $command = Yii::app()->db->createCommand($sql);
     $result = $command->queryAll(TRUE ,array(":brand" => $brand));

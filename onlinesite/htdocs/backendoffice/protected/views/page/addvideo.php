@@ -24,6 +24,18 @@
     </div>
     <div class="control-group">
       <div class="control-label">
+        <label for=""><?php echo Yii::t("strings", "Weight")?></label>
+      </div>
+      <div class="controls">
+        <select ng-model="news.weight">
+          <?php foreach (range(0, 10) as $weight): ?>
+          <option value="<?php echo ($weight)?>"><?php echo ($weight)?></option>
+          <?php endforeach;?>
+        </select>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="control-label">
         <label for=""><?php echo Yii::t("strings", "Category")?></label>
       </div>
       <div class="controls">

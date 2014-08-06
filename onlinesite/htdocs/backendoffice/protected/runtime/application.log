@@ -491,3 +491,23 @@ Stack trace:
 REQUEST_URI=/backendoffice/http://dzonline.local/cn/backendoffice/upload/93d4c64f274812a94f6996bc1ed1fda0.mp4
 HTTP_REFERER=http://dzonline.local/cn/index.php
 ---
+2014/08/06 23:57:08 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'cdate DESC' at line 1. The SQL statement executed was: SELECT * FROM `content` `t` WHERE ((type=:type) AND (language=:language)) AND (status=:status) ORDER BY weight DESC cdate DESC.
+2014/08/06 23:57:08 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'cdate DESC' at line 1' in /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/db/CDbCommand.php:543
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/db/CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/db/ar/CActiveRecord.php(1351): CDbCommand->queryAll()
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/db/ar/CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
+#3 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/protected/models/ContentAR.php(204): CActiveRecord->findAll(Object(CDbCriteria))
+#4 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/protected/controllers/PageController.php(72): ContentAR->getList()
+#5 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/actions/CInlineAction.php(49): PageController->actionVideo()
+#6 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#8 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(282): CController->run('video')
+#10 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(141): CWebApplication->runController('page/video')
+#11 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/index.php(12): CApplication->run()
+#13 {main}
+REQUEST_URI=/index.php/page/video.html
+HTTP_REFERER=http://dzbo.local/index.php/page/addvideo/20068.html
+---

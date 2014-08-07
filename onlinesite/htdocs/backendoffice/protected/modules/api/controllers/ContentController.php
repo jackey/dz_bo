@@ -111,7 +111,7 @@ class ContentController extends Controller {
       return $this->responseError('brand with '. $brandName. " is not existed");
     }
     $obj = array("title" => $brand->title, 
-        "body" => $brand->title, 
+        "body" => $brand->body, 
         "cid" => $brand->cid,
         "language" => $brand->language,
         "brand_master_image" => $brand->brand_master_image,

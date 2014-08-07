@@ -421,6 +421,11 @@ class ContentAR extends CActiveRecord {
       }
       $brand = $contentTmp;
     }
+    else {
+      $brand->body = $data["body"];
+      $brand->title = $data["title"];
+      $brand->save();
+    }
     
     // 再保存Media
     $mediaAr = new MediaAR();
@@ -436,6 +441,8 @@ class ContentAR extends CActiveRecord {
     $mediaAr->saveMediaToObject($brand, "brand_navigation_full_image");
     
     // 保存好后 再重新load 然后返回
+
+
     return $this->loadBrandInfo($brandName);
   }
   

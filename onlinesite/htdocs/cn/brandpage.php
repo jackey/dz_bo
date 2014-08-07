@@ -116,7 +116,7 @@
                       <div class="pic"><img src="<?php echo getThumbnailURL($brand_obj->brand_master_image) ?>" /></div>
                         <div class="cont">
                                <img src="/cn/img/<?php echo strtolower($key)?>story.png"/> 
-                              <div class="ppstory dazzlewomen">
+                              <div class="ppstory <?php if ($key == "Dazzle") echo "dazzlewomen"; elseif ($key == "Diamond") echo "diamondstory"; else echo "dizzitstory"; ?>">
                                 <h3>品牌故事</h3>
                                 <?php echo $brand_obj->body?>
                               </div>

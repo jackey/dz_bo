@@ -115,6 +115,7 @@
             		<div class="title"><img src="/cn/img/servicecontact.png"/></div>
                   <div class="cont">
                     	<?php echo getContact()->body;?>                                   
+                   </div>
                 </div>
             </div>  
             <a href="javascript:void(0);" class="serviceclose" ><img src="/images/close.png" /></a>        

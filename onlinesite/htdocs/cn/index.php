@@ -115,7 +115,6 @@
             		<div class="title"><img src="/cn/img/servicecontact.png"/></div>
                   <div class="cont">
                     	<?php echo getContact()->body;?>                                   
-                    <a class="mail" href="mailto:dazzle-fashion@dazzle-fashion.com">dazzle-fashion@dazzle-fashion.com</a></div>
                 </div>
             </div>  
             <a href="javascript:void(0);" class="serviceclose" ><img src="/images/close.png" /></a>        

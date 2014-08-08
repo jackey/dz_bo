@@ -26,7 +26,7 @@
         <td><img src="<?php echo MediaAR::thumbnail($content->thumbnail, array(50, 50))?>" alt="" /></td>
         <td>
           <a href="<?php echo Yii::app()->createUrl("page/addvideo", array("id" => $content->cid))?>"><?php echo Yii::t("strings", "Edit")?>&nbsp;|&nbsp;</a>
-          <a href="javascript:void(0)" ng-click='delete(<?php echo $content->cid?>)'><?php echo Yii::t("strings", "Delete")?></a>
+          <a href="javascript:void(0)" onclick='deleteContent(<?php echo $content->cid?>)'><?php echo Yii::t("strings", "Delete")?></a>
         </td>
       </tr>
         <?php endforeach;?>

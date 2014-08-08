@@ -511,3 +511,78 @@ Stack trace:
 REQUEST_URI=/index.php/page/video.html
 HTTP_REFERER=http://dzbo.local/index.php/page/addvideo/20068.html
 ---
+2014/08/08 16:11:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/08/08 16:11:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/08/08 16:11:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/08/08 16:11:37 [error] [php] Missing argument 2 for YiiBase::t(), called in /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/protected/views/layouts/main.php on line 21 and defined (/Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/YiiBase.php:577)
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CBaseController.php(95): IndexController->renderInternal()
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CController.php(784): IndexController->renderFile()
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/protected/controllers/IndexController.php(15): IndexController->render()
+#3 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/actions/CInlineAction.php(49): IndexController->actionIndex()
+#4 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CController.php(308): CInlineAction->runWithParams()
+#5 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CController.php(286): IndexController->runAction()
+#6 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CController.php(265): IndexController->runActionWithFilters()
+#7 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(282): IndexController->run()
+#8 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/index.php(12): CWebApplication->run()
+REQUEST_URI=/index.php/index.html
+2014/08/08 16:38:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "content/delete".' in /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(141): CWebApplication->runController('content/delete')
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/content/delete
+HTTP_REFERER=http://dzbo.local/index.php/page/video.html
+---
+2014/08/08 16:42:04 [error] [php] Undefined variable: content (/Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/protected/views/page/careers.php:23)
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CController.php(869): PageController->renderFile()
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CController.php(782): PageController->renderPartial()
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/protected/controllers/PageController.php(98): PageController->render()
+#3 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/actions/CInlineAction.php(49): PageController->actionCareers()
+#4 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CController.php(308): CInlineAction->runWithParams()
+#5 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CController.php(286): PageController->runAction()
+#6 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CController.php(265): PageController->runActionWithFilters()
+#7 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(282): PageController->run()
+#8 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/index.php(12): CWebApplication->run()
+REQUEST_URI=/index.php/page/careers.html
+2014/08/08 16:42:07 [error] [php] Undefined variable: content (/Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/protected/views/page/careers.php:23)
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CController.php(869): PageController->renderFile()
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CController.php(782): PageController->renderPartial()
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/protected/controllers/PageController.php(98): PageController->render()
+#3 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/actions/CInlineAction.php(49): PageController->actionCareers()
+#4 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CController.php(308): CInlineAction->runWithParams()
+#5 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CController.php(286): PageController->runAction()
+#6 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CController.php(265): PageController->runActionWithFilters()
+#7 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(282): PageController->run()
+#8 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/index.php(12): CWebApplication->run()
+REQUEST_URI=/index.php/page/careers.html

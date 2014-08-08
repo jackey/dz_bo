@@ -24,8 +24,6 @@ class ContentController extends Controller {
       $content->save();
     }
     
-
-    
     return $this->responseJSON("success", "success");
   }
   

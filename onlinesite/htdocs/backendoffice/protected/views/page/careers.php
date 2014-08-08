@@ -20,7 +20,7 @@
         <tr>
           <td><?php echo $career->title?></td>
           <td><?php echo $career->cdate?></td>
-          <td><a href="<?php echo Yii::app()->createUrl("page/addcareer", array("id" => $career->cid))?>"><?php echo Yii::t("strings", "Edit")?></a>&nbsp;&nbsp;| <a href="#"><?php echo Yii::t("strings", "Delete")?></a> </td>
+          <td><a href="<?php echo Yii::app()->createUrl("page/addcareer", array("id" => $career->cid))?>"><?php echo Yii::t("strings", "Edit")?></a>&nbsp;&nbsp;| <a href="#" onclick='deleteContent(<?php echo $career->cid?>)'><?php echo Yii::t("strings", "Delete")?></a> </td>
         </tr>
         <?php endforeach;?>
       </tbody>

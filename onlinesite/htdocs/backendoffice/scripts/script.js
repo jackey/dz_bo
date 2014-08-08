@@ -107,9 +107,6 @@
       }
       
       function update(data) {
-        console.log("update data: ");
-        console.log(data);
-        console.log($.param(data));
         return $.ajax({
           url: window.baseurl+"/api/shop/add",
           type: "post",
@@ -392,10 +389,18 @@
               $scope.$digest();
             }).always(function () {
               LoadingIconService.close();
+              alert(language.updatesuccess);
             });
           }
         });
       }
+
+      var interval =  window.setInterval(function () {
+        if (i >= len) {
+          clearInterval(interval);
+          alert(language.updatesuccess);
+        }
+      }, 100);
     };
     
     $scope.RemoveMedia = function (event) {
@@ -453,6 +458,13 @@
           }
         });
       }
+
+      var interval =  window.setInterval(function () {
+        if (i >= len) {
+          clearInterval(interval);
+          alert(language.updatesuccess);
+        }
+      }, 100);
 
     };
     
@@ -760,7 +772,8 @@
       $scope.submitForm = function () {
         LoadingIconService.open();
         ContactService.update($scope.formdata).done(function (data) {
-        LoadingIconService.close();
+          LoadingIconService.close();
+          alert(language.updatesuccess);
         });
       };
     }]);
@@ -797,6 +810,7 @@
       LoadingIconService.open();
       CorporateService.update($scope.formdata).done(function (data) {
         LoadingIconService.close();
+        alert(language.updatesuccess);
       });
     };
   }]);
@@ -903,7 +917,7 @@
       LoadingIconService.open();
       BrandInfoService.update($scope.formdata).done(function (data) {
         LoadingIconService.close();
-        console.log(data);
+        alert(language.updatesuccess);
       });
     };
     
@@ -984,6 +998,7 @@
         LoadingIconService.open();
         BrandInfoService.updateBrand($scope.brand, $scope.formdata).done(function (data) {
           LoadingIconService.close();
+          alert(language.updatesuccess);
         });
       };
       
@@ -1017,6 +1032,7 @@
       LoadingIconService.open();
       NavigationMenuService.updateNavMenu($scope.formdata).done(function (data) {
         LoadingIconService.close();
+        alert(language.updatesuccess);
       });
     };
     
@@ -1157,3 +1173,26 @@
   jQuery.easing.def = "easing";
   
 })(jQuery);
+
+
+(function () {
+  window.deleteContent = function (cid) {
+    if (confirm(language.confirmdelete)) {
+      $.ajax({
+        url: window.baseurl + "/api/content/delete",
+        data: {cid: cid},
+        type: "POST"
+      })
+      .done(function () {
+        alert("删除成功");
+      })
+      .always(function () {
+        window.location.reload();
+      });
+    }
+  }
+})();
+
+
+
+

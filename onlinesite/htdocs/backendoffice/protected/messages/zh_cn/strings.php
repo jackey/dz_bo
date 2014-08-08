@@ -50,8 +50,8 @@ return array(
     "Delete" => "删除",
     "Close Shop" => "关闭店铺",
     "Slide Image" => "幻灯片图片",
-    "Lookbook Media Gallery" => "杂志图片库",
-    "Arrival Media Gallery" => "新品图片库",
+    "Lookbook Media Gallery" => "Lookbook图片库",
+    "Arrival Media Gallery" => "New Arrivals图片库",
     "Update Brand" => "更新品牌故事",
     "Update Navigation Menu" => "更新导航链接",
     'Update Corporate Information' => "更新企业资料",
@@ -75,5 +75,6 @@ return array(
     "QRCode Image" => "QRCode 图片",
     "All Media" => "媒体列表",
     "Weight" => "排序",
-    "Update Contact Information" => "更新联系我们"
+    "Update Contact Information" => "更新联系我们",
+    "Update Success" => "更新成功",
 );

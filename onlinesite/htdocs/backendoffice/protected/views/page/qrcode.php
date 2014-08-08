@@ -27,7 +27,7 @@
           <td>
             <a href="<?php echo Yii::app()->baseUrl."/page/addqacode?id=". $qrcode->cid?>">Edit</a>
             &nbsp;|&nbsp;
-            <a href="javascript:void(0)" data-cid="<?php echo $qrcode->cid?>" ng-click="deleteContent()">Delete</a>
+            <a href="javascript:void(0)" onclick='deleteContent(<?php echo $content->cid?>)'>Delete</a>
           </td>
         </tr>
         <?php endforeach;?>

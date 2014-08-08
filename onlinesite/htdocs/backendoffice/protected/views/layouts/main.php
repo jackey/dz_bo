@@ -16,6 +16,12 @@
     window.baseurl = "<?php echo Yii::app()->baseUrl?>";
     window.brand = "<?php echo Yii::app()->getRequest()->getParam("brand")?>";
   </script>
+  <script type="text/javascript">
+    var language = {};
+    language.updatesuccess = "<?php echo Yii::t("strings" ,"Update Success")?>";
+    language.confirmdelete = "<?php echo Yii::t("strings", "Are you sure to delete it ?")?>";
+  </script>
+
 </head>
 
 <body>

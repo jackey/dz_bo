@@ -30,7 +30,7 @@ return array(
     "Add News" => "添加新闻",
     "Contact" => "联系我们",
     "Corporate Information" => "企业信息",
-    "Brand Information" => "品牌信息",
+    "Brand Information" => "品牌简介",
     "Media" => "媒体",
     "Homepage (Navigation)" => "首页 （导航）",
     "Add Media" => "添加媒体",

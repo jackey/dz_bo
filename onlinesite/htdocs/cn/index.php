@@ -312,7 +312,6 @@
                         <div class="careerlist" id="career-<?php echo $job->cid?>">
                             <div class="testcareer">
                                 <div class="testbox">
-                                    <h3><?php echo $job->title?></h3>
                                     <?php echo $job->body?>
                                 </div>
                             </div>

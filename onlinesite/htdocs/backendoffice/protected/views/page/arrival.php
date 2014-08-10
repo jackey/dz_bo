@@ -37,7 +37,10 @@
         <li ng-repeat="arrival in arrivales">
             <div class="thumbnail">
               <img ng-src="{{arrival.image}}" alt="" />
-              <span data-cid="{{arrival.cid}}"><i class="fa fa-trash-o"></i></span>
+              <span data-cid="{{arrival.cid}}">
+                <i class="fa fa-trash-o trash"></i>
+                <i class="fa fa-eye"></i>
+              </span>
             </div>
         </li>
       </ul>

@@ -37,7 +37,10 @@
         <li ng-repeat="lookbook in lookbookes">
             <div class="thumbnail">
               <img ng-src="{{lookbook.image}}" alt="" />
-              <span data-cid="{{lookbook.cid}}"><i class="fa fa-trash-o"></i></span>
+              <span data-cid="{{lookbook.cid}}">
+                <i class="fa fa-trash-o trash"></i>
+                <i class="fa fa-eye"></i>
+              </span>
             </div>
         </li>
       </ul>

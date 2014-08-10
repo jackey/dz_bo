@@ -25,6 +25,18 @@
 </head>
 
 <body>
+  <div class="preview-image hideme">
+    <div class="close-icon"><i class="fa fa-times"></i></div>
+    <div class="arrow">
+      <div class="left">
+        <i class="fa fa-arrow-left"></i>
+      </div>
+      <div class="right">
+        <div class="fa fa-arrow-right"></div>
+      </div>
+    </div>
+    <img src="" alt="">
+  </div>
   
   <div class="loading hideme">
     <img src="/css/loader.gif" alt="" />

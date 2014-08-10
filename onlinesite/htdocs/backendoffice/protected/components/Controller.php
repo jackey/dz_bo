@@ -100,9 +100,23 @@ class Controller extends CController
   public function getActiveClass($uri, $params = array()) {
     $parts = explode("/", $uri);
     $route = $this->getRoute();
-//    if ($route == "page/addvideo" && $uri == "page/video") {
-//      return "slide-down-menu";
-//    }
+    // lookbook/arrival / brand 页面是同一个Menu 下
+    if ($uri == "page/lookbook" && ($route == "page/arrival" || $route == "page/brand")) {
+      if ($params) {
+        $yes = 0;
+        foreach ($params as $key => $value) {
+          if (Yii::app()->getRequest()->getParam($key) == $value) {
+            $yes += 1;
+          }
+        }
+        if ($yes == count($params)) {
+          return "active";
+        }
+        else {
+          return "";
+        }
+      }
+    }
     if ($uri == $route) {
       if ($params) {
         $yes = 0;

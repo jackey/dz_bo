@@ -271,24 +271,20 @@ $(function(){
 
 	
 
-	$(".careerlist .careerlistclose").click(function(){
-
+	$(".careerlist .careerlistclose").click(function() {
 		$(".careerlist").fadeOut("slow",function(){
 
 		});
+	});
 
-	});	
+	$(".careerlistitem").click(function() {
 
-	$(".careerlistitem").click(function(){
-
-		var picsrc=$(this).attr("data-pic");
-
-		$(".careerlist").fadeIn("slow",function(){
-
-			$(".careerlist .careerlistpic").attr("src",picsrc);
-
+		var picsrc = $(this).attr("data-pic");
+		$("#" + picsrc).fadeIn("slow",function(){
+			//
 		});
 
+		$("#" + picsrc).siblings(":not(img,style)").fadeOut("slow");
 	});
 
 });

@@ -66,20 +66,10 @@
             	<div class="content">
             		<div class="title"><img src="/images/servicecontact.png"/></div>
                   <div class="cont">
-                    	TOLL FREE CUSTOMER SERVICE  <br/>
-                        021- 3250 0106<br/><br/><br/>
-                        
-                        
-                                          WORKING HOURS   <br/>                 
-                        MONDAY TO FRIDAY  <br/>
-                        9:30 -18:30 <br/>
-                      (Excluding National Holidays)<br/><br/><br/>
-                        
-                                                                             
-                                                            EMAIL  <br/>                                     
-                    <a class="mail" href="mailto:dazzle-fashion@dazzle-fashion.com">dazzle-fashion@dazzle-fashion.com</a></div>
+                    	<?php echo getContact()->body;?>
+                    </div>
                 </div>
-            </div>  
+            </div>
             <a href="javascript:void(0);" class="serviceclose" ><img src="/images/close.png" /></a>        
         </div>
 		<div class="window store">
@@ -163,18 +153,22 @@
 			<div class="bg pic">
             	<img src="/images/bgdiamond.jpg" />
             </div>
-			<div class="Diamond pic hexagon">
-            	<img src="/images/brandDiamond.png" />
-                <a href="javascript:void(0)" data-href="/ieen/brandpage.php?brand=diamond" data-src="/images/bgdiamond.jpg" class="brandpage"><img src="/images/linkdiamond.png"/></a>
-            </div>
-			<div class="dzzit pic hexagon">
-            	<img src="/images/branddzzit.png" />
-                <a href="javascript:void(0)" data-href="/ieen/brandpage.php?brand=dzzit" data-src="/images/bgdzzit.jpg" class="brandpage"><img src="/images/linkdzzit.png" /></a>
-            </div>
-			<div class="Dazzle pic hexagon">
-            	<img src="/images/brandDazzle.png" />
-                <a href="javascript:void(0)" data-href="/ieen/brandpage.php?brand=dazzle" data-src="/images/bgdazzle.jpg" class="brandpage"><img src="/images/linkDazzle.png" /></a>
-            </div>
+            <?php $brandNames = getBrandNames();?>
+            <?php foreach ($brandNames as $key => $brandName): ?>
+                <?php $brand = getBrand($brandName)?>
+                <div class="<?php echo $key?> pic hexagon">
+                   <img src="<?php echo getThumbnailURL($brand->brand_navigation_image)?>"> 
+                    <a href="javascript:void(0)" data-href="/cn/brandpage.php?brand=<?php echo strtolower($key)?>" data-src="<?php echo getThumbnailURL($brand->brand_navigation_full_image)?>" class="brandpage">
+                        <?php if ($key == "Diamond"): ?>
+                        <img src="/images/linkdiamond.png"/>
+                        <?php elseif ($key == "Dazzle"): ?>
+                        <img src="/images/linkDazzle.png" />
+                        <?php else: ?>
+                        <img src="/images/linkdzzit.png" />
+                        <?php endif;?>
+                    </a>
+                </div>
+            <?php endforeach;?>
             <div class="menu">
             	<ul>
                 	<li class="menuitem borderright"><a href="javascript:void(0)" id="vip">VIP</a></li>

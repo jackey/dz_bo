@@ -120,35 +120,12 @@ include '/inc/connection.php';
         <div class="dress">
             <div class="ViewArea">
               <div class="itemView">
-                <?php
-                    while($row = mysql_fetch_array($result)){
-                        $fileID = $row['dz_itemId'];
-                        $fileResult = mysql_query("SELECT * FROM dzg_FileSystemEntity WHERE dz_id = $fileID");
-                        $fileRow = mysql_fetch_array($fileResult);
-                        $fileName = $fileRow['dz_pathComponent'];
-                        switch ($brand){
-                            case "dazzle":
-                                $src = "/galleryfiles/albums/dazzle/lookbook/";
-                                break;
-                            case "diamond":
-                                $src = "/galleryfiles/albums/diamond/lookbook/";
-                                break;
-                            case "dzzit":
-                                $src = "/galleryfiles/albums/dzzit/lookbook/";
-                                break;
-                            default:
-                                $src = "/galleryfiles/albums/dazzle/lookbook/";
-                                
-                        }
-                        $src = $src.$fileName;
-                ?>
-                    <div class="item">
-                    	<img src="<?php echo $src;?>"/>                    	
-                	</div>
-                <?php
-                    }
-                ?>	
-
+                    <?php $lookbookes = getLookbookWithBrandName($brand);?>
+                    <?php foreach($lookbookes as $lookbook): ?>
+                        <div class="item">
+                            <img src="<?php echo getThumbnailURL($lookbook->image);?>"/>                     
+                        </div>
+                    <?php endforeach;?>
               </div>
             </div>
             <div class="ViewControl">

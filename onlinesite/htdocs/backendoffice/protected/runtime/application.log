@@ -640,3 +640,131 @@ Stack trace:
 REQUEST_URI=/backendoffice/http://dzonline.local/cn/backendoffice/upload/b3427c2b0a388bbae099636972c41fb9.mp4
 HTTP_REFERER=http://dzonline.local/
 ---
+2014/08/10 09:22:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "http://dzonline.local/cn/backendoffice/upload/b3427c2b0a388bbae099636972c41fb9.mp4".' in /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(141): CWebApplication->runController('http://dzonline...')
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/backendoffice/http://dzonline.local/cn/backendoffice/upload/b3427c2b0a388bbae099636972c41fb9.mp4
+HTTP_REFERER=http://dzonline.local/
+---
+2014/08/10 09:28:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "http://dzonline.local/cn/backendoffice/upload/b3427c2b0a388bbae099636972c41fb9.mp4".' in /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(141): CWebApplication->runController('http://dzonline...')
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/backendoffice/http://dzonline.local/cn/backendoffice/upload/b3427c2b0a388bbae099636972c41fb9.mp4
+HTTP_REFERER=http://dzonline.local/
+---
+2014/08/10 09:29:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "http://dzonline.local/cn/backendoffice/upload/b3427c2b0a388bbae099636972c41fb9.mp4".' in /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(141): CWebApplication->runController('http://dzonline...')
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/backendoffice/http://dzonline.local/cn/backendoffice/upload/b3427c2b0a388bbae099636972c41fb9.mp4
+HTTP_REFERER=http://dzonline.local/
+---
+2014/08/10 22:30:54 [error] [php] mysql_fetch_array() expects parameter 1 to be resource, boolean given (/Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/iecn/lookbook.php:124)
+Stack trace:
+#0 unknown(0): CWebApplication->handleError()
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/iecn/lookbook.php(124): mysql_fetch_array()
+REQUEST_URI=/iecn/lookbook.php?brand=diamond
+2014/08/10 22:35:27 [error] [exception.CDbException] SQLSTATE[HY000] [2002] No such file or directory
+2014/08/10 22:35:27 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/db/CDbConnection.php:388
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/db/CDbConnection.php(330): CDbConnection->open()
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/db/CDbConnection.php(308): CDbConnection->setActive(true)
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CModule.php(387): CDbConnection->init()
+#3 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(450): CModule->getComponent('db')
+#4 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/db/ar/CActiveRecord.php(634): CApplication->getDb()
+#5 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/db/ar/CActiveRecord.php(1428): CActiveRecord->getDbConnection()
+#6 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/db/ar/CActiveRecord.php(1484): CActiveRecord->getTableAlias(true)
+#7 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/protected/models/ContentAR.php(466): CActiveRecord->findByPk(10007)
+#8 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/cn/inc/head.php(112): ContentAR->loadBrandInfo('Dazzle')
+#9 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/cn/brandpage.php(114): getBrand('Dazzle')
+#10 {main}
+REQUEST_URI=/cn/brandpage.php?brand=diamond
+HTTP_REFERER=http://dzonline.local/iecn/brand.php
+---
+2014/08/10 22:35:28 [error] [exception.CDbException] SQLSTATE[HY000] [2002] No such file or directory
+2014/08/10 22:38:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "http://dzonline.local/cn/backendoffice/upload/b3427c2b0a388bbae099636972c41fb9.mp4".' in /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(141): CWebApplication->runController('http://dzonline...')
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/backendoffice/http://dzonline.local/cn/backendoffice/upload/b3427c2b0a388bbae099636972c41fb9.mp4
+HTTP_REFERER=http://dzonline.local/
+---
+2014/08/10 22:51:17 [error] [php] mysql_fetch_array() expects parameter 1 to be resource, boolean given (/Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/iecn/lookbook.php:124)
+Stack trace:
+#0 unknown(0): CWebApplication->handleError()
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/iecn/lookbook.php(124): mysql_fetch_array()
+REQUEST_URI=/iecn/lookbook.php?brand=diamond
+2014/08/10 22:54:01 [error] [php] mysql_fetch_array() expects parameter 1 to be resource, boolean given (/Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/iecn/lookbook.php:124)
+Stack trace:
+#0 unknown(0): CWebApplication->handleError()
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/iecn/lookbook.php(124): mysql_fetch_array()
+REQUEST_URI=/iecn/lookbook.php?brand=diamond
+2014/08/10 22:54:03 [error] [php] mysql_fetch_array() expects parameter 1 to be resource, boolean given (/Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/iecn/lookbook.php:124)
+Stack trace:
+#0 unknown(0): CWebApplication->handleError()
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/iecn/lookbook.php(124): mysql_fetch_array()
+REQUEST_URI=/iecn/lookbook.php?brand=diamond
+2014/08/10 22:54:03 [error] [php] mysql_fetch_array() expects parameter 1 to be resource, boolean given (/Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/iecn/lookbook.php:124)
+Stack trace:
+#0 unknown(0): CWebApplication->handleError()
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/iecn/lookbook.php(124): mysql_fetch_array()
+REQUEST_URI=/iecn/lookbook.php?brand=diamond
+2014/08/10 22:54:03 [error] [php] mysql_fetch_array() expects parameter 1 to be resource, boolean given (/Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/iecn/lookbook.php:124)
+Stack trace:
+#0 unknown(0): CWebApplication->handleError()
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/iecn/lookbook.php(124): mysql_fetch_array()
+REQUEST_URI=/iecn/lookbook.php?brand=diamond
+2014/08/10 22:54:04 [error] [php] mysql_fetch_array() expects parameter 1 to be resource, boolean given (/Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/iecn/lookbook.php:124)
+Stack trace:
+#0 unknown(0): CWebApplication->handleError()
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/iecn/lookbook.php(124): mysql_fetch_array()
+REQUEST_URI=/iecn/lookbook.php?brand=diamond
+2014/08/10 22:54:32 [error] [php] mysql_fetch_array() expects parameter 1 to be resource, boolean given (/Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/iecn/lookbook.php:124)
+Stack trace:
+#0 unknown(0): CWebApplication->handleError()
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/iecn/lookbook.php(124): mysql_fetch_array()
+REQUEST_URI=/iecn/lookbook.php?brand=diamond
+2014/08/10 22:54:34 [error] [php] mysql_fetch_array() expects parameter 1 to be resource, boolean given (/Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/iecn/lookbook.php:124)
+Stack trace:
+#0 unknown(0): CWebApplication->handleError()
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/iecn/lookbook.php(124): mysql_fetch_array()
+REQUEST_URI=/iecn/lookbook.php?brand=diamond
+2014/08/10 22:54:34 [error] [php] mysql_fetch_array() expects parameter 1 to be resource, boolean given (/Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/iecn/lookbook.php:124)
+Stack trace:
+#0 unknown(0): CWebApplication->handleError()
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/iecn/lookbook.php(124): mysql_fetch_array()
+REQUEST_URI=/iecn/lookbook.php?brand=diamond
+2014/08/10 22:54:34 [error] [php] mysql_fetch_array() expects parameter 1 to be resource, boolean given (/Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/iecn/lookbook.php:124)
+Stack trace:
+#0 unknown(0): CWebApplication->handleError()
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/iecn/lookbook.php(124): mysql_fetch_array()
+REQUEST_URI=/iecn/lookbook.php?brand=diamond
+2014/08/10 22:54:34 [error] [php] mysql_fetch_array() expects parameter 1 to be resource, boolean given (/Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/iecn/lookbook.php:124)
+Stack trace:
+#0 unknown(0): CWebApplication->handleError()
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/iecn/lookbook.php(124): mysql_fetch_array()
+REQUEST_URI=/iecn/lookbook.php?brand=diamond
+2014/08/10 22:54:34 [error] [php] mysql_fetch_array() expects parameter 1 to be resource, boolean given (/Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/iecn/lookbook.php:124)
+Stack trace:
+#0 unknown(0): CWebApplication->handleError()
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/iecn/lookbook.php(124): mysql_fetch_array()
+REQUEST_URI=/iecn/lookbook.php?brand=diamond
+2014/08/11 05:40:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "http://dzonline.local/cn/backendoffice/upload/b3427c2b0a388bbae099636972c41fb9.mp4".' in /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/web/CWebApplication.php(141): CWebApplication->runController('http://dzonline...')
+#1 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /Users/jackeychen/Workspace/dz_bo/onlinesite/htdocs/backendoffice/index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/backendoffice/http://dzonline.local/cn/backendoffice/upload/b3427c2b0a388bbae099636972c41fb9.mp4
+HTTP_REFERER=http://dzonline.local/
+---

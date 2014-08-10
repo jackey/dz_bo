@@ -64,14 +64,8 @@
             	<div class="content">
             		<div class="title"><img src="/cn/img/servicecontact.png"/></div>
                   <div class="cont">
-                    	免费客服热线  <br/>
-                        021- 3250 0106<br/><br/><br/>
-						客服热线时间： <br/>                 
-                        周一到周五 <br/>
-                        9:30 -18:30 <br/>
-                        （国定假日除外）<br/><br/><br/>
-                        邮箱   <br/>                                     
-                    <a class="mail" href="mailto:dazzle-fashion@dazzle-fashion.com">dazzle-fashion@dazzle-fashion.com</a></div>
+                    	<?php echo getContact()->body;?> 
+                </div>
                 </div>
             </div>  
             <a href="javascript:void(0);" class="serviceclose" ><img src="/images/close.png" /></a>        

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <?php
-include '/inc/connection.php';
+include '../inc/connection.php';
 ?>
 <?php
 	$PageTitle="DAZZLE Fashion";
@@ -120,35 +120,12 @@ include '/inc/connection.php';
         <div class="dress">
             <div class="ViewArea">
               <div class="itemView">
-                <?php
-                    while($row = mysql_fetch_array($result)){
-                        $fileID = $row['dz_itemId'];
-                        $fileResult = mysql_query("SELECT * FROM dzg_FileSystemEntity WHERE dz_id = $fileID");
-                        $fileRow = mysql_fetch_array($fileResult);
-                        $fileName = $fileRow['dz_pathComponent'];
-                        switch ($brand){
-                            case "dazzle":
-                                $src = "/galleryfiles/albums/dazzle/newarrival/";
-                                break;
-                            case "diamond":
-                                $src = "/galleryfiles/albums/diamond/newarrival/";
-                                break;
-                            case "dzzit":
-                                $src = "/galleryfiles/albums/dzzit/newarrival/";
-                                break;
-                            default:
-                                $src = "/galleryfiles/albums/dazzle/newarrival/";
-                                
-                        }
-                        $src = $src.$fileName;
-                ?>
-                    <div class="item">
-                    	<img src="<?php echo $src;?>"/>                    	
-                	</div>
-                <?php
-                    }
-                ?>	
-
+                    <?php $arrivals = getArrivalWithBrandName($brand);?>
+                    <?php foreach($arrivals as $arrival): ?>
+                        <div class="item">
+                            <img src="<?php echo getThumbnailURL($arrival->image);?>"/>                     
+                        </div>
+                    <?php endforeach;?>
               </div>
             </div>
             <div class="ViewControl">

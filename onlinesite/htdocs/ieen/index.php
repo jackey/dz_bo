@@ -92,15 +92,12 @@
                     <div class="cont code">
                             <div class="ViewArea">
                               <div class="itemView">
-                                    <div class="item">
-                                        <img src="/images/codedazzle.png"/>                    	
-                                    </div>
-                                    <div class="item">
-                                        <img src="/images/codedzzit.png"/>                    	
-                                    </div>
-                                    <div class="item">
-                                        <img src="/images/codediamond.png"/>                    	
-                                    </div>
+                                    <?php $qrcodes = getQrcodes();?>
+                                    <?php foreach ($qrcodes as $qrcode): ?>
+                                        <div class="item">
+                                            <img src="<?php echo getThumbnailURL($qrcode->thumbnail)?>"/>                     
+                                        </div>
+                                    <?php endforeach;?>
                               </div>
                             </div>
                             <div class="ViewControl">
@@ -118,18 +115,8 @@
             	<div class="content">
             		<div class="title"><img src="/images/servicecontact.png"/></div>
                   <div class="cont">
-                    	TOLL FREE CUSTOMER SERVICE  <br/>
-                        021- 3250 0106<br/><br/><br/>
-                        
-                        
-                                          WORKING HOURS   <br/>                 
-                        MONDAY TO FRIDAY  <br/>
-                        9:00 -18:00 <br/>
-                      (Excluding National Holidays)<br/><br/><br/>
-                        
-                                                                             
-                                                            EMAIL  <br/>                                     
-                    <a class="mail" href="mailto:dazzle-fashion@dazzle-fashion.com">dazzle-fashion@dazzle-fashion.com</a></div>
+                        <?php echo getContact()->body;?> 
+                    </div>
                 </div>
             </div>  
             <a href="javascript:void(0);" class="serviceclose" ><img src="/images/close.png" /></a>        
@@ -245,30 +232,29 @@
             </div>
         </div>
         <div class="vessel info1">
-			<div class="pic">
+            <div class="pic">
+            <?php $corporate = loadCorporate();?>
+            <?php if ($corporate->thumbnail):?>
+            <img src="<?php echo getThumbnailURL($corporate->thumbnail)?>" />
+            <?php else:?>
             <img src="/images/info1.png" />
+            <?php endif;?>
             </div>
-			<div class="text">
-            	<div class="title"><img src="/images/infotitle1.png" /></div>
-                <div class="cont">                    
-                    Dazzle Fashion Co.,Ltd. is a Shanghai group founded in 2002. Currently owns three brands: <b>DAZZLE, DIAMOND DAZZLE</b> and d’zzit.<br/><br/>
-
- The three brands were introduced to promote unique lifestyles. High street fashion brand <b>DAZZLE</b> is independent and expressive; semi couture brand <b>DIAMOND DAZZLE</b> gives women a refreshing and luxurious touch; and d’zzit is designed for trendy teenage girls and the ones on their early 20s.<br/><br/>
-
-Currently, Dazzle Fashion Co.,Ltd. has clear positioning in the market for our 3 brands. Our design team is the cutting-edge of the fashion industry, and they are supported by our modern supply chain management, and advanced marketing & sales system to promote the development and expansion of all our brands. <br/><br/>
-
-By the end of 2013, Dazzle Fashion has developed a fully established corporate network which covers 800 stores in 30 provincial areas nationwide. We have also developed a partnership with many chained and independent department stores.    <br/><br/>
-
-In the future, Dazzle Fashion will commit more energy and resources on building our  brand core values. It is our hope, that the unique creativity, artistic design and the tailor-made shopping experience we offered for the consumers, will create a fashion paradise for them. <br/><br/>
-
-It is our belief that dedication and creativity will infuse the fresh energy to our life. “<i>Love creates anything</i>”. This is our corporate spirit, and it will guide us to a bright future!  </div>
+            <div class="text">                  
+                <div class="title"><img src="/images/infotitle1.png"></div>
+                <div class="cont">  <?php echo $corporate->body?></div>
             </div>
             <a  href="javascript:void(0)" class="infoarrow"  ><img src="/images/infoarrow.png" /></a>
         </div>
 		<div class="vessel info2">
+            <?php $brandinfo = loadBrandInformation();?>
 			<div class="pic">
             	<div class="relative">
+                    <?php if ($brandinfo->dazzle_thumbnail):?>
+                    <img id="brandinfopic" src="<?php echo getThumbnailURL($brandinfo->dazzle_thumbnail)?>" border="0" usemap="#Map" />
+                    <?php else: ?>
                     <img id="brandinfopic" src="/images/info2.png" border="0" usemap="#Map" />
+                    <?php endif;?>
                     <map name="Map">
                       <area shape="poly" coords="111,157,19,317,111,476,292,476,385,315,293,159" href="/cn/brandpage.php?brand=diamond">
                       <area shape="poly" coords="293,158,383,1,569,3,657,157,569,317,386,314" href="/cn/brandpage.php?brand=dazzle">
@@ -284,13 +270,7 @@ It is our belief that dedication and creativity will infuse the fresh energy to 
 			<div class="text">
             	<div class="title"><img src="/images/infotitle2.png" /></div>
                 <div class="cont">
-                
-                DAZZLE is a leading high street fashion brand. DAZZLE is designed for independent and expressive young ladies who are chic and refined. DAZZLE is unique in the way that it is, unrestrictive and personal. For each new season, the focus is on the expression of female body curves; the design retains the essence of the style, and it makes the DAZZLE lady stand out from the crowd.<br/><br/>
-
-DIAMOND DAZZLE blends elements of modernity and luxury, and it is committed to create the new image for women in the 21st century. Exact handcrafting details, complex sewing technique, and the touch of haute couture have all been widely applied in DIAMOND DAZZLE new arrivals of each season.<br/><br/>
-
-d'zzit is for young girls who adore European fashion style, appreciate cosmopolitan beauty standards, and are keen on the latest fashion trends globally. 
-
+                    <?php echo $brandinfo->body?>
                 </div>
             </div>
             <a  href="javascript:void(0)" class="infoarrow"  ><img src="/images/infoarrow.png" /></a>
@@ -298,22 +278,23 @@ d'zzit is for young girls who adore European fashion style, appreciate cosmopoli
         <div class="vessel infomedia">
 			<div class="menu">
             	<div class="title"><img src="/images/infotitlemedia.png" /></div>
+                <?php $videoes = getVideoList();?>
                 <div class="cont">
-                	<ul>
-                    	<li><a  href="javascript:void(0)" data-source="dazzle_final" class="videoitem" >2011  Autumn/Winter Fashion Show</a></li>
-                    	<li><a  href="javascript:void(0)" data-source="dazzle" class="videoitem" >Nina x DAZZLE call on the Vampire Diaries</a></li>
-                    	<li><a  href="javascript:void(0)" data-source="elle" class="videoitem" >HUA YI ELLE Night</a></li>
-                    	<li><a  href="javascript:void(0)" data-source="dazzless" class="videoitem" >DAZZLE 2014 SS New York Shooting</a></li>
-                    	<li><a  href="javascript:void(0)" data-source="dzzitss" class="videoitem" >d'zzit 2014 SS Shooting</a></li>
-                    </ul>                 
+                    <ul>
+                      <?php foreach ($videoes as $video):?>
+                          <li><a  href="javascript:void(0)" data-webm-source="<?php echo getThumbnailURL($video->video_webm)?>" data-mp4-source="<?php echo getThumbnailURL($video->video_mp4) ?>" class="videoitem" ><?php echo $video->title?></a></li>
+                      <?php endforeach;?> 
+                    </ul>              
                 </div>
             </div>
+            <?php $video = array_shift($videoes);?>
             <div class="videobox">
                 <video id="beginVideo" poster="/images/vedio.jpg"
                      controls
                      loop="loop"> 
-                      <source src="/video/dazzle_final.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
-                      <source src="/video/dazzle_final.webm" type='video/webm; codecs="vp8, vorbis"' />
+                      <source src="<?php echo getThumbnailURL($video->video_mp4)?>" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+                      <source src="<?php echo getThumbnailURL($video->video_webm)?>" type='video/webm; codecs="vp8, vorbis"' />
+                     
                      <div id="mediaplayer">JW Player goes here</div>
                      
                     <script type="text/javascript">
@@ -326,23 +307,38 @@ d'zzit is for young girls who adore European fashion style, appreciate cosmopoli
             </div>
             <a  href="javascript:void(0)" class="infoarrow"  ><img src="/images/infoarrow.png" /></a>
         </div>
+        <?php $jobs = getCareerList();?>
         <div class="vessel info3">
 			<div class="pic">
                     <img src="/images/info3.png" />
-                    <div class="careerlist">
-                    	<img src="/images/careerlist1.png" class="careerlistpic"/>
-                        <a  href="javascript:void(0)" class="careerlistclose"  ><img src="/images/close.png"/></a>
-                    </div>
+                    <?php foreach ($jobs as $job): ?>
+                        <div class="careerlist" id="career-<?php echo $job->cid?>">
+                            <div class="testcareer">
+                                <div class="testbox">
+                                    <?php echo $job->body?>
+                                </div>
+                            </div>
+                            <a  href="javascript:void(0)" class="careerlistclose"  ><img src="/images/close.png"/></a>
+                        </div>
+                    <?php endforeach;?>
+                        <style>
+                            .testcareer{font-family: "微软雅黑";width: 320px;margin: 0 auto;position: relative;min-height: 550px;}
+                            .testbox{position: absolute;margin: auto;top: 0;left: 0;right: 0;bottom: 0;height: 410px;}
+                            #fazhan .testbox{height: 550px;}
+                            #shenjiyuan .testbox{height: 430px;}
+                            #dataanylize .testbox{height: 450px;}
+                            #shenjimanager .testbox{height: 550px;}
+                            .testcareer dl{margin-top: 33px;line-height: 1.9em;}
+                            .testcareer h3{height: 34px;line-height: 34px;border-bottom: solid 1px #fff;}
+                            .careerlist{display: none;}
+                        </style>
             </div>
 			<div class="text">            
                 <div class="title"><img src="/images/infotitle3.png" /></div>
                 <div class="cont">
-                <a href="javascript:void(0)" data-pic="/images/careerlist1.png" class="careerlistitem"><img src="/images/careerli.png"/>Assistant to Apparel Designer</a><br/><br/>
-                <a href="javascript:void(0)" data-pic="/images/careerlist2.png" class="careerlistitem"><img src="/images/careerli.png"/>Assistant to Graphic Designer</a><br/><br/>
-                <a href="javascript:void(0)" data-pic="/images/careerlist3.png" class="careerlistitem"><img src="/images/careerli.png"/>Auditing Manager</a><br/><br/>
-                <a href="javascript:void(0)" data-pic="/images/careerlist4.png" class="careerlistitem"><img src="/images/careerli.png"/>Data Analyst</a><br/><br/>
-                <a href="javascript:void(0)" data-pic="/images/careerlist5.png" class="careerlistitem"><img src="/images/careerli.png"/>Auditor</a><br/><br/>
-                <a href="javascript:void(0)" data-pic="/images/careerlist6.png" class="careerlistitem"><img src="/images/careerli.png"/>Training and Development Manager</a><br/><br/>                
+                <?php foreach ($jobs as $job): ?>
+                    <a href="javascript:void(0)" data-pic="career-<?php echo $job->cid?>" class="careerlistitem"><img src="/images/careerli.png"/><?php echo $job->title?></a><br/><br/>
+                <?php endforeach;?>              
                 </div>
                 <div class="cont">
                 <br/><br/><br/><br/>

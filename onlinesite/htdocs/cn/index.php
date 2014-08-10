@@ -232,7 +232,7 @@
         </div>
         <div class="vessel info1">
 			<div class="pic">
-        <?php $corporate = loadCorporate();?>
+            <?php $corporate = loadCorporate();?>
             <?php if ($corporate->thumbnail):?>
             <img src="<?php echo getThumbnailURL($corporate->thumbnail)?>" />
             <?php else:?>

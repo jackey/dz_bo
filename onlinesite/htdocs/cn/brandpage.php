@@ -129,7 +129,7 @@
                             <area shape="rect" coords="332,198,407,326" href="/cn/arrivals.php?brand=<?php echo strtolower($key)?>">
                             <area shape="rect" coords="400,349,506,381" href="/cn/arrivals.php?brand=<?php echo strtolower($key)?>">
                           </map>
-                          <map name="Map2small">
+                          <map name="Mapsmall">
                               <area shape="rect" coords="308,46,367,148" href="/cn/lookbook.php?brand=<?php echo strtolower($key)?>" />
                               <area shape="rect" coords="372,159,426,181" href="/cn/lookbook.php?brand=<?php echo strtolower($key)?>" />
                               <area shape="rect" coords="255,151,311,238" href="/cn/arrivals.php?brand=<?php echo strtolower($key)?>" />

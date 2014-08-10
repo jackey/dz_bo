@@ -21,7 +21,7 @@ class ContentController extends Controller {
       $content = ContentAR::model()->findByPk($cid);
       $content->status = ContentAR::STATUS_DISABLE;
 
-      $content->save();
+      $content->save(FALSE);
     }
     
     return $this->responseJSON("success", "success");

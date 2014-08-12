@@ -23,34 +23,42 @@
         );
         $("#menucorporate").hover(      
           function () {
-            $(this).children("img").attr("src", $(this).children("img").attr("data-hover"));        
+            var img = $(this).children("img");
+            img.attr("data-src", img.attr("src")).attr("src", $(this).children("img").attr("data-hover"));
           },        
           function () {
-            $(this).children("img").attr("src","/images/menucorporate.png");
+            var img = $(this).children("img");
+            img.attr("src", img.attr("data-src"));
           }
         );
         $("#menuinvestors").hover(      
           function () {
-            $(this).children("img").attr("src", $(this).children("img").attr("data-hover"));        
+            var img = $(this).children("img");
+            img.attr("data-src", img.attr("src")).attr("src", $(this).children("img").attr("data-hover"));  
           },        
           function () {
-            $(this).children("img").attr("src","/images/menuinvestors.png");
+            var img = $(this).children("img");
+            img.attr("src", img.attr("data-src"));
           }
         );
         $("#menubrand").hover(      
           function () {
-            $(this).children("img").attr("src", $(this).children("img").attr("data-hover"));        
+            var img = $(this).children("img");
+            img.attr("data-src", img.attr("src")).attr("src", $(this).children("img").attr("data-hover"));      
           },        
           function () {
-            $(this).children("img").attr("src","/images/menubrand.png");
+            var img = $(this).children("img");
+            img.attr("src", img.attr("data-src"));
           }
         );
         $("#menucareers").hover(        
           function () {
-            $(this).children("img").attr("src", $(this).children("img").attr("data-hover"));
+            var img = $(this).children("img");
+            img.attr("data-src", img.attr("src")).attr("src", $(this).children("img").attr("data-hover"));  
           },        
           function () {
-            $(this).children("img").attr("src","/images/menucareers.png");
+            var img = $(this).children("img");
+            img.attr("src", img.attr("data-src"));
           }
         );
     });

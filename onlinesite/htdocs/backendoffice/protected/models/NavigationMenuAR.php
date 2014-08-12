@@ -68,7 +68,7 @@ class NavigationMenuAR extends CActiveRecord {
     if (!$menu) {
       $tmp_menu = array(
           "name" => $name,
-          "text" => $data["text"],
+          "text" => @$data["text"],
           "media_uri" => @$data["media_uri"],
           "media_uri_hover" => @$data["media_uri_hover"],
           "language" => $language,
@@ -79,11 +79,13 @@ class NavigationMenuAR extends CActiveRecord {
       $newNavMenu->insert();
       return $newNavMenu->getPrimaryKey();
     }
-    if ($data["text"]) {
+    if (isset($data["text"])) {
       $menu["text"] = $data["text"];
     }
-    if ($data["media_uri"]) {
+    if (isset($data["media_uri"])) {
       $menu["media_uri"] = @$data["media_uri"];
+    }
+    if (isset($data["media_uri_hover"])) {
       $menu["media_uri_hover"] = @$data["media_uri_hover"];
     }
 

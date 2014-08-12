@@ -39,7 +39,7 @@ $scriptUrl = Yii::app()->getRequest()->getScriptUrl();
 $ret = Yii::app()->getRequest()->getBaseUrl();
 Yii::app()->getRequest()->setBaseUrl($ret . "/backendoffice");
 
-Yii::app()->language = "zh_cn";
+Yii::app()->language = "en_us";
 
 if (Yii::app()->language == "zh_cn") {
   $language = "cn";

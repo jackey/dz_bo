@@ -295,7 +295,7 @@
         return $.ajax({
           type: "post",
           url: window.baseurl + "/api/navigation/add",
-          data: $.param(data)
+          data: (data)
         });
       }
       
@@ -1020,8 +1020,13 @@
           // 没有数据 我们就不做任何处理
         }
         else {
-          $scope.formdata = data["data"];
-          $scope.$digest();
+          if (typeof data["data"].length != "undefined" && data["data"].length == 0) {
+            //TODO::
+          }
+          else {
+            $scope.formdata = data["data"];
+            $scope.$digest();
+          }
         }
         LoadingIconService.close();
       });

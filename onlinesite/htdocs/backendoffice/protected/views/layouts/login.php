@@ -23,7 +23,11 @@
 	<div id="header">
 		<div id="logo"><?php echo Yii::t("strings", "Dazzle Brand Managment System")?></div>
 	</div>
-  
+  <style type="text/css">
+  	#body {
+		width: 100%;
+  	}
+  </style>
   <div id="body" class="row-fluid">
     <div id="content" class=""><?php echo $content; ?></div>
   </div>

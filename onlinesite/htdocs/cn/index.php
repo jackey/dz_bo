@@ -23,34 +23,42 @@
 		);
 		$("#menucorporate").hover(		
 		  function () {
-			$(this).children("img").attr("src","/cn/img/menucorporatehover.png");		
+            var img = $(this).children("img");
+			img.attr("data-src", img.attr("src")).attr("src", $(this).children("img").attr("data-hover"));
 		  },		
 		  function () {
-			$(this).children("img").attr("src","/images/menucorporate.png");
+            var img = $(this).children("img");
+			img.attr("src", img.attr("data-src"));
 		  }
 		);
 		$("#menuinvestors").hover(		
 		  function () {
-			$(this).children("img").attr("src","/cn/img/menuinvestorshover.png");		
+            var img = $(this).children("img");
+            img.attr("data-src", img.attr("src")).attr("src", $(this).children("img").attr("data-hover"));	
 		  },		
 		  function () {
-			$(this).children("img").attr("src","/images/menuinvestors.png");
+            var img = $(this).children("img");
+            img.attr("src", img.attr("data-src"));
 		  }
 		);
 		$("#menubrand").hover(		
 		  function () {
-			$(this).children("img").attr("src","/cn/img/menubrandhover.png");		
+            var img = $(this).children("img");
+            img.attr("data-src", img.attr("src")).attr("src", $(this).children("img").attr("data-hover"));		
 		  },		
 		  function () {
-			$(this).children("img").attr("src","/images/menubrand.png");
+            var img = $(this).children("img");
+            img.attr("src", img.attr("data-src"));
 		  }
 		);
 		$("#menucareers").hover(		
 		  function () {
-			$(this).children("img").attr("src","/cn/img/menucareershover.png");		
+            var img = $(this).children("img");
+            img.attr("data-src", img.attr("src")).attr("src", $(this).children("img").attr("data-hover"));  
 		  },		
 		  function () {
-			$(this).children("img").attr("src","/images/menucareers.png");
+            var img = $(this).children("img");
+            img.attr("src", img.attr("data-src"));
 		  }
 		);
 	});
@@ -217,12 +225,14 @@
     	<div class="vessel index">
         	<div class="logo">
             	<div class="vesselbox">
+                    <?php $menus = getMenuNavigation();?>
                     <a href="javascript:void(0)"  data-href="/cn/brand.php" id="logotxt"><img src="/images/logo2.png" /></a>
                     <div id="logobg"><img src="/images/logo1.png" /></div>
-                    <a href="javascript:void(0)"  id="menucorporate" class="menutriangle"><img src="/images/menucorporate.png" /></a>
-                    <a href="javascript:void(0)"  id="menuinvestors" class="menutriangle"><img src="/images/menuinvestors.png" /></a>
-                    <a href="javascript:void(0)"  id="menubrand" class="menutriangle"><img src="/images/menubrand.png" /></a>
-                    <a href="javascript:void(0)"  id="menucareers" class="menutriangle"><img src="/images/menucareers.png" /></a>
+                    <?php foreach($menus as $menu): ?>
+                        <a href="javascript:void(0)" data-name="<?php echo $menu->name?>" id="<?php echo getMenuTitleId($menu->name)?>" class="menutriangle">
+                            <img src="<?php echo getThumbnailURL(substr($menu->media_uri, 1))?>" data-hover="<?php echo getThumbnailURL(substr($menu->media_uri_hover, 1))?>"/>
+                        </a>
+                    <?php endforeach;?>
                     <div class="menumask masktopleft"></div>
                     <div class="menumask masktopright"></div>
                     <div class="menumask maskbottomleft"></div>

@@ -11,48 +11,49 @@
 	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=TchFfRQ3K7FhNDETEPNSezHW"></script>
     <script type="text/javascript" src="/js/store.js"></script>
 	<script>
-	$(function(){
-		$("#logotxt").hover(		
-		  function () {
-			$("#logobg").children("img").attr("src","/cn/img/logo1hover.png");		
-		  },		
-		  function () {
-			$("#logobg").children("img").attr("src","/images/logo1.png");
-		  }
-		);
-		$("#menucorporate").hover(		
-		  function () {
-			$(this).children("img").attr("src","/cn/img/menucorporatehover.png");		
-		  },		
-		  function () {
-			$(this).children("img").attr("src","/images/menucorporate.png");
-		  }
-		);
-		$("#menuinvestors").hover(		
-		  function () {
-			$(this).children("img").attr("src","/cn/img/menuinvestorshover.png");		
-		  },		
-		  function () {
-			$(this).children("img").attr("src","/images/menuinvestors.png");
-		  }
-		);
-		$("#menubrand").hover(		
-		  function () {
-			$(this).children("img").attr("src","/cn/img/menubrandhover.png");		
-		  },		
-		  function () {
-			$(this).children("img").attr("src","/images/menubrand.png");
-		  }
-		);
-		$("#menucareers").hover(		
-		  function () {
-			$(this).children("img").attr("src","/cn/img/menucareershover.png");		
-		  },		
-		  function () {
-			$(this).children("img").attr("src","/images/menucareers.png");
-		  }
-		);
-	});
+    $(function(){
+       
+        $("#logotxt").hover(        
+          function () {
+            $("#logobg").children("img").attr("src","/cn/img/logo1hover.png");      
+          },        
+          function () {
+            $("#logobg").children("img").attr("src","/images/logo1.png");
+          }
+        );
+        $("#menucorporate").hover(      
+          function () {
+            $(this).children("img").attr("src", $(this).children("img").attr("data-hover"));        
+          },        
+          function () {
+            $(this).children("img").attr("src","/images/menucorporate.png");
+          }
+        );
+        $("#menuinvestors").hover(      
+          function () {
+            $(this).children("img").attr("src", $(this).children("img").attr("data-hover"));        
+          },        
+          function () {
+            $(this).children("img").attr("src","/images/menuinvestors.png");
+          }
+        );
+        $("#menubrand").hover(      
+          function () {
+            $(this).children("img").attr("src", $(this).children("img").attr("data-hover"));        
+          },        
+          function () {
+            $(this).children("img").attr("src","/images/menubrand.png");
+          }
+        );
+        $("#menucareers").hover(        
+          function () {
+            $(this).children("img").attr("src", $(this).children("img").attr("data-hover"));
+          },        
+          function () {
+            $(this).children("img").attr("src","/images/menucareers.png");
+          }
+        );
+    });
     </script>
 </head>
 
@@ -216,12 +217,14 @@
     	<div class="vessel index">
         	<div class="logo">
             	<div class="vesselbox">
-                    <a href="javascript:void(0)"  data-href="/iecn/brand.php" id="logotxt"><img src="/images/logo2.png" /></a>
+                    <?php $menus = getMenuNavigation();?>
+                    <a href="javascript:void(0)"  data-href="/cn/brand.php" id="logotxt"><img src="/images/logo2.png" /></a>
                     <div id="logobg"><img src="/images/logo1.png" /></div>
-                    <a href="javascript:void(0)"  id="menucorporate" class="menutriangle"><img src="/images/menucorporate.png" /></a>
-                    <a href="javascript:void(0)"  id="menuinvestors" class="menutriangle"><img src="/images/menuinvestors.png" /></a>
-                    <a href="javascript:void(0)"  id="menubrand" class="menutriangle"><img src="/images/menubrand.png" /></a>
-                    <a href="javascript:void(0)"  id="menucareers" class="menutriangle"><img src="/images/menucareers.png" /></a>
+                    <?php foreach($menus as $menu): ?>
+                        <a href="javascript:void(0)" data-name="<?php echo $menu->name?>" id="<?php echo getMenuTitleId($menu->name)?>" class="menutriangle">
+                            <img src="<?php echo getThumbnailURL(substr($menu->media_uri, 1))?>" data-hover="<?php echo getThumbnailURL(substr($menu->media_uri_hover, 1))?>"/>
+                        </a>
+                    <?php endforeach;?>
                     <div class="menumask masktopleft"></div>
                     <div class="menumask masktopright"></div>
                     <div class="menumask maskbottomleft"></div>

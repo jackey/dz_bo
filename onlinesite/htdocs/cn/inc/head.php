@@ -195,4 +195,37 @@ function getContact() {
   return ContentAR::model()->loadContact();
 }
 
+function getMenuNavigation() {
+  $query = new CDbCriteria();
+  $query->addCondition("name <> :name");
+  $query->params[":name"] = "title_home";
+  $list = NavigationMenuAR::model()->findAll($query);
+
+  $order = array("title_coporation", "title_media", "title_brand", "title_career");
+
+  $new_list = array();
+  foreach ($order as $name) {
+    foreach ($list as $item) {
+      if ($item->name == $name) {
+        $new_list[$item->name] = $item;
+      }
+    }
+  }
+
+  return $new_list;
+}
+
+function getMenuTitleId($menu_name) {
+  $ids = array (
+    "title_coporation"=> "menucorporate",
+    "title_brand"=> "menubrand",
+    "title_career" => "menucareers",
+    "title_media" => "menuinvestors"
+  );
+
+  return $ids[$menu_name];
+}
+
+
+
 ?>

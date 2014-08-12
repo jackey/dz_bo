@@ -5,7 +5,7 @@ CKEDITOR.editorConfig = function( config )
          config.removePlugins = "about";
          config.skin = "office2003";
          config.toolbar = "Full";
-          config.toolbar_Full =
+         config.toolbar_Full =
           [ 
                     {name: 'document', items: ['Source']},
                   //{ name: 'document', items : [ 'Source','-','Save','NewPage','DocProps','Preview','Print','-','Templates' ] },
@@ -24,5 +24,6 @@ CKEDITOR.editorConfig = function( config )
                   { name: 'colors', items : [ 'TextColor','BGColor' ] },
                   //{ name: 'tools', items : [ 'Maximize', 'ShowBlocks','-','About' ] }
           ];
+          config.font_names = "宋体;黑体;微软雅黑;" + CKEDITOR.config.font_names;
          return config;
 };

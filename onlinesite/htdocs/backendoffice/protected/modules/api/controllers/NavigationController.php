@@ -11,6 +11,7 @@ class NavigationController extends Controller {
     foreach ($list as $item) {
       $ret[$item["name"]] = $item["text"];
       $ret[$item["name"]."_media_uri"] = $item["media_uri"];
+      $ret[$item["name"]."_media_uri_hover"] = $item["media_uri_hover"];
     }
     
     $this->responseJSON($ret, "success");
@@ -28,6 +29,9 @@ class NavigationController extends Controller {
       }
       if (isset($_POST[$name."_media_uri"])) {
         $data["media_uri"] = $_POST[$name."_media_uri"];
+      }
+      if (isset($_POST[$name."_media_uri_hover"])) {
+        $data["media_uri_hover"] = $_POST[$name."_media_uri_hover"];
       }
       if ($data) {
         $navigation = new NavigationMenuAR();

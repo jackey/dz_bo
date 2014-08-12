@@ -77,4 +77,9 @@ return array(
     "Weight" => "排序",
     "Update Contact Information" => "更新联系我们",
     "Update Success" => "更新成功",
+    "Default Menu Image" => "默认菜单图片",
+    "Move In Image" => "鼠标滑入图片",
+    "Coporation" => "企业信息",
+    "Brand" => "品牌信息",
+    "Career" => "招聘职位",
 );

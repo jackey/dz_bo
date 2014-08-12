@@ -2,8 +2,9 @@
 
 class NavigationMenuAR extends CActiveRecord {
   public static $names = array(
-      "title_coporation", "title_brand", "title_career", "title_media", "title_home"
+      "title_coporation", "title_brand", "title_career", "title_media"
   );
+
   public function tableName() {
     return "navigation_menu";
   }
@@ -18,8 +19,21 @@ class NavigationMenuAR extends CActiveRecord {
   
   public function rules() {
     return array(
-        array("nm_id, name, text, media_uri, url", "safe"),
+        array("nm_id, name, text, media_uri, url, media_uri_hover, language", "safe"),
     );
+  }
+
+  public function findAll($query = null) {
+    global $language;
+    if (!$query) {
+      $query = new CDbCriteria();
+    }
+    if ($query instanceof CDbCriteria) {
+      $query->addCondition('language = :language');
+      $query->params[":language"] = $language;
+    }
+    
+    return parent::findAll($query);
   }
   
   /**
@@ -51,7 +65,8 @@ class NavigationMenuAR extends CActiveRecord {
       $tmp_menu = array(
           "name" => $name,
           "text" => $data["text"],
-          "media_uri" => $data["media_uri"],
+          "media_uri" => @$data["media_uri"],
+          "media_uri_hover" => @$data["media_uri_hover"],
           "url" => "",
       );
       $newNavMenu = new NavigationMenuAR();
@@ -63,7 +78,8 @@ class NavigationMenuAR extends CActiveRecord {
       $menu["text"] = $data["text"];
     }
     if ($data["media_uri"]) {
-      $menu["media_uri"] = $data["media_uri"];
+      $menu["media_uri"] = @$data["media_uri"];
+      $menu["media_uri_hover"] = @$data["media_uri_hover"];
     }
     
     $menu->update();

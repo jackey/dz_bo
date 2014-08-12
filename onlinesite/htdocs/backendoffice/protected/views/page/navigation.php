@@ -22,13 +22,25 @@
       <div class="control-group imagepreview">
         <div class="control-label"><?php echo Yii::t("strings", ucwords(str_replace("title_", "", $name)))?></div>
         <div class="controls">
-          <span class="preview" ng-click="triggerImageUpload($event)">
-            <img ng-src="{{formdata.<?php echo $name."_media_uri"?>}}" alt="" />
-          </span>
-          <input upload="<?php echo Yii::t("strings", "Upload Image")?>" type="file" name="file" class="hideme" onchange="angular.element(this).scope().fileUpload(this)"/>
-          <div class="alert alert-success"><?php echo Yii::t("strings", "Image Size: "). " 264x246"?></div>
-          <input type="hidden" name="<?php echo $name."_media_uri"?>" ng-model="formdata.<?php echo $name."_media_uri"?>"/>
-          <input type="text" placeholder="<?php echo Yii::t("strings", "menu navigation title")?>" name="<?php echo $name?>" ng-model="formdata.<?php echo $name?>"/>
+          <div class="hover-out">
+            <label for=""><?php echo Yii::t("strings", "Default Menu Image")?></label>
+            <span class="preview" ng-click="triggerImageUpload($event)">
+              <img ng-src="{{formdata.<?php echo $name."_media_uri"?>}}" alt="" />
+            </span>
+            <input upload="<?php echo Yii::t("strings", "Upload Image")?>" type="file" name="file" class="hideme" onchange="angular.element(this).scope().fileUpload(this)"/>
+            <div class="alert alert-success"><?php echo Yii::t("strings", "Image Size: "). " 264x246"?></div>
+            <input type="hidden" name="<?php echo $name."_media_uri"?>" ng-model="formdata.<?php echo $name."_media_uri"?>"/>
+          </div>
+          <div class="hover-in">
+            <label for=""><?php echo Yii::t("strings", "Move In Image")?></label>
+            <span class="preview" ng-click="triggerImageUpload($event)">
+              <img ng-src="{{formdata.<?php echo $name."_media_uri_hover"?>}}" alt="" />
+            </span>
+            <input upload="<?php echo Yii::t("strings", "Upload Image")?>" type="file" name="file" class="hideme" onchange="angular.element(this).scope().fileUpload(this)"/>
+            <div class="alert alert-success"><?php echo Yii::t("strings", "Image Size: "). " 264x246"?></div>
+            <input type="hidden" name="<?php echo $name."_media_uri_hover"?>" ng-model="formdata.<?php echo $name."_media_uri_hover"?>"/>
+          </div>
+          <input type="text" placeholder="<?php echo Yii::t("strings", "menu navigation title")?>" name="<?php echo $name?>" ng-model="formdata.<?php echo $name?>"/> 
         </div>
       </div>
     <?php endforeach;?>

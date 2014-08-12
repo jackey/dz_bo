@@ -120,13 +120,13 @@ legend {
 }
 
 #header {
-border: 1px solid #4F4F4F;
-width: 100%;
-text-align: center;
-z-index: 10;
-background: #080808;
-padding: 0px;
-height: auto;
+  border: 1px solid #4F4F4F;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+  background: #080808;
+  padding: 0px;
+  height: auto;
 }
 
 #sidebar {
@@ -150,10 +150,10 @@ height: auto;
 }
 
 #body {
-float: left;
-margin: 0 auto;
-width: 82.9%;
-min-width: 800px;
+  float: left;
+  margin: 0 auto;
+  width: 82.9%;
+  min-width: 800px;
 }
 
 .nav-list {
@@ -377,6 +377,10 @@ box-shadow: 0 1px 4px rgba(0,0,0,0.065);
 .navigation-form input {
   min-width: 69.5%;
   margin-left: 5%;
+}
+
+.navigation-form input[type="text"] {
+  visibility: hidden;
 }
 
 .navigation-btn {
@@ -657,12 +661,11 @@ li.slide-down-menu + li > a.hideme:before {
 }
 
 .navigation-form .control-group {
-  float: left;
-  margin-left: 5em;
+  
 }
 
 .navigation-form input[type="text"] {
- width: 100%; 
+  width: 60%;
 }
 
 form[name='newsform'] .imagepreview .controls input[type="file"]:after {
@@ -711,3 +714,59 @@ cursor: pointer;
 margin-right: 20%;
 cursor: pointer;
 }
+
+.navigation-form .imagepreview .controls {
+  width: inherit;
+}
+
+.navigation-form .imagepreview .controls .hover-in {
+  float:left;
+}
+
+.navigation-form .imagepreview .controls .hover-out {
+  float:left;
+  margin-left: 4em;
+}
+
+.navigation-form .imagepreview .preview {
+  width: 12em;
+}
+
+.navigation-form label {
+  text-align: center;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

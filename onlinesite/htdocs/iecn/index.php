@@ -15,10 +15,12 @@
        
         $("#logotxt").hover(        
           function () {
-            $("#logobg").children("img").attr("src","/cn/img/logo1hover.png");      
+            var img = $("#logobg").children("img");
+            img.attr("data-src", img.attr("src")).attr("src", img.attr("data-hover"));      
           },        
           function () {
-            $("#logobg").children("img").attr("src","/images/logo1.png");
+            var img = $("#logobg").children("img");
+            img.attr("src", img.attr("data-src"));
           }
         );
         $("#menucorporate").hover(      
@@ -218,8 +220,9 @@
         	<div class="logo">
             	<div class="vesselbox">
                     <?php $menus = getMenuNavigation();?>
+                    <?php $brand_menu = getHomeNavigationMenu();?>
                     <a href="javascript:void(0)"  data-href="/cn/brand.php" id="logotxt"><img src="/images/logo2.png" /></a>
-                    <div id="logobg"><img src="/images/logo1.png" /></div>
+                    <div id="logobg"><img src="<?php echo getThumbnailURL(substr($brand_menu->media_uri, 1))?>" data-hover="<?php echo getThumbnailURL(substr($brand_menu->media_uri_hover, 1))?>"/></div>
                     <?php foreach($menus as $menu): ?>
                         <a href="javascript:void(0)" data-name="<?php echo $menu->name?>" id="<?php echo getMenuTitleId($menu->name)?>" class="menutriangle">
                             <img src="<?php echo getThumbnailURL(substr($menu->media_uri, 1))?>" data-hover="<?php echo getThumbnailURL(substr($menu->media_uri_hover, 1))?>"/>

@@ -226,6 +226,10 @@ function getMenuTitleId($menu_name) {
   return $ids[$menu_name];
 }
 
+function getHomeNavigationMenu() {
+  return NavigationMenuAR::model()->getNavMenuByName("title_home");
+}
+
 
 
 ?>

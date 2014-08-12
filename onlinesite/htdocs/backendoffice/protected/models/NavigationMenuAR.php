@@ -2,7 +2,7 @@
 
 class NavigationMenuAR extends CActiveRecord {
   public static $names = array(
-      "title_coporation", "title_brand", "title_career", "title_media"
+      "title_coporation", "title_brand", "title_career", "title_media", "title_home"
   );
 
   public function tableName() {

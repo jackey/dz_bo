@@ -32,7 +32,7 @@ class NavigationMenuAR extends CActiveRecord {
       $query->addCondition('language = :language');
       $query->params[":language"] = $language;
     }
-    
+
     return parent::findAll($query);
   }
   
@@ -46,9 +46,12 @@ class NavigationMenuAR extends CActiveRecord {
     if (array_search($name, $names) === FALSE) {
       return FALSE;
     }
+    global $language;
     $query = new CDbCriteria();
     $query->addCondition("name=:name");
+    $query->addCondition("language=:language");
     $query->params[":name"] = $name;
+    $query->params[":language"] = $language;
     
     return self::model()->find($query);
   }
@@ -60,6 +63,7 @@ class NavigationMenuAR extends CActiveRecord {
    */
   public function updateNavMenuByName($name, $data) {
     $menu = $this->getNavMenuByName($name);
+    global $language;
     // 如果没有数据 就添加一个
     if (!$menu) {
       $tmp_menu = array(
@@ -67,6 +71,7 @@ class NavigationMenuAR extends CActiveRecord {
           "text" => $data["text"],
           "media_uri" => @$data["media_uri"],
           "media_uri_hover" => @$data["media_uri_hover"],
+          "language" => $language,
           "url" => "",
       );
       $newNavMenu = new NavigationMenuAR();
@@ -81,6 +86,8 @@ class NavigationMenuAR extends CActiveRecord {
       $menu["media_uri"] = @$data["media_uri"];
       $menu["media_uri_hover"] = @$data["media_uri_hover"];
     }
+
+    $menu->language = $language;
     
     $menu->update();
     

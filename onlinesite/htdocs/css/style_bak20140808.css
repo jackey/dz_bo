@@ -1036,15 +1036,3 @@
 	100%{
 	-moz-transform:translateY(0)}
 }
-
-
-                            .testcareer{font-family: "微软雅黑";width: 320px;margin: 0 auto;position: relative;min-height: 550px;}
-                            .testbox{position: absolute;margin: auto;top: 0;left: 0;right: 0;bottom: 0;min-height: 550px !important;}
-                            #fazhan .testbox{height: 470px;}
-                            #shenjiyuan .testbox{height: 430px;}
-                            #dataanylize .testbox{height: 450px;}
-                            #shenjimanager .testbox{height: 550px;}
-                            .testcareer dl{margin-top: 25px;line-height: 1.5em !important;;}
-                            #shenjimanager dl{margin-top: 10px;}
-                            .testcareer h3{height: 34px;line-height: 34px;border-bottom: solid 1px #fff;}
-                            .careerlist{display: none;}

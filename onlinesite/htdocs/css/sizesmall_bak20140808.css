@@ -396,7 +396,7 @@
 	margin-left:300px;
 }
 #brandpage .ViewArea .itemView .Diamond .link img{
-	
+	height: 250px;
 }
 #brandpage .ViewArea .itemView .dzzit .pic{
 	margin-left:-490px;
@@ -406,7 +406,7 @@
 	top:20%;
 }
 #brandpage .ViewArea .itemView .dzzit .cont img{
-	height:54px;
+	height:334px;
 }
 #brandpage .ViewArea .itemView .dzzit .link{
 	margin-left:110px;
@@ -440,5 +440,3 @@
 
 .dazzlewomen dl{font-size: 0.6em;line-height: 1em;}
 .dazzlewomen dl dd{margin-bottom: 2px;}
-.dizzitstory{font-size: 0.6em;}
-#brandpage .ViewArea .itemView .dzzit .cont img{margin-bottom: 20px;}

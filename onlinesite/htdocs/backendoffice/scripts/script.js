@@ -1205,7 +1205,7 @@
   
 })(jQuery);
 
-
+// 删除内容
 (function () {
   window.deleteContent = function (cid) {
     if (confirm(language.confirmdelete)) {
@@ -1223,6 +1223,13 @@
     }
   }
 })();
+
+// Table pager 
+(function ($) {
+  $(document).ready(function () {
+    $("table.tablepager").DataTable();
+  });
+})(jQuery);
 
 
 

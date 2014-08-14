@@ -2,11 +2,11 @@
   <div class="logo"></div>
   <div class="field-group">
     <label for="">UserName: </label>
-    <input type="text" name="user" placeholder="please input login name"/>
+    <input type="text" name="user" placeholder="account"/>
   </div>
   <div class="field-group">
     <label for="">Password</label>
-    <input type="password" name="pass"  />
+    <input type="password" name="pass"  placeholder="password"/>
   </div>
   <div class="field-group">
     <input type="submit" class="btn btn-primary" value="Login" />

@@ -8,7 +8,7 @@
     </div>
     <h5><?php echo Yii::t("strings", "Store Table")?></h5>
   </header>
-  <table class="table table-striped">
+  <table class="table table-striped tablepager">
     <thead>
       <td><?php echo Yii::t("strings", "Category")?></td>
       <td><?php echo Yii::t("strings", "City")?></td>

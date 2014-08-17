@@ -70,8 +70,8 @@
         <?php echo Yii::t("strings", "Corporate")?>
       </li>
       <li><a href="<?php echo Yii::app()->createUrl("page/navigation")?>" class="<?php echo $this->getActiveClass("page/navigation")?>"><?php echo Yii::t("strings", "Homepage (Navigation)")?></a></li>
-      <li><a href="<?php echo Yii::app()->createUrl("page/corporate")?>" class="<?php echo $this->getActiveClass("page/corporate")?>"><?php echo Yii::t("strings", "Corporate Information")?></a></li>
-      <li><a href="<?php echo Yii::app()->createUrl("page/brandinfo")?>" class="<?php echo $this->getActiveClass("page/brandinfo")?>"><?php echo Yii::t("strings", "Brand Information")?></a></li>
+<!--       <li><a href="<?php echo Yii::app()->createUrl("page/corporate")?>" class="<?php echo $this->getActiveClass("page/corporate")?>"><?php echo Yii::t("strings", "Corporate Information")?></a></li>
+ -->      <li><a href="<?php echo Yii::app()->createUrl("page/brandinfo")?>" class="<?php echo $this->getActiveClass("page/brandinfo")?>"><?php echo Yii::t("strings", "Brand Information")?></a></li>
       <!-- Corporate End -->
       
       <!-- News -->

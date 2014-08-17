@@ -402,6 +402,11 @@
 	left:50%;
 	height:100%;
 }
+
+#brand .wrap .Dazzle {
+	z-index: 1;
+}
+
 #brand .wrap .Diamond .brandpage{
 	position:absolute;
 	top:50%;

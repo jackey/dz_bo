@@ -229,12 +229,18 @@
                 <div class="vesselbox">
                     <?php $menus = getMenuNavigation();?>
                     <?php $brand_menu = getHomeNavigationMenu();?>
-                    <a href="javascript:void(0)"  data-href="/cn/brand.php" id="logotxt"><img src="/images/logo2.png" /></a>
+                    <a href="javascript:void(0)"  data-href="/en/brand.php" id="logotxt"><img src="/images/logo2.png" /></a>
                     <div id="logobg"><img src="<?php echo getThumbnailURL(substr($brand_menu->media_uri, 1))?>" data-hover="<?php echo getThumbnailURL(substr($brand_menu->media_uri_hover, 1))?>"/></div>
                     <?php foreach($menus as $menu): ?>
-                        <a href="javascript:void(0)" data-name="<?php echo $menu->name?>" id="<?php echo getMenuTitleId($menu->name)?>" class="menutriangle">
-                            <img src="<?php echo getThumbnailURL(substr($menu->media_uri, 1))?>" data-hover="<?php echo getThumbnailURL(substr($menu->media_uri_hover, 1))?>"/>
-                        </a>
+                        <?php if ($menu->name == "title_coporation"): ?>
+                            <a href="javascript:void(0)" data-name="<?php echo $menu->name?>" id="<?php echo getMenuTitleId($menu->name)?>" class="menutriangle">
+                                <img src="<?php echo getThumbnailURL(substr($menu->media_uri, 1))?>" />
+                            </a>
+                        <?php else: ?>
+                            <a href="javascript:void(0)" data-name="<?php echo $menu->name?>" id="<?php echo getMenuTitleId($menu->name)?>" class="menutriangle">
+                                <img src="<?php echo getThumbnailURL(substr($menu->media_uri, 1))?>" data-hover="<?php echo getThumbnailURL(substr($menu->media_uri_hover, 1))?>"/>
+                            </a>
+                        <?php endif;?>
                     <?php endforeach;?>
                     <div class="menumask masktopleft"></div>
                     <div class="menumask masktopright"></div>
@@ -243,7 +249,7 @@
                 </div>
             </div>
         </div>
-        <?php $corporate = loadCorporate();?>
+<!--         <?php $corporate = loadCorporate();?>
         <div class="vessel info1">
 			<div class="pic">
             <?php if ($corporate->thumbnail):?>
@@ -257,7 +263,7 @@
                 <div class="cont">  <?php echo $corporate->body?></div>
         </div>
             <a  href="javascript:void(0)" class="infoarrow"  ><img src="/images/infoarrow.png" /></a>
-        </div>
+        </div> -->
         <div class="vessel info2">
       <?php $brandinfo = loadBrandInformation();?>
             <div class="pic">
@@ -268,19 +274,19 @@
                     <img id="brandinfopic" src="/images/info2.png" border="0" usemap="#Map" />
                     <?php endif;?>
                     <map name="Map">
-                      <area shape="poly" coords="111,157,19,317,111,476,292,476,385,315,293,159" href="/cn/brandpage.php?brand=diamond">
-                      <area shape="poly" coords="293,158,383,1,569,3,657,157,569,317,386,314" href="/cn/brandpage.php?brand=dazzle">
-                      <area shape="poly" coords="386,316,292,475,383,634,566,633,657,471,568,318" href="/cn/brandpage.php?brand=dzzit">
+                      <area shape="poly" coords="111,157,19,317,111,476,292,476,385,315,293,159" href="/en/brandpage.php?brand=diamond">
+                      <area shape="poly" coords="293,158,383,1,569,3,657,157,569,317,386,314" href="/en/brandpage.php?brand=dazzle">
+                      <area shape="poly" coords="386,316,292,475,383,634,566,633,657,471,568,318" href="/en/brandpage.php?brand=dzzit">
                     </map>
                     <map name="Mapsmall">
-                      <area shape="poly" coords="95,124,17,253,92,380,242,381,321,255,243,126" href="/cn/brandpage.php?brand=diamond">
-                      <area shape="poly" coords="242,128,324,-6,476,1,547,127,472,255,322,256" href="/cn/brandpage.php?brand=dazzle">
-                      <area shape="poly" coords="322,255,245,381,320,509,473,508,549,381,473,254" href="/cn/brandpage.php?brand=dzzit">
+                      <area shape="poly" coords="95,124,17,253,92,380,242,381,321,255,243,126" href="/en/brandpage.php?brand=diamond">
+                      <area shape="poly" coords="242,128,324,-6,476,1,547,127,472,255,322,256" href="/en/brandpage.php?brand=dazzle">
+                      <area shape="poly" coords="322,255,245,381,320,509,473,508,549,381,473,254" href="/en/brandpage.php?brand=dzzit">
                     </map>
                 </div>
             </div>
             <div class="text">
-                <div class="title"><img src="/cn/img/infotitle2.png" /></div>
+                <div class="title"><img src="/images/infotitle2.png" /></div>
                 <div class="cont"><?php echo $brandinfo->body?></div>
             </div>
             <a  href="javascript:void(0)" class="infoarrow"  ><img src="/images/infoarrow.png" /></a>

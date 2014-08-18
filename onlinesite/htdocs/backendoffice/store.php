@@ -1,6 +1,6 @@
 <?php 
 
-$json = file_get_contents("./store_en.json");
+$json = file_get_contents("./store_cn.json");
 
 $stores = (json_decode($json, TRUE));
 
@@ -10,13 +10,41 @@ mysql_select_db("dz_db", $con);
 
 mysql_query("SET NAMES utf8");
 
-mysql_query("DELETE FROM shop WHERE language='en'");
+mysql_query("DELETE FROM shop WHERE language='cn'");
+
+$data = require_once "./protected/data/chinacity.php" ;
+
+// 用城市名字找出城市ID
+function getCityID($city) {
+	global $data;
+
+	foreach ($data as $province_id => $province_data) {
+		foreach ($province_data[1] as $city_id => $city_name) {
+			if ($city == $city_name) {
+				return $city_id;
+			}
+		}
+	}
+}
+
+// 用城市名字找出对应省份的ID
+function getProvinceID($city) {
+	global $data;
+
+	foreach ($data as $province_id => $province_data) {
+		foreach ($province_data[1] as $city_id => $city_name) {
+			if ($city == $city_name) {
+				return $province_id;
+			}
+		}
+	}
+}
 
 foreach($stores as $store) {
 	$tmp_shop = array(
 		"country" => "中国",
-		"city" => $store["city"],
-		"distinct" => "",
+		"city" => getProvinceID($store["city"]), // 省
+		"distinct" => getCityID($store["city"]), // 城市 
 		"title" => $store["title"],
 		"address" => $store["address"],
 		"lat" => $store["lat"],
@@ -26,7 +54,7 @@ foreach($stores as $store) {
 		"status" => 1,
 		"type" => 0,
 		"star" => 1,
-		"language" => "en",
+		"language" => "cn",
 		"category" => $store["category"],
 	);
 	$values = "";

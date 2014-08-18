@@ -632,31 +632,44 @@
         // Location 选项
         ShopService.location().done(function (data) {
           $scope.location = data["data"];
-          $scope.country_city = [];
+          $scope.country_city = {};
           for (index in $scope.location) {
             var city = $scope.location[index];
-            $scope.country_city.push(city[0]);
+            $scope.country_city[index] = (city[0]);
           }
           $scope.$digest();
           LoadingIconService.close();
+
+          // Load Shop
+          var shop_id = angular.element("input[name='shop_id']").val();
+          ShopService.load(shop_id).done(function (data){
+            if (typeof data["data"] != "undefined" && typeof data["data"].length == "undefined") {
+              $scope.shop = data["data"];
+            }
+            $scope.city_distinct = [];
+            for (index in $scope.location) {
+              if (index == $scope.shop.city) {
+                $scope.city_distinct = $scope.location[index][1];
+              }
+            }
+            // 设置默认值
+            var index = false;
+            for (index in $scope.country_city) {
+              if (index == $scope.shop.city) {
+                $scope.shop.city = $scope.country_city[index];
+              }
+            }
+            for (index in $scope.city_distinct) {
+              if (index == $scope.shop.distinct) {
+                $scope.shop.distinct = $scope.city_distinct[index];
+              }
+            }
+            
+            $scope.$digest();
+          });
         });
         
-        // Load Shop
-        var shop_id = angular.element("input[name='shop_id']").val();
-        ShopService.load(shop_id).done(function (data){
-          if (typeof data["data"] != "undefined" && typeof data["data"].length == "undefined") {
-            $scope.shop = data["data"];
-          }
-          console.log($scope.shop);
-          $scope.city_distinct = [];
-          for (index in $scope.location) {
-            var city = $scope.location[index];
-            if (city[0] == $scope.shop.city) {
-              $scope.city_distinct = city[1];
-            }
-          }
-          $scope.$digest();
-        });
+
       };
       
       $scope.submitForm = function () {

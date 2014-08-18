@@ -11,8 +11,8 @@
   <table class="table table-striped tablepager">
     <thead>
       <td><?php echo Yii::t("strings", "Category")?></td>
+      <td><?php echo Yii::t("strings", "Province")?></td>
       <td><?php echo Yii::t("strings", "City")?></td>
-      <td><?php echo Yii::t("strings", "Distinct")?></td>
       <td><?php echo Yii::t("strings", "Title")?></td>
       <td><?php echo Yii::t("strings", "Address")?></td>
       <td><?php echo Yii::t("strings", "Actions")?></td>
@@ -21,8 +21,8 @@
       <?php foreach($shopes as $shop) :?>
       <tr>
         <td><?php echo $shop->category?></td>
-        <td><?php echo $shop->city?></td>
-        <td><?php echo $shop->distinct?></td>
+        <td><?php echo ShopAR::getProvinceWithID($shop->city)?></td>
+        <td><?php echo ShopAR::getCityWithID($shop->distinct)?></td>
         <td><?php echo $shop->title?></td>
         <td><?php echo $shop->address?></td>
         <td>

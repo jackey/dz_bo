@@ -168,7 +168,7 @@
                 <?php $brand = getBrand($brandName)?>
                 <div class="<?php echo $key?> pic hexagon">
                    <img src="<?php echo getThumbnailURL($brand->brand_navigation_image)?>"> 
-                    <a href="javascript:void(0)" data-href="/cn/brandpage.php?brand=<?php echo strtolower($key)?>" data-src="<?php echo getThumbnailURL($brand->brand_navigation_full_image)?>" class="brandpage">
+                    <a href="javascript:void(0)" data-href="/en/brandpage.php?brand=<?php echo strtolower($key)?>" data-src="<?php echo getThumbnailURL($brand->brand_navigation_full_image)?>" class="brandpage">
                         <?php if ($key == "Diamond"): ?>
                         <img src="/images/linkdiamond.png"/>
                         <?php elseif ($key == "Dazzle"): ?>

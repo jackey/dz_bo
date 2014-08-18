@@ -181,4 +181,30 @@ class ShopAR extends CActiveRecord {
     
     return TRUE;
   }
+
+  /**
+   * 获取城市名字
+   */
+  public static function getCityWithID($city_id) {
+    $chinacity = require Yii::app()->getBasePath()."/data/chinacity.php";
+    foreach ($chinacity as $index => $province) {
+      foreach ($province[1] as $index_2 => $city) {
+        if ($index_2 == $city_id) {
+          return $city;
+        }
+      }
+    }
+  }
+
+  /**
+   * 获取省份名字
+   */
+  public static function getProvinceWithID($province_id) {
+    $chinacity = require Yii::app()->getBasePath()."/data/chinacity.php";
+    foreach ($chinacity as $index => $province) {
+      if ($index == $province_id) {
+        return $province[0];
+      }
+    }
+  } 
 }

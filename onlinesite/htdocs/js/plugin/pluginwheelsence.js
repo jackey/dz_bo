@@ -306,13 +306,13 @@
 
 					}); 					
 
-					$vessel.animate({marginTop:($vessel.height()*-1*(2))+"px"},1000,function(){
+					$vessel.animate({marginTop:($vessel.height()*-1*(1))+"px"},1000,function(){
 
-						ScrollWheelswitch=3;						
+						ScrollWheelswitch=2;						
 
 						animationswitch=true;
 
-						$self.children(".vessel:eq("+(2)+")").children("div ,video").fadeIn(500);
+						$self.children(".vessel:eq("+(1)+")").children("div ,video").fadeIn(500);
 
 					});	
 
@@ -344,13 +344,13 @@
 
 					}); 					
 
-					$vessel.animate({marginTop:($vessel.height()*-1*(3))+"px"},1000,function(){
+					$vessel.animate({marginTop:($vessel.height()*-1*(2))+"px"},1000,function(){
 
-						ScrollWheelswitch=4;						
+						ScrollWheelswitch=3;						
 
 						animationswitch=true;
 
-						$self.children(".vessel:eq("+(3)+")").children("div ,video").fadeIn(500);
+						$self.children(".vessel:eq("+(2)+")").children("div ,video").fadeIn(500);
 
 					});	
 
@@ -382,13 +382,13 @@
 
 					}); 					
 
-					$vessel.animate({marginTop:($vessel.height()*-1*(4))+"px"},1000,function(){
+					$vessel.animate({marginTop:($vessel.height()*-1*(3))+"px"},1000,function(){
 
-						ScrollWheelswitch=5;						
+						ScrollWheelswitch=4;						
 
 						animationswitch=true;
 
-						$self.children(".vessel:eq("+(4)+")").children("div ,video").fadeIn(500);
+						$self.children(".vessel:eq("+(3)+")").children("div ,video").fadeIn(500);
 
 					});	
 

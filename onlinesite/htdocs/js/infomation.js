@@ -1,5 +1,4 @@
 $(function(){
-
 	$("#service .window").hide();
 
 	$("#service").hide();

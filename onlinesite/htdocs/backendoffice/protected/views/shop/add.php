@@ -23,11 +23,11 @@
         <div class="control-group">
           <label class="control-label" for=""><?php echo Yii::t("strings", "Location") ?></label>
           <div class="controls">
-            <select name="city" id="" ng-change="cityChange()" ng-model="shop.city"  ng-options="c for c in country_city">
-              <option value="">--<?php echo Yii::t("strings", "Choose City")?>--</option>
+            <select name="city" id="" ng-change="cityChange()" ng-model="shop.city"  ng-options="value for (key, value) in country_city">
+              <option value="">--<?php echo Yii::t("strings", "Choose Province")?>--</option>
             </select>
             <select name="distinct" id="" ng-model="shop.distinct" ng-change="distinctChange()" ng-options="c for c in city_distinct">
-              <option value="">--<?php echo Yii::t("strings", "Choose District")?>--</option>
+              <option value="">--<?php echo Yii::t("strings", "Choose City")?>--</option>
             </select>
           </div>
         </div>

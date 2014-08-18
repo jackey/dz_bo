@@ -224,9 +224,15 @@
                     <a href="javascript:void(0)"  data-href="/cn/brand.php" id="logotxt"><img src="/images/logo2.png" /></a>
                     <div id="logobg"><img src="<?php echo getThumbnailURL(substr($brand_menu->media_uri, 1))?>" data-hover="<?php echo getThumbnailURL(substr($brand_menu->media_uri_hover, 1))?>"/></div>
                     <?php foreach($menus as $menu): ?>
-                        <a href="javascript:void(0)" data-name="<?php echo $menu->name?>" id="<?php echo getMenuTitleId($menu->name)?>" class="menutriangle">
-                            <img src="<?php echo getThumbnailURL(substr($menu->media_uri, 1))?>" data-hover="<?php echo getThumbnailURL(substr($menu->media_uri_hover, 1))?>"/>
-                        </a>
+                        <?php if ($menu->name == "title_coporation"): ?>
+                            <a href="javascript:void(0)" data-name="<?php echo $menu->name?>" id="<?php echo getMenuTitleId($menu->name)?>" class="menutriangle">
+                                <img src="<?php echo getThumbnailURL(substr($menu->media_uri, 1))?>" />
+                            </a>
+                        <?php else: ?>
+                            <a href="javascript:void(0)" data-name="<?php echo $menu->name?>" id="<?php echo getMenuTitleId($menu->name)?>" class="menutriangle">
+                                <img src="<?php echo getThumbnailURL(substr($menu->media_uri, 1))?>" data-hover="<?php echo getThumbnailURL(substr($menu->media_uri_hover, 1))?>"/>
+                            </a>
+                        <?php endif;?>
                     <?php endforeach;?>
                     <div class="menumask masktopleft"></div>
                     <div class="menumask masktopright"></div>
@@ -235,7 +241,7 @@
                 </div>
             </div>            
         </div>
-        <div class="vessel info1">
+<!--         <div class="vessel info1">
 			<div class="pic">
             <?php $corporate = loadCorporate();?>
             <?php if ($corporate->thumbnail):?>
@@ -249,7 +255,7 @@
                 <div class="cont">  <?php echo $corporate->body?></div>
             </div>
             <a  href="javascript:void(0)" class="infoarrow"  ><img src="/images/infoarrow.png" /></a>
-        </div>
+        </div> -->
 		<div class="vessel info2">
             <?php $brandinfo = loadBrandInformation();?>
 			<div class="pic">

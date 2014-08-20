@@ -245,7 +245,8 @@
 		$control.hide();
 
 		$("#menucorporate").click(function(){
-
+			window.location.reload();
+			return;
 			$control.show();
 
 			$control.find("a").each(function(index){ 

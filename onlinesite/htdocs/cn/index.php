@@ -234,7 +234,7 @@
                     <?php foreach($menus as $menu): ?>
                         <?php if ($menu->name == "title_coporation"): ?>
                             <a href="javascript:void(0)" data-name="<?php echo $menu->name?>" id="<?php echo getMenuTitleId($menu->name)?>" class="menutriangle">
-                                <img src="<?php echo getThumbnailURL(substr($menu->media_uri, 1))?>" />
+                                <img src="<?php echo getThumbnailURL(substr($menu->media_uri, 1))?>" data-hover="<?php echo getThumbnailURL(substr($menu->media_uri_hover, 1))?>"/>
                             </a>
                         <?php else: ?>
                             <a href="javascript:void(0)" data-name="<?php echo $menu->name?>" id="<?php echo getMenuTitleId($menu->name)?>" class="menutriangle">
@@ -298,7 +298,7 @@
                 <div class="cont">
                 	<ul>
                       <?php foreach ($videoes as $video):?>
-                          <li><a  href="javascript:void(0)" data-webm-source="<?php echo getThumbnailURL($video->video_webm)?>" data-mp4-source="<?php echo getThumbnailURL($video->video_mp4) ?>" class="videoitem" ><?php echo $video->title?></a></li>
+                          <li><a  href="javascript:void(0)" data-poster="<?php echo getThumbnailURL($video->thumbnail)?>" data-webm-source="<?php echo getThumbnailURL($video->video_webm)?>" data-mp4-source="<?php echo getThumbnailURL($video->video_mp4) ?>" class="videoitem" ><?php echo $video->title?></a></li>
                       <?php endforeach;?> 
                     </ul>
                 </div>

@@ -234,7 +234,7 @@
                     <?php foreach($menus as $menu): ?>
                         <?php if ($menu->name == "title_coporation"): ?>
                             <a href="javascript:void(0)" data-name="<?php echo $menu->name?>" id="<?php echo getMenuTitleId($menu->name)?>" class="menutriangle">
-                                <img src="<?php echo getThumbnailURL(substr($menu->media_uri, 1))?>" />
+                                <img src="<?php echo getThumbnailURL(substr($menu->media_uri, 1))?>" data-hover="<?php echo getThumbnailURL(substr($menu->media_uri_hover, 1))?>"/>
                             </a>
                         <?php else: ?>
                             <a href="javascript:void(0)" data-name="<?php echo $menu->name?>" id="<?php echo getMenuTitleId($menu->name)?>" class="menutriangle">
@@ -298,18 +298,18 @@
                     <?php $videoes = getVideoList();?>
                     <ul>
                       <?php foreach ($videoes as $video):?>
-                          <li><a  href="javascript:void(0)" data-webm-source="<?php echo $video->video_webm?>" data-mp4-source="<?php echo $video->video_mp4?>" class="videoitem" ><?php echo $video->title?></a></li>
+                          <li><a  href="javascript:void(0)" data-poster="<?php echo getThumbnailURL($video->thumbnail)?>" data-webm-source="<?php echo $video->video_webm?>" data-mp4-source="<?php echo $video->video_mp4?>" class="videoitem" ><?php echo $video->title?></a></li>
                       <?php endforeach;?> 
                     </ul>               
                 </div>
             </div>
             <?php $video = array_shift($videoes);?>
             <div class="videobox">
-                <video id="beginVideo" poster="/images/vedio.jpg"
+                <video id="beginVideo" poster="<?php echo getThumbnailURL($video->thumbnail)?>"
                      controls
                      loop="loop"> 
-                      <source src="/video/dazzle_final.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
-                      <source src="/video/dazzle_final.webm" type='video/webm; codecs="vp8, vorbis"' />
+                      <source src="<?php echo getThumbnailURL($video->video_mp4)?>" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+                      <source src="<?php echo getThumbnailURL($video->video_webm)?>" type='video/webm; codecs="vp8, vorbis"' />
                      <div id="mediaplayer">JW Player goes here</div>
                      
                     <script type="text/javascript">
@@ -317,7 +317,7 @@
                             flashplayer: "/flash/player.swf",
                             file: "<?php echo $video->video_mp4?>"
                         });
-                    </script>  
+                    </script>
                 </video>
             </div>
             <a  href="javascript:void(0)" class="infoarrow"  ><img src="/images/infoarrow.png" /></a>
@@ -330,7 +330,6 @@
                         <div class="careerlist" id="career-<?php echo $job->cid?>">
                             <div class="testcareer">
                                 <div class="testbox">
-                                    <h3><?php echo $job->title?></h3>
                                     <?php echo $job->body?>
                                 </div>
                             </div>

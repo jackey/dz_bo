@@ -85,8 +85,9 @@ $(function(){
 
 		 var mp4data = $(this).attr("data-mp4-source");
 		 var webmdata = $(this).attr("data-webm-source");
+		 var poster = $(this).attr("data-poster");
 
-			$(".infomedia .videobox").html("<video id=\"beginVideo\"  controls loop=\"loop\">  <source src=\""+mp4data+"\" type='video/mp4; codecs=\"avc1.42E01E, mp4a.40.2\"' /> <source src=\""+webmdata+"\" type='video/webm; codecs=\"vp8, vorbis\"' /> <div id=\"mediaplayer\">JW Player goes here</div>  </video>");	
+			$(".infomedia .videobox").html("<video poster=\""+poster+"\" id=\"beginVideo\"  controls loop=\"loop\">  <source src=\""+mp4data+"\" type='video/mp4; codecs=\"avc1.42E01E, mp4a.40.2\"' /> <source src=\""+webmdata+"\" type='video/webm; codecs=\"vp8, vorbis\"' /> <div id=\"mediaplayer\">JW Player goes here</div>  </video>");	
 
 			jwplayer("mediaplayer").setup({
 
@@ -95,6 +96,9 @@ $(function(){
 				file: mp4data
 
 			});
+
+		$("a", $(this).parent().siblings()).removeAttr("style");
+		$(this).css("color", "#999");
 
 	});
 

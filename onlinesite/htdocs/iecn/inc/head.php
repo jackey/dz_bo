@@ -52,7 +52,15 @@ else {
 }
 
 function getThumbnailURL($thumbnail) {
-  return "/backendoffice/".$thumbnail;
+  if (strpos($thumbnail, "backendoffice") !== FALSE) {
+    return $thumbnail;
+  }
+  if ($thumbnail[0] == "/") {
+    return "/backendoffice".$thumbnail;
+  }
+  else {
+    return "/backendoffice/".$thumbnail;
+  }
 }
 
 function loadNews() {
@@ -83,25 +91,25 @@ function getVideoList() {
     $thumbnail_uri = $video->thumbnail;
     if (strpos($thumbnail_uri, "http://") !== FALSE) {
       $thumbnail_uri = str_replace(Yii::app()->getBaseUrl(TRUE), "", $thumbnail_uri);
-      $video->thumbnail = $thumbnail_uri;
+      $video->thumbnail = getThumbnailURL($thumbnail_uri);
     }
     
     // video mp3/ webm
     $mp_4 = $video->video_mp4;
-    if (strpos($thumbnail_uri, "http://") !== FALSE) {
+    if (strpos($mp_4, "http://") !== FALSE) {
       $mp_4 = str_replace(Yii::app()->getBaseUrl(TRUE), "", $mp_4);
-      $video->video_mp4 = $mp_4;
+      $video->video_mp4 = getThumbnailURL($mp_4);
     }
     $video_webm = $video->video_webm;
     if (strpos($video_webm, "http://") !== FALSE) {
       $video_webm = str_replace(Yii::app()->getBaseUrl(TRUE), "", $video_webm);
-      $video->video_webm = $video_webm;
+      $video->video_webm = getThumbnailURL($video_webm);
     }
     
     $ret[] = $video;
   }
   
-  return $videoes;
+  return $ret;
 }
 
 function getCareerList() {

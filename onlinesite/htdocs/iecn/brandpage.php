@@ -18,6 +18,16 @@
     </script>
     <script type="text/javascript" src="/js/brandpage.js"></script>
     <script type="text/javascript" src="/js/service.js"></script>
+    <style>
+      .ppstory h3{font-size: 28px;margin-bottom: 25px;}
+      .dazzstory h3{color: #ffc480;}
+      .dizzitstory h3{color: #743268;}
+      .diamondstory h3{color: #9f802b;}
+      .ppstory dl{margin-bottom: 25px;font-family: "微软雅黑";font-weight: bold;}
+      .diamondstory dl{width: 500px;}
+      .ppstory dl dt{color: #ffe1be;margin-bottom: 10px;}
+      .ppstory dl dd{margin-bottom: 5px;}
+    </style>
 </head>
 
 <body id="brandpage">
